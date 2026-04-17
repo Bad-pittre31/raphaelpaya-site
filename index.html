@@ -1,0 +1,2065 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Raphaël Paya — Entrepreneur, Recrutement IT & SaaS RH</title>
+  <meta name="description" content="Raphaël Paya, entrepreneur français. Fondateur de TRIBU (agence de recrutement IT boostée par l'IA) et Miixeo (SaaS recruteurs, dossiers candidats stratégiques). 28 000 abonnés LinkedIn. Musicien Piers Mayers." />
+  <meta name="keywords" content="Raphaël Paya, Raphael Paya, TRIBU recrutement IT, Miixeo SaaS recruteurs, agence recrutement tech, logiciel recrutement, ATS, dossier candidat, soft skills DISC, matching candidat entreprise, recrutement IA, entrepreneur, Piers Mayers, LinkedIn" />
+  <meta name="author" content="Raphaël Paya" />
+  <link rel="canonical" href="https://raphaelpaya.com/" />
+  <meta property="og:type" content="profile" />
+  <meta property="og:title" content="Raphaël Paya — Entrepreneur, Recrutement IT & SaaS RH" />
+  <meta property="og:description" content="Fondateur de TRIBU (recrutement IT + IA) et Miixeo (SaaS recruteurs). 28k LinkedIn. Musicien Piers Mayers." />
+  <meta property="og:url" content="https://raphaelpaya.com/" />
+
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"Person","name":"Raphaël Paya","alternateName":"Raphael Paya","url":"https://raphaelpaya.com","sameAs":["https://www.linkedin.com/in/raphaelpaya","https://wearetribu.fr","https://miixeo.com"],"jobTitle":"Entrepreneur & Fondateur","worksFor":[{"@type":"Organization","name":"TRIBU","url":"https://wearetribu.fr","description":"Agence de recrutement IT boostée par l'IA. Méthode DISC, matching candidat-entreprise tech."},{"@type":"Organization","name":"Miixeo","url":"https://miixeo.com","description":"SaaS pour recruteurs. CVs → dossiers candidats stratégiques. Planification d'entretiens en 1 clic."}],"knowsAbout":["Recrutement IT","SaaS RH","IA RH","Soft skills","Méthode DISC","ATS","Entrepreneuriat","Tech","Musique"]}
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Almarai:wght@300;400;700;800&family=Instrument+Serif:ital@1&display=swap" rel="stylesheet">
+
+  <style>
+    /* =============================================
+       RESET & GLOBAL
+    ============================================= */
+    *, *::before, *::after {
+      font-family: 'Almarai', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      box-sizing: border-box; margin: 0; padding: 0;
+    }
+    :root {
+      --cream: #DEDBC8;
+      --cream-alt: #E1E0CC;
+      --bg: #000;
+      --card: #101010;
+      --feature: #212121;
+      --tribu: #e8472a;
+      --miixeo: #6c3fc5;
+      --gray: #6b7280;
+      --ease: cubic-bezier(0.16, 1, 0.3, 1);
+      --ease2: cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      color: var(--cream-alt);
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    /* =============================================
+       NOISE TEXTURES
+    ============================================= */
+    .noise-overlay {
+      position: absolute; inset: 0; pointer-events: none; z-index: 3;
+      opacity: 0.7; mix-blend-mode: overlay;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)'/%3E%3C/svg%3E");
+      background-size: 300px 300px;
+    }
+    .bg-noise {
+      position: absolute; inset: 0; pointer-events: none; z-index: 0; opacity: 0.15;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)'/%3E%3C/svg%3E");
+      background-size: 200px 200px;
+    }
+
+    /* =============================================
+       NAVBAR — pill hanging from top
+    ============================================= */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; justify-content: center; pointer-events: none;
+    }
+    .nav-pill {
+      pointer-events: all;
+      background: #000;
+      border-radius: 0 0 22px 22px;
+      padding: 10px 32px;
+      display: flex; align-items: center; gap: 40px;
+    }
+    .nav-pill button {
+      background: none; border: none; cursor: pointer;
+      font-family: 'Almarai', sans-serif; font-size: 13px;
+      color: rgba(225,224,204,0.7);
+      transition: color 0.2s; padding: 4px 0; white-space: nowrap;
+    }
+    .nav-pill button:hover, .nav-pill button.active { color: #E1E0CC; }
+
+    /* =============================================
+       PAGE SYSTEM
+    ============================================= */
+    .page { display: none; }
+    .page.active { display: block; }
+
+    /* =============================================
+       WORD PULL-UP ANIMATION
+    ============================================= */
+    .pw { display: inline-block; overflow: hidden; vertical-align: bottom; }
+    .pw-i {
+      display: inline-block;
+      transform: translateY(115%);
+      opacity: 0;
+      transition: transform 0.9s var(--ease), opacity 0.5s ease;
+    }
+    .pr .pw-i { transform: translateY(0); opacity: 1; }
+
+    /* =============================================
+       HERO — full viewport, inset rounded
+    ============================================= */
+    #home-hero { height: 100vh; padding: 16px; position: relative; }
+    .hero-box {
+      position: relative; height: 100%;
+      border-radius: 24px; overflow: hidden;
+      background: #000;
+    }
+    /* Fallback animé visible quand la vidéo ne charge pas */
+    .hero-fallback {
+      position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+      z-index: 0;
+      background: linear-gradient(125deg, #0a0a0a 0%, #0f0f1a 30%, #12192e 60%, #0a0f18 100%);
+      background-size: 400% 400%;
+      animation: gradshift 12s ease infinite;
+    }
+    @keyframes gradshift {
+      0%   { background-position: 0% 50%; }
+      50%  { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    .hero-video {
+      position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+      width: 100%; height: 100%;
+      object-fit: cover; z-index: 1;
+    }
+    .hero-grad {
+      position: absolute; inset: 0; z-index: 2;
+      background: linear-gradient(to bottom, rgba(0,0,0,0.25) 0%, transparent 40%, rgba(0,0,0,0.7) 100%);
+    }
+    .hero-content {
+      position: absolute; bottom: 0; left: 0; right: 0; z-index: 5;
+      padding: 0 36px 28px;
+      display: grid; grid-template-columns: 8fr 4fr;
+      align-items: flex-end; gap: 24px;
+    }
+    .hero-name {
+      font-weight: 400;
+      letter-spacing: -0.07em;
+      line-height: 0.85;
+      color: var(--cream-alt);
+    }
+    .hero-first { font-size: clamp(40px, 11vw, 11vw); display: block; }
+    .hero-last  { font-size: clamp(72px, 24vw, 24vw); display: block; position: relative; }
+    .hero-asterisk {
+      font-size: 0.28em; position: absolute;
+      top: 0.5em; right: -0.1em;
+      opacity: 0; transition: opacity 0.5s ease 1.2s;
+      font-weight: 300;
+    }
+    .hero-anim-done .hero-asterisk { opacity: 1; }
+
+    .hero-right {
+      display: flex; flex-direction: column; gap: 18px;
+      padding-bottom: 6px;
+    }
+    .hero-desc {
+      font-size: 13px; color: rgba(222,219,200,0.65);
+      line-height: 1.35; font-weight: 300;
+      opacity: 0; transform: translateY(20px);
+      transition: opacity 0.8s ease 0.5s, transform 0.9s var(--ease) 0.5s;
+    }
+    .hero-cta {
+      display: inline-flex; align-items: center; gap: 10px;
+      background: var(--cream); border-radius: 999px;
+      padding: 8px 8px 8px 20px; cursor: pointer; border: none;
+      color: #000; font-family: 'Almarai', sans-serif;
+      font-size: 14px; font-weight: 500;
+      text-decoration: none; width: fit-content;
+      opacity: 0; transform: translateY(20px);
+      transition: opacity 0.8s ease 0.7s, transform 0.9s var(--ease) 0.7s, gap 0.2s ease;
+    }
+    .hero-cta:hover { gap: 14px; }
+    .hero-cta-dot {
+      background: #000; border-radius: 50%;
+      width: 36px; height: 36px; flex-shrink: 0;
+      display: flex; align-items: center; justify-content: center;
+      transition: transform 0.2s ease;
+    }
+    .hero-cta:hover .hero-cta-dot { transform: scale(1.1); }
+    .hero-cta-dot svg { width: 15px; height: 15px; stroke: var(--cream-alt); }
+    .hero-in .hero-desc, .hero-in .hero-cta { opacity: 1; transform: translateY(0); }
+
+    /* =============================================
+       ABOUT — #101010 card, mixed typography
+    ============================================= */
+    .about-section { background: var(--bg); padding: 80px 24px; }
+    .about-card {
+      background: var(--card); border-radius: 24px;
+      padding: 64px 48px; max-width: 1100px; margin: 0 auto; text-align: center;
+    }
+    .about-eyebrow {
+      font-size: 10px; font-weight: 700; letter-spacing: 1.5px;
+      text-transform: uppercase; color: var(--cream); margin-bottom: 36px;
+    }
+    .about-heading {
+      font-size: clamp(26px, 4.5vw, 58px);
+      line-height: 1.0; max-width: 850px; margin: 0 auto 40px;
+      display: flex; flex-wrap: wrap; justify-content: center; align-items: baseline; gap: 0;
+    }
+    .serif-it {
+      font-family: 'Instrument Serif', serif;
+      font-style: italic; font-weight: 400;
+    }
+    .about-body {
+      font-size: 14px; color: var(--cream-alt);
+      line-height: 1.75; max-width: 680px; margin: 0 auto;
+    }
+    .achar { opacity: 0.15; display: inline; white-space: pre-wrap; }
+
+    /* =============================================
+       VENTURES / FEATURE GRID
+    ============================================= */
+    .ventures-section {
+      background: var(--bg); padding: 80px 24px;
+      position: relative; overflow: hidden; min-height: 100vh;
+    }
+    .section-hd { max-width: 1100px; margin: 0 auto 40px; }
+    .s-line1 {
+      font-size: clamp(20px, 2.8vw, 36px); font-weight: 400;
+      color: var(--cream-alt); line-height: 1.1;
+    }
+    .s-line2 {
+      font-size: clamp(18px, 2.4vw, 32px); font-weight: 400;
+      color: var(--gray); line-height: 1.1;
+    }
+    .fgrid {
+      display: grid; grid-template-columns: repeat(4, 1fr);
+      gap: 8px; max-width: 1100px; margin: 0 auto;
+      min-height: 480px;
+    }
+    .fc {
+      border-radius: 18px; overflow: hidden; position: relative;
+      opacity: 0; transform: scale(0.95);
+      transition: opacity 0.6s var(--ease2), transform 0.6s var(--ease2);
+    }
+    .fc.vis { opacity: 1; transform: scale(1); }
+
+    /* video card */
+    .fc-vid video {
+      position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;
+    }
+    .fc-vid-overlay {
+      position: absolute; inset: 0; z-index: 1;
+      background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, transparent 60%);
+    }
+    .fc-vid-label {
+      position: absolute; bottom: 0; left: 0; right: 0;
+      z-index: 2; padding: 20px;
+      font-size: 15px; color: var(--cream-alt);
+    }
+
+    /* feature cards */
+    .fc-feat {
+      background: var(--feature);
+      padding: 26px; display: flex; flex-direction: column; gap: 16px;
+    }
+    .fc-ico { width: 46px; height: 46px; border-radius: 10px; overflow: hidden; object-fit: cover; }
+    .fc-num { font-size: 10px; color: var(--gray); font-weight: 700; letter-spacing: 1px; }
+    .fc-title { font-size: 17px; font-weight: 600; color: var(--cream-alt); margin-top: -4px; }
+    .fc-list { list-style: none; display: flex; flex-direction: column; gap: 9px; flex: 1; }
+    .fc-list li {
+      display: flex; align-items: flex-start; gap: 8px;
+      font-size: 12px; color: #9ca3af; line-height: 1.4;
+    }
+    .ck { flex-shrink: 0; margin-top: 1px; }
+    .ck svg { width: 13px; height: 13px; stroke: var(--cream); }
+    .fc-more {
+      display: inline-flex; align-items: center; gap: 4px;
+      font-size: 12px; color: var(--cream); cursor: pointer;
+      background: none; border: none; font-family: 'Almarai', sans-serif;
+      padding: 0; transition: gap 0.2s;
+    }
+    .fc-more:hover { gap: 8px; }
+    .fc-more svg { width: 13px; height: 13px; stroke: var(--cream); transform: rotate(-45deg); }
+
+    /* =============================================
+       LINKEDIN BANNER
+    ============================================= */
+    .li-section { background: var(--bg); padding: 0 24px 60px; }
+    .li-card {
+      max-width: 1100px; margin: 0 auto; background: #0A66C2;
+      border-radius: 18px; padding: 36px 44px;
+      display: flex; align-items: center; justify-content: space-between; gap: 24px;
+      flex-wrap: wrap;
+    }
+    .li-card h3 { font-size: 21px; font-weight: 700; color: white; margin-bottom: 5px; }
+    .li-card p { font-size: 14px; color: rgba(255,255,255,0.8); }
+
+    /* =============================================
+       MUSIC
+    ============================================= */
+    .music-section { background: var(--bg); padding: 0 24px 80px; }
+    .music-card {
+      max-width: 1100px; margin: 0 auto;
+      background: linear-gradient(135deg, #0d0d1a, #12192e, #0d2a4a);
+      border-radius: 18px; padding: 40px 44px;
+      display: grid; grid-template-columns: 1fr auto;
+      gap: 32px; align-items: center;
+    }
+    .music-card h3 { font-size: 26px; font-weight: 700; color: white; margin-bottom: 8px; }
+    .music-card p { font-size: 14px; color: rgba(255,255,255,0.6); line-height: 1.6; margin-bottom: 20px; }
+    .music-plat { display: flex; gap: 8px; flex-wrap: wrap; }
+    .plt {
+      padding: 8px 15px; border-radius: 999px; font-size: 12px; font-weight: 500;
+      text-decoration: none; background: rgba(255,255,255,0.1); color: white;
+      border: 1px solid rgba(255,255,255,0.14); transition: background 0.2s;
+      font-family: 'Almarai', sans-serif;
+    }
+    .plt:hover { background: rgba(255,255,255,0.2); }
+    .music-visual {
+      width: 100px; height: 100px; border-radius: 16px;
+      background: rgba(255,255,255,0.07);
+      display: flex; align-items: center; justify-content: center; font-size: 44px;
+    }
+
+    /* =============================================
+       CONTACT
+    ============================================= */
+    .contact-section {
+      background: var(--bg); padding: 40px 24px 120px; text-align: center;
+    }
+    .contact-section h2 {
+      font-size: clamp(26px, 4vw, 48px); font-weight: 700;
+      letter-spacing: -0.05em; margin-bottom: 12px; color: var(--cream-alt);
+    }
+    .contact-section p { font-size: 16px; color: var(--gray); margin-bottom: 32px; }
+    .cbtns { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; }
+
+    /* =============================================
+       BUTTONS
+    ============================================= */
+    .btn {
+      display: inline-flex; align-items: center; gap: 6px;
+      border-radius: 999px; padding: 10px 22px;
+      font-family: 'Almarai', sans-serif; font-size: 14px; font-weight: 500;
+      cursor: pointer; border: none; text-decoration: none;
+      transition: transform 0.2s, background 0.2s;
+    }
+    .btn:hover { transform: scale(1.02); }
+    .btn-cream { background: var(--cream); color: #000; }
+    .btn-dark {
+      background: rgba(255,255,255,0.07); color: var(--cream-alt);
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+    .btn-dark:hover { background: rgba(255,255,255,0.12); }
+    .btn-white { background: white; }
+    .btn-tribu { background: var(--tribu); color: white; }
+    .btn-tribu:hover { background: #c73619; }
+    .btn-miixeo { background: var(--miixeo); color: white; }
+    .btn-miixeo:hover { background: #4a1fa8; }
+
+    /* =============================================
+       DARK CARDS (feature pages)
+    ============================================= */
+    .dark-section { background: var(--bg); padding: 80px 24px; }
+    .dsi { max-width: 1100px; margin: 0 auto; }
+    .s-label {
+      font-size: 10px; font-weight: 700; letter-spacing: 1.5px;
+      text-transform: uppercase; margin-bottom: 10px;
+    }
+    .s-title {
+      font-size: clamp(22px, 3.2vw, 40px); font-weight: 700;
+      letter-spacing: -0.04em; color: var(--cream-alt);
+      margin-bottom: 8px;
+    }
+    .s-sub { font-size: 15px; color: var(--gray); line-height: 1.6; max-width: 540px; }
+    .dgrid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 10px; margin-top: 44px;
+    }
+    .dc {
+      background: var(--feature); border-radius: 18px; padding: 26px;
+      opacity: 0; transform: scale(0.96);
+      transition: opacity 0.6s var(--ease2), transform 0.6s var(--ease2);
+    }
+    .dc.vis { opacity: 1; transform: scale(1); }
+    .dc-ico { font-size: 26px; margin-bottom: 14px; }
+    .dc h3 { font-size: 16px; font-weight: 600; color: var(--cream-alt); margin-bottom: 8px; letter-spacing: -0.02em; }
+    .dc p { font-size: 13px; color: var(--gray); line-height: 1.6; }
+
+    /* =============================================
+       TRIBU PAGE — Tropical / Organic / Forest
+    ============================================= */
+    #page-tribu { background: #050e07; }
+
+    /* Hero */
+    .t-hero { height: 100vh; padding: 16px; }
+    .t-hero-box {
+      position: relative; height: 100%;
+      border-radius: 24px; overflow: hidden;
+      background: #050e07;
+    }
+    .t-hero-fallback {
+      position: absolute; top:0;left:0;right:0;bottom:0; z-index: 0;
+      background: linear-gradient(160deg, #050e07 0%, #091a0b 45%, #060f08 100%);
+      background-size: 300% 300%;
+      animation: tgs 20s ease infinite;
+    }
+    @keyframes tgs {
+      0%,100% { background-position: 0% 50%; }
+      50%      { background-position: 100% 50%; }
+    }
+    .t-hero-vid {
+      position: absolute; top:0;left:0;right:0;bottom:0;
+      width:100%; height:100%; object-fit:cover; z-index:1;
+    }
+    .t-hero-grad {
+      position:absolute;top:0;left:0;right:0;bottom:0; z-index:2;
+      background: linear-gradient(to bottom,
+        rgba(5,14,7,0.2) 0%,
+        transparent 35%,
+        rgba(5,14,7,0.85) 100%);
+    }
+    .t-hero-content {
+      position:absolute; bottom:0;left:0;right:0; z-index:5;
+      padding: 0 36px 28px;
+      display:grid; grid-template-columns: 8fr 4fr;
+      align-items:flex-end; gap:24px;
+    }
+    .t-name {
+      font-size: clamp(80px, 22vw, 22vw);
+      font-weight: 300; letter-spacing: -0.06em;
+      line-height: 0.85; color: #e4e1d2;
+    }
+    .t-hero-right { display:flex; flex-direction:column; gap:16px; padding-bottom:6px; }
+    .t-hero-eyebrow {
+      font-size: 10px; font-weight: 700; letter-spacing: 1.8px;
+      text-transform: uppercase; color: #7ab893;
+    }
+    .t-hero-desc {
+      font-size:13px; color:rgba(228,225,210,0.62);
+      line-height:1.4; font-weight:300;
+      opacity:0; transform:translateY(20px);
+      transition:opacity .8s ease .5s, transform .9s var(--ease) .5s;
+    }
+    .t-cta {
+      display:inline-flex; align-items:center; gap:10px;
+      background:#e4e1d2; border-radius:999px;
+      padding:8px 8px 8px 20px; cursor:pointer; border:none;
+      color:#050e07; font-family:'Almarai',sans-serif;
+      font-size:14px; font-weight:500; text-decoration:none;
+      width:fit-content;
+      opacity:0; transform:translateY(20px);
+      transition:opacity .8s ease .7s, transform .9s var(--ease) .7s, gap .2s ease;
+    }
+    .t-cta:hover { gap:14px; }
+    .t-cta-dot {
+      background:#050e07; border-radius:50%;
+      width:36px; height:36px; flex-shrink:0;
+      display:flex; align-items:center; justify-content:center;
+      transition:transform .2s;
+    }
+    .t-cta:hover .t-cta-dot { transform:scale(1.1); }
+    .t-cta-dot svg { width:15px; height:15px; stroke:#e4e1d2; }
+    .t-hero-in .t-hero-desc, .t-hero-in .t-cta { opacity:1; transform:translateY(0); }
+
+    /* Sections */
+    .t-section { background:#050e07; padding:80px 24px; }
+    .t-inner { max-width:1100px; margin:0 auto; }
+    .t-eyebrow {
+      font-size:10px; font-weight:700; letter-spacing:1.8px;
+      text-transform:uppercase; color:#7ab893; margin-bottom:10px;
+    }
+    .t-h2 {
+      font-size:clamp(24px,3.5vw,44px); font-weight:400;
+      letter-spacing:-0.04em; color:#e4e1d2; line-height:1.05;
+    }
+    .t-body { font-size:15px; color:#7a9482; line-height:1.75; }
+
+    /* Intro split */
+    .t-intro {
+      display:grid; grid-template-columns:1fr 1fr; gap:64px;
+      padding-bottom:72px; border-bottom:1px solid rgba(122,184,147,0.1);
+    }
+
+    /* 3×2 feature grid */
+    .t-grid {
+      display:grid; grid-template-columns:repeat(3,1fr);
+      gap:2px; margin-top:48px; border-radius:20px; overflow:hidden;
+    }
+    .t-card {
+      background:#0e1d10; padding:32px 28px;
+      opacity:0; transform:translateY(14px);
+      transition:opacity .6s var(--ease2), transform .6s var(--ease2);
+    }
+    .t-card.vis { opacity:1; transform:translateY(0); }
+    .t-card-num {
+      font-size:10px; font-weight:700; letter-spacing:1px; color:#3d7a54;
+      margin-bottom:18px; display:flex; align-items:center; gap:10px;
+    }
+    .t-card-num::after { content:''; flex:1; height:1px; background:rgba(61,122,84,0.28); }
+    .t-card h3 {
+      font-size:16px; font-weight:600; color:#e4e1d2;
+      margin-bottom:10px; letter-spacing:-0.02em;
+    }
+    .t-card p { font-size:13px; color:#7a9482; line-height:1.65; }
+
+    /* DISC */
+    .t-disc {
+      display:grid; grid-template-columns:1fr 1fr; gap:48px;
+      background:#091408; border-radius:20px; padding:48px;
+      border:1px solid rgba(61,122,84,0.14); margin-top:72px;
+    }
+    .t-disc-row {
+      display:flex; align-items:flex-start; gap:16px;
+      padding:14px 0; border-bottom:1px solid rgba(122,184,147,0.08);
+    }
+    .t-disc-row:last-child { border-bottom:none; padding-bottom:0; }
+    .t-disc-letter {
+      font-size:20px; font-weight:800; color:#3d7a54;
+      flex-shrink:0; width:24px; line-height:1.4;
+    }
+    .t-disc-row strong { display:block; font-size:13px; color:#e4e1d2; margin-bottom:3px; font-weight:600; }
+    .t-disc-row span { font-size:12px; color:#7a9482; line-height:1.45; }
+
+    /* Tags */
+    .t-tags { display:flex; flex-wrap:wrap; gap:8px; margin-top:28px; }
+    .t-tag {
+      background:#0e1d10; border:1px solid rgba(61,122,84,0.22);
+      border-radius:999px; padding:7px 16px; font-size:13px; color:#e4e1d2;
+      transition:border-color .2s, color .2s;
+    }
+    .t-tag:hover { border-color:rgba(61,122,84,0.55); color:#7ab893; }
+
+    /* CTA bottom */
+    .t-cta-bottom {
+      background:#050e07; padding:0 24px 100px; text-align:center;
+    }
+    .t-cta-bottom h2 {
+      font-size:clamp(26px,4vw,48px); font-weight:700;
+      letter-spacing:-0.05em; margin-bottom:12px; color:#e4e1d2;
+    }
+    .t-cta-bottom p { font-size:16px; color:#7a9482; margin-bottom:32px; }
+    .btn-forest { background:#3d7a54; color:white; }
+    .btn-forest:hover { background:#2d5a3d; }
+    .btn-t-dark {
+      background:rgba(255,255,255,0.05); color:#e4e1d2;
+      border:1px solid rgba(122,184,147,0.15);
+    }
+    .btn-t-dark:hover { background:rgba(255,255,255,0.09); }
+
+    /* =============================================
+       MIIXEO PAGE — White / Purple-Magenta
+    ============================================= */
+    #page-miixeo { background: #fff; }
+
+    /* Hero */
+    .m-hero { height: 100vh; padding: 16px; }
+    .m-hero-box {
+      position: relative; height: 100%;
+      border-radius: 24px; overflow: hidden;
+      background: #0d0015;
+    }
+    .m-hero-fallback {
+      position: absolute; top:0;left:0;right:0;bottom:0; z-index: 0;
+      background: linear-gradient(160deg, #0d0015 0%, #200040 35%, #380060 70%, #1a0035 100%);
+      background-size: 300% 300%;
+      animation: mgs 18s ease infinite;
+    }
+    @keyframes mgs {
+      0%,100% { background-position: 0% 50%; }
+      33%      { background-position: 100% 0%; }
+      66%      { background-position: 50% 100%; }
+    }
+    .m-hero-vid {
+      position: absolute; top:0;left:0;right:0;bottom:0;
+      width:100%; height:100%; object-fit:cover; z-index:1;
+    }
+    .m-hero-grad {
+      position:absolute;top:0;left:0;right:0;bottom:0; z-index:2;
+      background: linear-gradient(to bottom,
+        rgba(13,0,21,0.2) 0%,
+        transparent 35%,
+        rgba(13,0,21,0.85) 100%);
+    }
+    .m-hero-content {
+      position:absolute; bottom:0;left:0;right:0; z-index:5;
+      padding: 0 36px 28px;
+      display:grid; grid-template-columns: 8fr 4fr;
+      align-items:flex-end; gap:24px;
+    }
+    .m-name {
+      font-size: clamp(80px, 22vw, 22vw);
+      font-weight: 300; letter-spacing: -0.06em;
+      line-height: 0.85; color: #fff;
+    }
+    .m-hero-right { display:flex; flex-direction:column; gap:16px; padding-bottom:6px; }
+    .m-hero-eyebrow {
+      font-size: 10px; font-weight: 700; letter-spacing: 1.8px;
+      text-transform: uppercase;
+      background: linear-gradient(135deg, #c084fc, #f472b6);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    }
+    .m-hero-desc {
+      font-size:13px; color:rgba(255,255,255,0.65);
+      line-height:1.4; font-weight:300;
+      opacity:0; transform:translateY(20px);
+      transition:opacity .8s ease .5s, transform .9s var(--ease) .5s;
+    }
+    .m-cta {
+      display:inline-flex; align-items:center; gap:10px;
+      background:#fff; border-radius:999px;
+      padding:8px 8px 8px 20px; cursor:pointer; border:none;
+      color:#6c3fc5; font-family:'Almarai',sans-serif;
+      font-size:14px; font-weight:600; text-decoration:none;
+      width:fit-content;
+      opacity:0; transform:translateY(20px);
+      transition:opacity .8s ease .7s, transform .9s var(--ease) .7s, gap .2s ease;
+    }
+    .m-cta:hover { gap:14px; }
+    .m-cta-dot {
+      background: linear-gradient(135deg, #6c3fc5, #ec4899);
+      border-radius:50%;
+      width:36px; height:36px; flex-shrink:0;
+      display:flex; align-items:center; justify-content:center;
+      transition:transform .2s;
+    }
+    .m-cta:hover .m-cta-dot { transform:scale(1.1); }
+    .m-cta-dot svg { width:15px; height:15px; stroke:#fff; }
+    .m-hero-in .m-hero-desc, .m-hero-in .m-cta { opacity:1; transform:translateY(0); }
+
+    /* Sections */
+    .m-section { background:#fff; padding:80px 24px; }
+    .m-inner { max-width:1100px; margin:0 auto; }
+    .m-eyebrow {
+      font-size:10px; font-weight:700; letter-spacing:1.8px;
+      text-transform:uppercase; margin-bottom:10px;
+      background: linear-gradient(135deg, #6c3fc5, #ec4899);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+      display: inline-block;
+    }
+    .m-h2 {
+      font-size:clamp(24px,3.5vw,44px); font-weight:400;
+      letter-spacing:-0.04em; color:#111; line-height:1.05;
+    }
+    .m-body { font-size:15px; color:#6b7280; line-height:1.75; }
+
+    /* Intro split */
+    .m-intro {
+      display:grid; grid-template-columns:1fr 1fr; gap:64px;
+      padding-bottom:72px; border-bottom:1px solid rgba(108,63,197,0.1);
+    }
+
+    /* 3×2 feature grid */
+    .m-grid {
+      display:grid; grid-template-columns:repeat(3,1fr);
+      gap:2px; margin-top:48px; border-radius:20px; overflow:hidden;
+    }
+    .m-card {
+      background:#f5f3ff; padding:32px 28px;
+      opacity:0; transform:translateY(14px);
+      transition:opacity .6s var(--ease2), transform .6s var(--ease2);
+    }
+    .m-card.vis { opacity:1; transform:translateY(0); }
+    .m-card-num {
+      font-size:10px; font-weight:700; letter-spacing:1px;
+      margin-bottom:18px; display:flex; align-items:center; gap:10px;
+      background: linear-gradient(135deg, #6c3fc5, #ec4899);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    }
+    .m-card-num::after { content:''; flex:1; height:1px; background:rgba(108,63,197,0.18); }
+    .m-card h3 {
+      font-size:16px; font-weight:600; color:#111;
+      margin-bottom:10px; letter-spacing:-0.02em;
+    }
+    .m-card p { font-size:13px; color:#6b7280; line-height:1.65; }
+
+    /* Feature box (3 steps) */
+    .m-feature-box {
+      display:grid; grid-template-columns:1fr 1fr; gap:48px;
+      background: linear-gradient(135deg, #f5f3ff 0%, #fdf2f8 100%);
+      border-radius:20px; padding:48px;
+      border:1px solid rgba(108,63,197,0.1); margin-top:72px;
+    }
+    .m-steps { display:flex; flex-direction:column; }
+    .m-step {
+      display:flex; gap:20px; align-items:flex-start;
+      padding:18px 0; border-bottom:1px solid rgba(108,63,197,0.08);
+    }
+    .m-step:last-child { border-bottom:none; }
+    .m-step-num {
+      font-size:11px; font-weight:700; letter-spacing:1px; flex-shrink:0;
+      padding-top:2px; min-width:22px;
+      background: linear-gradient(135deg, #6c3fc5, #ec4899);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    }
+    .m-step h4 { font-size:14px; font-weight:600; color:#111; margin-bottom:4px; }
+    .m-step p { font-size:13px; color:#6b7280; line-height:1.5; }
+
+    /* Tags */
+    .m-tags { display:flex; flex-wrap:wrap; gap:8px; margin-top:28px; }
+    .m-tag {
+      background:#f5f3ff; border:1px solid rgba(108,63,197,0.18);
+      border-radius:999px; padding:7px 16px; font-size:13px; color:#6c3fc5;
+      transition:border-color .2s, background .2s;
+    }
+    .m-tag:hover { background:#ede9fe; border-color:rgba(108,63,197,0.4); }
+
+    /* CTA bottom */
+    .m-cta-bottom {
+      background:#fff; padding:0 24px 100px; text-align:center;
+    }
+    .m-cta-bottom h2 {
+      font-size:clamp(26px,4vw,48px); font-weight:700;
+      letter-spacing:-0.05em; margin-bottom:12px; color:#111;
+    }
+    .m-cta-bottom p { font-size:16px; color:#6b7280; margin-bottom:32px; }
+    .btn-miixeo-grad {
+      background: linear-gradient(135deg, #6c3fc5, #a855f7, #ec4899);
+      color: white;
+    }
+    .btn-miixeo-grad:hover { opacity: 0.88; }
+    .btn-m-light {
+      background: rgba(108,63,197,0.07); color: #6c3fc5;
+      border: 1px solid rgba(108,63,197,0.2);
+    }
+    .btn-m-light:hover { background: rgba(108,63,197,0.13); }
+
+    /* =============================================
+       BIO PAGE
+    ============================================= */
+    #page-bio { background: var(--bg); }
+
+    /* Hero */
+    .bio-hero {
+      min-height: 100vh; padding: 140px 24px 80px;
+      display: flex; align-items: center;
+      position: relative; overflow: hidden;
+    }
+    .bio-hero::before {
+      content: ''; position: absolute; inset: 0;
+      background: radial-gradient(ellipse at 25% 70%, rgba(108,63,197,0.055) 0%, transparent 50%),
+                  radial-gradient(ellipse at 75% 20%, rgba(61,122,84,0.035) 0%, transparent 45%);
+    }
+    .bio-hero-inner {
+      max-width: 1100px; margin: 0 auto; width: 100%;
+      position: relative; z-index: 1;
+    }
+    .bio-label {
+      font-size: 10px; font-weight: 700; letter-spacing: 2px;
+      text-transform: uppercase; color: var(--gray);
+      margin-bottom: 28px; display: flex; align-items: center; gap: 12px;
+    }
+    .bio-label::before { content: ''; display: block; width: 32px; height: 1px; background: var(--gray); }
+    .bio-h1 {
+      font-size: clamp(56px, 9vw, 120px); font-weight: 800;
+      letter-spacing: -0.06em; line-height: 0.88; color: var(--cream);
+      margin-bottom: 32px;
+    }
+    .bio-h1 em { font-style: italic; font-family: 'Instrument Serif', serif; font-weight: 400; }
+    .bio-tagline {
+      font-size: clamp(14px, 1.5vw, 17px); color: var(--gray);
+      line-height: 1.7; max-width: 580px; margin-bottom: 64px;
+    }
+    .bio-stats {
+      display: flex; gap: 48px; flex-wrap: wrap;
+      padding-top: 44px; border-top: 1px solid rgba(255,255,255,0.07);
+    }
+    .bio-stat-num {
+      font-size: clamp(30px, 4.5vw, 52px); font-weight: 800;
+      letter-spacing: -0.06em; color: var(--cream); line-height: 1;
+    }
+    .bio-stat-num sup { font-size: 0.38em; vertical-align: super; font-weight: 400; color: var(--gray); }
+    .bio-stat-label {
+      font-size: 11px; color: var(--gray); margin-top: 7px;
+      line-height: 1.4; max-width: 110px;
+    }
+
+    /* Timeline section */
+    .bio-timeline-section { padding: 80px 24px; position: relative; }
+    .bio-tl-inner { max-width: 1100px; margin: 0 auto; }
+    .bio-tl-header { margin-bottom: 72px; }
+    .bio-tl-eyebrow {
+      font-size: 10px; font-weight: 700; letter-spacing: 2px;
+      text-transform: uppercase; color: var(--gray); margin-bottom: 16px;
+    }
+    .bio-tl-h2 {
+      font-size: clamp(28px, 4.5vw, 56px); font-weight: 400;
+      letter-spacing: -0.05em; color: var(--cream); line-height: 1.0;
+    }
+    .bio-tl-h2 em { font-style: italic; font-family: 'Instrument Serif', serif; font-weight: 400; }
+
+    /* Timeline rail */
+    .bio-tl { position: relative; padding-left: 28px; }
+    .bio-tl::before {
+      content: ''; position: absolute; left: 0; top: 8px; bottom: 0;
+      width: 1px; background: rgba(255,255,255,0.07);
+    }
+    .bio-tl-item {
+      position: relative; padding: 0 0 56px 48px;
+      opacity: 0; transform: translateX(-16px);
+      transition: opacity 0.7s var(--ease2), transform 0.7s var(--ease2);
+    }
+    .bio-tl-item.vis { opacity: 1; transform: translateX(0); }
+    .bio-tl-item::before {
+      content: ''; position: absolute;
+      left: -5px; top: 9px;
+      width: 10px; height: 10px; border-radius: 50%;
+      background: var(--bg); border: 1.5px solid rgba(255,255,255,0.18);
+      transition: border-color 0.4s, background 0.4s, box-shadow 0.4s;
+    }
+    .bio-tl-item.vis::before { border-color: var(--cream-alt); background: var(--cream-alt); }
+    .bio-tl-item.tl-highlight::before {
+      border-color: #a78bfa; background: #a78bfa;
+    }
+    .bio-tl-item.tl-highlight.vis::before {
+      box-shadow: 0 0 14px rgba(167,139,250,0.5);
+    }
+    .bio-tl-date {
+      font-size: 10px; font-weight: 700; letter-spacing: 1.5px;
+      text-transform: uppercase; color: var(--gray); margin-bottom: 10px;
+      display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
+    }
+    .bio-tl-city {
+      background: rgba(255,255,255,0.06); border-radius: 999px;
+      padding: 2px 10px; font-size: 10px; letter-spacing: 0.5px;
+      color: var(--cream-alt); font-weight: 600;
+    }
+    .bio-tl-role {
+      font-size: clamp(16px, 2vw, 22px); font-weight: 600;
+      letter-spacing: -0.03em; color: var(--cream);
+      margin-bottom: 5px; line-height: 1.2;
+    }
+    .bio-tl-company { font-size: 12px; color: var(--gray); margin-bottom: 13px; font-weight: 500; }
+    .bio-tl-desc {
+      font-size: 13px; color: var(--gray); line-height: 1.75;
+      max-width: 640px;
+    }
+    .bio-tl-badge {
+      display: inline-block; margin-top: 14px;
+      background: rgba(167,139,250,0.1); border: 1px solid rgba(167,139,250,0.22);
+      border-radius: 999px; padding: 4px 13px;
+      font-size: 10px; font-weight: 700; letter-spacing: 1px;
+      text-transform: uppercase; color: #a78bfa;
+    }
+
+    /* Stats grid */
+    .bio-xp-section {
+      padding: 80px 24px;
+      border-top: 1px solid rgba(255,255,255,0.04);
+    }
+    .bio-xp-inner { max-width: 1100px; margin: 0 auto; }
+    .bio-xp-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 2px; margin-top: 48px; border-radius: 20px; overflow: hidden;
+    }
+    .bio-xp-card {
+      background: var(--card); padding: 32px 28px;
+      opacity: 0; transform: translateY(12px);
+      transition: opacity 0.6s var(--ease2), transform 0.6s var(--ease2);
+    }
+    .bio-xp-card.vis { opacity: 1; transform: translateY(0); }
+    .bio-xp-n {
+      font-size: clamp(36px, 5vw, 56px); font-weight: 800;
+      letter-spacing: -0.07em; color: var(--cream); line-height: 1; margin-bottom: 6px;
+    }
+    .bio-xp-n sup { font-size: 0.35em; vertical-align: super; font-weight: 400; color: var(--gray); }
+    .bio-xp-lbl { font-size: 12px; color: var(--gray); line-height: 1.5; }
+
+    /* Music */
+    .bio-music { padding: 80px 24px; border-top: 1px solid rgba(255,255,255,0.04); }
+    .bio-music-inner { max-width: 1100px; margin: 0 auto; }
+    .bio-music-card {
+      background: var(--card); border-radius: 20px; padding: 48px;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center;
+    }
+    .bio-music-eyebrow {
+      font-size: 10px; font-weight: 700; letter-spacing: 2px;
+      text-transform: uppercase; color: var(--gray); margin-bottom: 16px;
+    }
+    .bio-music-h3 {
+      font-size: clamp(26px, 3.5vw, 46px); font-weight: 800;
+      letter-spacing: -0.05em; color: var(--cream); margin-bottom: 18px; line-height: 1;
+    }
+    .bio-music-h3 em { font-style: italic; font-family: 'Instrument Serif', serif; font-weight: 400; }
+    .bio-music-p { font-size: 14px; color: var(--gray); line-height: 1.75; margin-bottom: 26px; }
+    .bio-music-links { display: flex; gap: 8px; flex-wrap: wrap; }
+    .bio-plt {
+      background: rgba(255,255,255,0.06); border-radius: 999px;
+      padding: 8px 18px; font-size: 12px; color: var(--cream-alt);
+      text-decoration: none; border: 1px solid rgba(255,255,255,0.08);
+      transition: background 0.2s, border-color 0.2s;
+    }
+    .bio-plt:hover { background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.16); }
+    .bio-music-visual {
+      background: rgba(255,255,255,0.03); border-radius: 16px;
+      aspect-ratio: 1; display: flex; align-items: center; justify-content: center;
+      border: 1px solid rgba(255,255,255,0.06); flex-direction: column; gap: 12px;
+    }
+    .bio-music-wave {
+      display: flex; align-items: flex-end; gap: 4px; height: 48px;
+    }
+    .bio-music-wave span {
+      display: block; width: 4px; background: var(--cream-alt);
+      border-radius: 2px; opacity: 0.6;
+      animation: waveAnim 1.4s ease-in-out infinite;
+    }
+    .bio-music-wave span:nth-child(1) { height: 16px; animation-delay: 0s; }
+    .bio-music-wave span:nth-child(2) { height: 32px; animation-delay: 0.15s; }
+    .bio-music-wave span:nth-child(3) { height: 48px; animation-delay: 0.3s; }
+    .bio-music-wave span:nth-child(4) { height: 24px; animation-delay: 0.45s; }
+    .bio-music-wave span:nth-child(5) { height: 40px; animation-delay: 0.6s; }
+    .bio-music-wave span:nth-child(6) { height: 20px; animation-delay: 0.75s; }
+    .bio-music-wave span:nth-child(7) { height: 36px; animation-delay: 0.9s; }
+    @keyframes waveAnim {
+      0%, 100% { transform: scaleY(1); opacity: 0.6; }
+      50% { transform: scaleY(0.35); opacity: 0.2; }
+    }
+    .bio-music-meta { font-size: 12px; color: var(--gray); text-align: center; line-height: 1.6; }
+
+    /* Vision */
+    .bio-vision { padding: 80px 24px 120px; border-top: 1px solid rgba(255,255,255,0.04); }
+    .bio-vision-inner { max-width: 1100px; margin: 0 auto; }
+    .bio-vision-quote {
+      font-size: clamp(18px, 2.5vw, 32px);
+      font-style: italic; font-family: 'Instrument Serif', serif; font-weight: 400;
+      color: var(--cream-alt); line-height: 1.3; letter-spacing: -0.02em;
+      max-width: 760px; margin: 32px auto 64px; text-align: center;
+    }
+    .bio-ventures {
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px;
+    }
+    .bio-venture {
+      background: var(--card); border-radius: 16px; padding: 26px;
+      border: 1px solid rgba(255,255,255,0.04);
+      opacity: 0; transform: translateY(10px);
+      transition: opacity 0.6s var(--ease2), transform 0.6s var(--ease2);
+    }
+    .bio-venture.vis { opacity: 1; transform: translateY(0); }
+    .bio-venture-status {
+      font-size: 9px; font-weight: 700; letter-spacing: 1.5px;
+      text-transform: uppercase; margin-bottom: 12px; display: inline-flex;
+      align-items: center; gap: 6px;
+    }
+    .bio-venture-status.live { color: #4ade80; }
+    .bio-venture-status.live::before {
+      content: ''; display: block; width: 6px; height: 6px;
+      border-radius: 50%; background: #4ade80;
+      animation: pulse 2s ease-in-out infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; } 50% { opacity: 0.3; }
+    }
+    .bio-venture-status.soon { color: var(--gray); }
+    .bio-venture h4 {
+      font-size: 15px; font-weight: 700; color: var(--cream);
+      letter-spacing: -0.03em; margin-bottom: 7px;
+    }
+    .bio-venture p { font-size: 12px; color: var(--gray); line-height: 1.55; }
+
+    /* =============================================
+       FOOTER
+    ============================================= */
+    footer {
+      border-top: 1px solid rgba(255,255,255,0.06);
+      padding: 26px 24px; text-align: center;
+      font-size: 12px; color: #4b5563;
+    }
+    footer a { color: #4b5563; text-decoration: none; margin: 0 8px; transition: color 0.2s; }
+    footer a:hover { color: var(--cream-alt); }
+
+    /* =============================================
+       RESPONSIVE
+    ============================================= */
+    @media (max-width: 900px) {
+      .fgrid { grid-template-columns: repeat(2, 1fr); min-height: auto; }
+      .dgrid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 640px) {
+      .nav-pill { gap: 14px; padding: 8px 16px; }
+      .nav-pill button { font-size: 11px; }
+      #home-hero { padding: 10px; }
+      .hero-content { grid-template-columns: 1fr; padding: 0 20px 20px; }
+      .hero-right { display: none; }
+      .hero-first { font-size: 16vw; }
+      .hero-last { font-size: 34vw; }
+      .about-card { padding: 36px 20px; }
+      .fgrid { grid-template-columns: 1fr; }
+      .dgrid { grid-template-columns: 1fr; }
+      .li-card { flex-direction: column; text-align: center; }
+      /* Bio mobile */
+      .bio-stats { gap: 28px; }
+      .bio-xp-grid { grid-template-columns: 1fr 1fr; }
+      .bio-music-card { grid-template-columns: 1fr; }
+      .bio-music-visual { display: none; }
+      .bio-ventures { grid-template-columns: 1fr 1fr; }
+      .bio-tl-item { padding-left: 28px; }
+      /* Miixeo mobile */
+      .m-hero { padding: 10px; }
+      .m-hero-content { grid-template-columns: 1fr; padding: 0 20px 20px; }
+      .m-hero-right { display: none; }
+      .m-name { font-size: 34vw; }
+      .m-intro { grid-template-columns: 1fr; gap: 32px; }
+      .m-grid { grid-template-columns: 1fr; }
+      .m-feature-box { grid-template-columns: 1fr; gap: 32px; padding: 32px 22px; }
+      .music-card { grid-template-columns: 1fr; }
+      .music-visual { display: none; }
+      /* TRIBU mobile */
+      .t-hero { padding: 10px; }
+      .t-hero-content { grid-template-columns: 1fr; padding: 0 20px 20px; }
+      .t-hero-right { display: none; }
+      .t-name { font-size: 34vw; }
+      .t-intro { grid-template-columns: 1fr; gap: 32px; }
+      .t-grid { grid-template-columns: 1fr; }
+      .t-disc { grid-template-columns: 1fr; gap: 32px; padding: 32px 22px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ================================================================
+     NAV
+================================================================ -->
+<nav>
+  <div class="nav-pill">
+    <button onclick="sp('home')" id="nb-home" class="active">Accueil</button>
+    <button onclick="sp('bio')" id="nb-bio">Bio</button>
+    <button onclick="sp('tribu')" id="nb-tribu">TRIBU</button>
+    <button onclick="sp('miixeo')" id="nb-miixeo">Miixeo</button>
+    <button onclick="sp('home');sto('musique')">Musique</button>
+    <button onclick="sp('home');sto('contact')">Contact</button>
+  </div>
+</nav>
+
+
+<!-- ================================================================
+     PAGE : HOME
+================================================================ -->
+<div id="page-home" class="page active">
+
+  <!-- HERO -->
+  <section id="home-hero">
+    <div class="hero-box" id="hero-box">
+      <!-- Fallback gradient animé (toujours visible en fond) -->
+      <div class="hero-fallback"></div>
+      <!-- Vidéo par dessus (si elle charge, elle recouvre le fallback) -->
+      <video class="hero-video" id="hero-vid" autoplay loop muted playsinline preload="auto">
+        <source src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260405_170732_8a9ccda6-5cff-4628-b164-059c500a2b41.mp4" type="video/mp4">
+      </video>
+      <div class="noise-overlay"></div>
+      <div class="hero-grad"></div>
+      <div class="hero-content" id="hero-content">
+        <div>
+          <h1 class="hero-name" id="hero-name">
+            <span class="hero-first">
+              <span class="pw"><span class="pw-i">Raphaël</span></span>
+            </span>
+            <span class="hero-last" id="hero-last">
+              <span class="pw"><span class="pw-i">Paya</span></span>
+              <span class="hero-asterisk">*</span>
+            </span>
+          </h1>
+        </div>
+        <div class="hero-right">
+          <p class="hero-desc">Raphaël Paya est entrepreneur dans le recrutement IT. Fondateur de TRIBU et Miixeo, il construit des outils et des équipes pour les meilleurs talents tech.</p>
+          <button onclick="sp('tribu')" class="hero-cta">
+            Découvrir mes projets
+            <span class="hero-cta-dot">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="about-section">
+    <div class="about-card">
+      <p class="about-eyebrow">Entrepreneuriat & Vision</p>
+      <h2 class="about-heading" id="about-heading"></h2>
+      <p class="about-body" id="about-body">Depuis plusieurs années, je construis des ponts entre la technologie et le recrutement. TRIBU place les talents IT là où ils créent de la valeur. Miixeo donne aux recruteurs les outils de demain pour travailler autrement. En parallèle, j'explore la création musicale sous le nom Piers Mayers, parce que la créativité ne connaît pas de frontières.</p>
+    </div>
+  </section>
+
+  <!-- VENTURES / FEATURES -->
+  <section class="ventures-section">
+    <div class="bg-noise"></div>
+    <div class="section-hd" id="vhdr">
+      <p class="s-line1" id="vl1"></p>
+      <p class="s-line2" id="vl2"></p>
+    </div>
+    <div class="fgrid">
+      <!-- Video card -->
+      <div class="fc fc-vid" style="background:linear-gradient(135deg,#111,#1a1a2e);">
+        <video autoplay loop muted playsinline preload="auto" style="position:absolute;top:0;left:0;right:0;bottom:0;width:100%;height:100%;object-fit:cover;z-index:1;">
+          <source src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260406_133058_0504132a-0cf3-4450-a370-8ea3b05c95d4.mp4" type="video/mp4">
+        </video>
+        <div class="fc-vid-overlay"></div>
+        <div class="fc-vid-label">Votre recrutement IT, réinventé.</div>
+      </div>
+
+      <!-- TRIBU -->
+      <div class="fc fc-feat">
+        <img class="fc-ico" src="https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260405_171918_4a5edc79-d78f-4637-ac8b-53c43c220606.png&w=1280&q=85" alt="TRIBU">
+        <div><div class="fc-num">01</div><div class="fc-title">TRIBU.</div></div>
+        <ul class="fc-list">
+          <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Recrutement IT boosté par l'IA & méthode DISC</li>
+          <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Profils stratégiques avec scoring compétences</li>
+          <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Dev, Data, DevOps, CTO, Cyber & plus</li>
+          <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Time-to-hire drastiquement réduit</li>
+        </ul>
+        <button onclick="sp('tribu')" class="fc-more">En savoir plus <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></button>
+      </div>
+
+      <!-- Miixeo -->
+      <div class="fc fc-feat">
+        <img class="fc-ico" src="https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260405_171741_ed9845ab-f5b2-4018-8ce7-07cc01823522.png&w=1280&q=85" alt="Miixeo">
+        <div><div class="fc-num">02</div><div class="fc-title">Miixeo.</div></div>
+        <ul class="fc-list">
+          <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>CVs → dossiers stratégiques par l'IA</li>
+          <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Planification d'entretiens en 1 clic</li>
+          <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Pipeline de recrutement centralisé</li>
+        </ul>
+        <button onclick="sp('miixeo')" class="fc-more">En savoir plus <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></button>
+      </div>
+
+      <!-- Piers Mayers -->
+      <div class="fc fc-feat">
+        <img class="fc-ico" src="https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260405_171809_f56666dc-c099-4778-ad82-9ad4f209567b.png&w=1280&q=85" alt="Piers Mayers">
+        <div><div class="fc-num">03</div><div class="fc-title">Piers Mayers.</div></div>
+        <ul class="fc-list">
+          <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Projet musical sur Spotify, Deezer, Apple Music</li>
+          <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>28 000 abonnés LinkedIn</li>
+          <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Créativité entre tech & musique</li>
+        </ul>
+        <a href="https://open.spotify.com/search/Piers%20Mayers" target="_blank" class="fc-more">Écouter <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- LINKEDIN -->
+  <section class="li-section">
+    <div class="li-card">
+      <div>
+        <h3>28 000+ abonnés LinkedIn</h3>
+        <p>Recrutement IT, entrepreneuriat, tech — je partage ce qui marche vraiment.</p>
+      </div>
+      <a href="https://linkedin.com/in/raphaelpaya" target="_blank" rel="noopener" class="btn btn-white" style="color:#0A66C2;font-weight:600;">Suivre sur LinkedIn</a>
+    </div>
+  </section>
+
+  <!-- MUSIC -->
+  <section class="music-section" id="musique">
+    <div class="music-card">
+      <div>
+        <h3>Piers Mayers</h3>
+        <p>Mon projet musical, disponible sur toutes les plateformes. Une autre façon d'explorer la créativité.</p>
+        <div class="music-plat">
+          <a href="https://open.spotify.com/search/Piers%20Mayers" target="_blank" rel="noopener" class="plt">🎵 Spotify</a>
+          <a href="https://www.deezer.com/search/Piers%20Mayers" target="_blank" rel="noopener" class="plt">🎶 Deezer</a>
+          <a href="https://music.apple.com/search?term=Piers+Mayers" target="_blank" rel="noopener" class="plt">🍎 Apple Music</a>
+        </div>
+      </div>
+      <div class="music-visual">🎸</div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact-section" id="contact">
+    <h2>Travaillons ensemble</h2>
+    <p>Recrutement IT, partenariat Miixeo, prise de parole ou autre projet ?</p>
+    <div class="cbtns">
+      <a href="mailto:contact@raphaelpaya.com" class="btn btn-cream">✉️ M'écrire</a>
+      <a href="https://linkedin.com/in/raphaelpaya" target="_blank" rel="noopener" class="btn btn-dark">LinkedIn</a>
+      <button onclick="sp('tribu')" class="btn btn-dark">TRIBU</button>
+      <button onclick="sp('miixeo')" class="btn btn-dark">Miixeo</button>
+    </div>
+  </section>
+
+</div><!-- /page-home -->
+
+
+<!-- ================================================================
+     PAGE : TRIBU — Tropical / Organic / Forest
+================================================================ -->
+<div id="page-tribu" class="page">
+
+  <!-- HERO -->
+  <section class="t-hero">
+    <div class="t-hero-box">
+      <div class="t-hero-fallback"></div>
+      <video id="tribu-vid" class="t-hero-vid" autoplay loop muted playsinline preload="none"></video>
+      <div class="noise-overlay"></div>
+      <div class="t-hero-grad"></div>
+      <div class="t-hero-content" id="t-hero-content">
+        <div>
+          <h1 class="t-name" id="t-name">
+            <span class="pw"><span class="pw-i">TRIBU</span></span>
+          </h1>
+        </div>
+        <div class="t-hero-right">
+          <p class="t-hero-eyebrow">Agence de recrutement IT</p>
+          <p class="t-hero-desc">L'alliance de l'expertise humaine et de l'intelligence artificielle pour identifier, analyser et recruter les meilleurs talents tech.</p>
+          <a href="https://wearetribu.fr" target="_blank" rel="noopener" class="t-cta">
+            Visiter wearetribu.fr
+            <span class="t-cta-dot">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INTRO -->
+  <section class="t-section">
+    <div class="t-inner">
+      <div class="t-intro">
+        <div>
+          <p class="t-eyebrow">Notre approche</p>
+          <h2 class="t-h2" style="margin-top:10px;">Recruter autrement,<br><span class="serif-it">au service de la performance.</span></h2>
+        </div>
+        <div>
+          <p class="t-body">TRIBU ne se contente pas de placer des profils. Nous analysons la personnalité, les motivations et les ambitions de chaque candidat pour créer des alignements durables entre les talents IT et les entreprises qui les méritent.</p>
+          <p class="t-body" style="margin-top:16px;">Chaque mission est traitée avec la précision d'un chirurgien et la sensibilité d'un mentor.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURES 3×2 -->
+  <section class="t-section" style="padding-top:0;">
+    <div class="t-inner">
+      <p class="t-eyebrow">Ce qui nous distingue</p>
+      <h2 class="t-h2" style="margin-top:10px;">Six piliers, une méthode.</h2>
+      <div class="t-grid" id="t-grid">
+        <div class="t-card">
+          <div class="t-card-num">01</div>
+          <h3>Intelligence artificielle</h3>
+          <p>Notre IA filtre, analyse et score les profils en quelques secondes. Seuls les candidats véritablement alignés avec votre contexte sont présentés.</p>
+        </div>
+        <div class="t-card">
+          <div class="t-card-num">02</div>
+          <h3>Méthode DISC</h3>
+          <p>Chaque candidat est évalué selon la méthode DISC. Un profil comportemental complet — pas seulement un CV, mais une personnalité.</p>
+        </div>
+        <div class="t-card">
+          <div class="t-card-num">03</div>
+          <h3>Profils stratégiques</h3>
+          <p>Scoring technique, soft skills, compatibilité culturelle — nous livrons un dossier complet, pas une simple liste de candidatures.</p>
+        </div>
+        <div class="t-card">
+          <div class="t-card-num">04</div>
+          <h3>Expertise IT exclusive</h3>
+          <p>Dev, Data, DevOps, Cyber, Cloud, Product — nous maîtrisons l'écosystème tech dans sa profondeur et ses nuances les plus fines.</p>
+        </div>
+        <div class="t-card">
+          <div class="t-card-num">05</div>
+          <h3>Time-to-hire compressé</h3>
+          <p>Délai entre le brief et les premiers profils drastiquement réduit grâce à notre réseau de talents pré-qualifiés et à nos algorithmes.</p>
+        </div>
+        <div class="t-card">
+          <div class="t-card-num">06</div>
+          <h3>Accompagnement intégral</h3>
+          <p>Définition du besoin, sourcing, entretiens, négociation, intégration — présents à chaque étape, pas seulement au moment du placement.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DISC -->
+  <section class="t-section" style="padding-top:0;">
+    <div class="t-inner">
+      <div class="t-disc">
+        <div>
+          <p class="t-eyebrow">Psychologie & matching</p>
+          <h2 class="t-h2" style="margin-top:10px;font-size:clamp(22px,2.8vw,36px);">La méthode DISC au cœur de chaque recrutement</h2>
+          <p class="t-body" style="margin-top:16px;">TRIBU intègre l'analyse comportementale DISC dans chaque évaluation candidat. Des recrutements qui durent, des équipes qui performent.</p>
+        </div>
+        <div>
+          <div class="t-disc-row">
+            <span class="t-disc-letter">D</span>
+            <div><strong>Dominance</strong><span>Orientation résultats, leadership, prise de décision</span></div>
+          </div>
+          <div class="t-disc-row">
+            <span class="t-disc-letter">I</span>
+            <div><strong>Influence</strong><span>Communication, enthousiasme, sens de la collaboration</span></div>
+          </div>
+          <div class="t-disc-row">
+            <span class="t-disc-letter">S</span>
+            <div><strong>Stabilité</strong><span>Fiabilité, patience, esprit d'équipe durable</span></div>
+          </div>
+          <div class="t-disc-row">
+            <span class="t-disc-letter">C</span>
+            <div><strong>Conformité</strong><span>Précision, rigueur analytique, qualité d'exécution</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROFILES -->
+  <section class="t-section" style="padding-top:0; padding-bottom:60px;">
+    <div class="t-inner">
+      <p class="t-eyebrow">Expertises recrutées</p>
+      <h2 class="t-h2" style="margin-top:10px;margin-bottom:28px;">Profils IT & Tech</h2>
+      <div class="t-tags">
+        <span class="t-tag">Développeur Full Stack</span>
+        <span class="t-tag">Ingénieur Backend</span>
+        <span class="t-tag">Développeur Frontend</span>
+        <span class="t-tag">Data Scientist</span>
+        <span class="t-tag">Data Engineer</span>
+        <span class="t-tag">ML Engineer</span>
+        <span class="t-tag">DevOps / SRE</span>
+        <span class="t-tag">Architecte Cloud</span>
+        <span class="t-tag">Product Manager</span>
+        <span class="t-tag">CTO / VP Engineering</span>
+        <span class="t-tag">Expert Cybersécurité</span>
+        <span class="t-tag">Scrum Master</span>
+        <span class="t-tag">Tech Lead</span>
+        <span class="t-tag">UX/UI Designer</span>
+        <span class="t-tag">QA Engineer</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <div class="t-cta-bottom">
+    <h2>Prêt à recruter autrement ?</h2>
+    <p>Premier échange offert, sans engagement.</p>
+    <div class="cbtns">
+      <a href="https://wearetribu.fr" target="_blank" rel="noopener" class="btn btn-forest">Visiter wearetribu.fr</a>
+      <a href="mailto:contact@raphaelpaya.com" class="btn btn-t-dark">Nous contacter</a>
+    </div>
+  </div>
+
+</div><!-- /page-tribu -->
+
+
+<!-- ================================================================
+     PAGE : MIIXEO — White / Purple-Magenta
+================================================================ -->
+<div id="page-miixeo" class="page">
+
+  <!-- HERO -->
+  <section class="m-hero">
+    <div class="m-hero-box">
+      <div class="m-hero-fallback"></div>
+      <video id="miixeo-vid" class="m-hero-vid" autoplay loop muted playsinline preload="none"></video>
+      <div class="noise-overlay"></div>
+      <div class="m-hero-grad"></div>
+      <div class="m-hero-content" id="m-hero-content">
+        <div>
+          <h1 class="m-name" id="m-name">
+            <span class="pw"><span class="pw-i">Miixeo</span></span>
+          </h1>
+        </div>
+        <div class="m-hero-right">
+          <p class="m-hero-eyebrow">SaaS pour Recruteurs</p>
+          <p class="m-hero-desc">Le logiciel de recrutement nouvelle génération. CVs transformés en dossiers stratégiques, entretiens planifiés en 1 clic, pipeline centralisé.</p>
+          <a href="https://miixeo.com" target="_blank" rel="noopener" class="m-cta">
+            Visiter miixeo.com
+            <span class="m-cta-dot">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INTRO -->
+  <section class="m-section">
+    <div class="m-inner">
+      <div class="m-intro">
+        <div>
+          <p class="m-eyebrow">Notre vision</p>
+          <h2 class="m-h2" style="margin-top:10px;">Recruter plus vite,<br><span class="serif-it">sans sacrifier la qualité.</span></h2>
+        </div>
+        <div>
+          <p class="m-body">Miixeo remplace les tâches répétitives par de l'intelligence artificielle, libérant les recruteurs pour ce qui compte vraiment : la relation humaine et le jugement stratégique.</p>
+          <p class="m-body" style="margin-top:16px;">Une plateforme unique pour sourcer, analyser, scorer et présenter les candidats — le tout en quelques clics.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURES 3×2 -->
+  <section class="m-section" style="padding-top:0;">
+    <div class="m-inner">
+      <p class="m-eyebrow">Fonctionnalités</p>
+      <h2 class="m-h2" style="margin-top:10px;">Six outils, une plateforme.</h2>
+      <div class="m-grid" id="m-grid">
+        <div class="m-card">
+          <div class="m-card-num">01</div>
+          <h3>CVs vers dossiers stratégiques</h3>
+          <p>L'IA analyse chaque CV et génère automatiquement un dossier candidat enrichi : compétences scorées, points forts, adéquation au poste.</p>
+        </div>
+        <div class="m-card">
+          <div class="m-card-num">02</div>
+          <h3>Planification en 1 clic</h3>
+          <p>Planifiez un entretien directement depuis le dossier candidat — plus d'allers-retours email pour trouver un créneau commun.</p>
+        </div>
+        <div class="m-card">
+          <div class="m-card-num">03</div>
+          <h3>Pipeline centralisé</h3>
+          <p>Gérez tous vos processus en parallèle dans une vue kanban claire. Chaque étape, chaque candidat, au même endroit.</p>
+        </div>
+        <div class="m-card">
+          <div class="m-card-num">04</div>
+          <h3>Scoring IA automatique</h3>
+          <p>Chaque profil reçoit un score d'adéquation calculé par notre IA — identifiez les meilleures candidatures en un coup d'œil.</p>
+        </div>
+        <div class="m-card">
+          <div class="m-card-num">05</div>
+          <h3>Partage client simplifié</h3>
+          <p>Envoyez un dossier candidat professionnel à votre client en un clic. Interface épurée, branding personnalisé.</p>
+        </div>
+        <div class="m-card">
+          <div class="m-card-num">06</div>
+          <h3>Analytics & performance</h3>
+          <p>KPIs de recrutement : time-to-hire, taux de conversion, performance par source — tout en tableau de bord temps réel.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="m-section" style="padding-top:0; padding-bottom:60px;">
+    <div class="m-inner">
+      <div class="m-feature-box">
+        <div>
+          <p class="m-eyebrow">Comment ça marche</p>
+          <h2 style="font-size:clamp(20px,2.5vw,30px);font-weight:700;color:#111;margin-top:10px;margin-bottom:12px;letter-spacing:-0.03em;">L'IA qui travaille pour vous</h2>
+          <p class="m-body">Miixeo automatise les tâches à faible valeur ajoutée pour que vous vous concentriez sur ce qui compte : la relation humaine.</p>
+        </div>
+        <div class="m-steps">
+          <div class="m-step">
+            <div class="m-step-num">01</div>
+            <div>
+              <h4>Import du CV</h4>
+              <p>Glissez-déposez un CV ou importez depuis LinkedIn, Indeed ou votre boîte mail.</p>
+            </div>
+          </div>
+          <div class="m-step">
+            <div class="m-step-num">02</div>
+            <div>
+              <h4>Analyse IA</h4>
+              <p>Miixeo génère instantanément un dossier structuré, enrichi et scoré en quelques secondes.</p>
+            </div>
+          </div>
+          <div class="m-step">
+            <div class="m-step-num">03</div>
+            <div>
+              <h4>Envoi & entretien</h4>
+              <p>Partagez le dossier à votre client, planifiez l'entretien directement depuis la plateforme.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TAGS -->
+  <section class="m-section" style="padding-top:0; padding-bottom:60px;">
+    <div class="m-inner">
+      <p class="m-eyebrow">Utilisé par des recruteurs</p>
+      <h2 class="m-h2" style="margin-top:10px;margin-bottom:28px;">Profils & secteurs couverts</h2>
+      <div class="m-tags">
+        <span class="m-tag">Développeur Full Stack</span>
+        <span class="m-tag">Data Scientist</span>
+        <span class="m-tag">DevOps / SRE</span>
+        <span class="m-tag">Product Manager</span>
+        <span class="m-tag">Tech Lead</span>
+        <span class="m-tag">ML Engineer</span>
+        <span class="m-tag">Architecte Cloud</span>
+        <span class="m-tag">CTO / VP Engineering</span>
+        <span class="m-tag">Expert Cybersécurité</span>
+        <span class="m-tag">UX/UI Designer</span>
+        <span class="m-tag">QA Engineer</span>
+        <span class="m-tag">Scrum Master</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <div class="m-cta-bottom">
+    <h2>Prêt à recruter 10x plus vite ?</h2>
+    <p>Rejoignez les recruteurs qui transforment leur façon de travailler.</p>
+    <div class="cbtns">
+      <a href="https://miixeo.com" target="_blank" rel="noopener" class="btn btn-miixeo-grad">Essayer Miixeo</a>
+      <a href="mailto:contact@raphaelpaya.com" class="btn btn-m-light">Demander une démo</a>
+    </div>
+  </div>
+
+</div><!-- /page-miixeo -->
+
+
+<!-- ================================================================
+     PAGE : BIO — Raphaël Paya
+================================================================ -->
+<div id="page-bio" class="page">
+
+  <!-- HERO -->
+  <section class="bio-hero">
+    <div class="bio-hero-inner">
+      <p class="bio-label">À propos de Raphaël Paya</p>
+      <h1 class="bio-h1" id="bio-h1">
+        <span class="pw"><span class="pw-i">Raphaël</span></span>&nbsp;<span class="pw"><span class="pw-i"><em>Paya.</em></span></span>
+      </h1>
+      <p class="bio-tagline">Fondateur, entrepreneur en série, consultant IT senior — 10 ans de carrière internationale entre Paris, Montréal, Londres et Genève, forgés dans la vente, le recrutement tech et l'entrepreneuriat. Aujourd'hui à la tête de deux entreprises qui redéfinissent le recrutement IT.</p>
+      <div class="bio-stats">
+        <div>
+          <div class="bio-stat-num">10<sup>ans</sup></div>
+          <div class="bio-stat-label">d'expérience en sales & business</div>
+        </div>
+        <div>
+          <div class="bio-stat-num">6<sup>ans</sup></div>
+          <div class="bio-stat-label">en conseil & recrutement IT</div>
+        </div>
+        <div>
+          <div class="bio-stat-num">2</div>
+          <div class="bio-stat-label">entreprises fondées en 2 ans</div>
+        </div>
+        <div>
+          <div class="bio-stat-num">4</div>
+          <div class="bio-stat-label">pays · 5 villes</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TIMELINE -->
+  <section class="bio-timeline-section">
+    <div class="bio-tl-inner">
+      <div class="bio-tl-header">
+        <p class="bio-tl-eyebrow">Parcours</p>
+        <h2 class="bio-tl-h2">D'abord les armes,<br>puis <em>l'empire.</em></h2>
+      </div>
+      <div class="bio-tl" id="bio-tl">
+
+        <div class="bio-tl-item">
+          <div class="bio-tl-date">2015 — 2019 <span class="bio-tl-city">Paris · Saint-Tropez</span></div>
+          <div class="bio-tl-role">Sales Manager & Regional Manager</div>
+          <div class="bio-tl-company">Industrie du Design — France</div>
+          <p class="bio-tl-desc">Les premières armes. Une marque de design premium entre Paris et Saint-Tropez — un environnement exigeant qui forge les fondamentaux : management d'équipe, développement commercial terrain, recrutement opérationnel. C'est ici que naît la passion pour la performance, la relation client et le leadership. Quatre ans à comprendre que le business se construit avec les bonnes personnes, pas seulement les bons produits.</p>
+        </div>
+
+        <div class="bio-tl-item">
+          <div class="bio-tl-date">2019 — 2020 <span class="bio-tl-city">Montréal, Canada</span></div>
+          <div class="bio-tl-role">Consultant IT</div>
+          <div class="bio-tl-company">Cofomo — Montréal</div>
+          <p class="bio-tl-desc">Le pivot. Première immersion dans l'univers de la tech au sein de Cofomo, l'un des plus grands cabinets IT du Canada. Découverte de l'écosystème tech, des cycles de vente complexes, d'une culture nord-américaine ambitieuse et directe. Montréal comme tremplin vers un univers qui allait devenir une passion : le recrutement IT.</p>
+        </div>
+
+        <div class="bio-tl-item">
+          <div class="bio-tl-date">2020 — 2024 <span class="bio-tl-city">Londres, UK</span></div>
+          <div class="bio-tl-role">Senior Recruiter — Scope Salesforce</div>
+          <div class="bio-tl-company">Harnham & Tenth Revolution Group — City of London</div>
+          <p class="bio-tl-desc">Quatre ans au cœur de la City. Rythme effréné, deals en milliers de livres sterling, desk Salesforce senior dans l'un des marchés tech les plus compétitifs au monde. Chez Harnham puis Tenth Revolution Group, recrutement freelance et permanent sur des profils Salesforce Architects, CRM Developers et Business Analysts. L'école de la performance sous pression maximale.</p>
+        </div>
+
+        <div class="bio-tl-item">
+          <div class="bio-tl-date">2024 — 2025 <span class="bio-tl-city">Genève, Suisse</span></div>
+          <div class="bio-tl-role">Senior Consultant IT</div>
+          <div class="bio-tl-company">Cybersécurité & Software — Genève</div>
+          <p class="bio-tl-desc">Mutation pour les bureaux genevois. Élargissement du scope : cybersécurité et software engineering sur le marché suisse — un marché premium, technique, exigeant et profondément sélectif. Une année de précision chirurgicale, d'endurance, et de conviction croissante : il est temps de construire quelque chose à soi.</p>
+        </div>
+
+        <div class="bio-tl-item tl-highlight">
+          <div class="bio-tl-date">Mars 2025 <span class="bio-tl-city">France</span></div>
+          <div class="bio-tl-role">Fondateur — TRIBU</div>
+          <div class="bio-tl-company">Agence de Recrutement IT 2.0</div>
+          <p class="bio-tl-desc">Le saut. Après des années à observer les failles du recrutement IT traditionnel, TRIBU est née : une agence nouvelle génération intégrant l'IA dès la source — automatisation du sourcing, dossiers de compétences enrichis, marges transparentes, plateforme candidats. Résultat de la première année : 10+ clients signés, 8 CDI placés, 10+ freelances managés, une première embauche dans l'équipe avec Lucas, recruiter freelance dédié TRIBU.</p>
+          <span class="bio-tl-badge">Fondateur & CEO</span>
+        </div>
+
+        <div class="bio-tl-item tl-highlight">
+          <div class="bio-tl-date">Mars 2026 <span class="bio-tl-city">France</span></div>
+          <div class="bio-tl-role">Fondateur & Développeur Full-Stack — Miixeo</div>
+          <div class="bio-tl-company">SaaS de Recrutement propulsé par l'IA</div>
+          <p class="bio-tl-desc">Second pari — plus technique encore. Miixeo a été codé de A à Z : React, Vite, HTML, hébergé sur Vercel, base de données Supabase, APIs tierces intégrées, système de paiement, architecture backend sécurisée. Front-end designé via Antigravity, Google AI Studio et Spline. Pas du vibe coding — un vrai projet SaaS robuste, de la logique métier à la sécurité. Un simple CV et une fiche de poste suffisent pour générer un dossier candidat sur-mesure en quelques secondes.</p>
+          <span class="bio-tl-badge">Fondateur · CTO · Designer</span>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CHIFFRES CLÉS -->
+  <section class="bio-xp-section">
+    <div class="bio-xp-inner">
+      <p class="bio-tl-eyebrow">En chiffres</p>
+      <h2 class="bio-tl-h2" style="margin-top:12px;">Ce que 10 ans <em>construisent.</em></h2>
+      <div class="bio-xp-grid" id="bio-xp-grid">
+        <div class="bio-xp-card"><div class="bio-xp-n">10<sup>+</sup></div><div class="bio-xp-lbl">clients signés dès la 1ère année avec TRIBU</div></div>
+        <div class="bio-xp-card"><div class="bio-xp-n">8</div><div class="bio-xp-lbl">CDI placés — profils IT & Tech</div></div>
+        <div class="bio-xp-card"><div class="bio-xp-n">10<sup>+</sup></div><div class="bio-xp-lbl">freelances managés via TRIBU</div></div>
+        <div class="bio-xp-card"><div class="bio-xp-n">4</div><div class="bio-xp-lbl">pays — France, Canada, Royaume-Uni, Suisse</div></div>
+        <div class="bio-xp-card"><div class="bio-xp-n">6<sup>ans</sup></div><div class="bio-xp-lbl">en recrutement IT — Data, AI, Salesforce, Cyber</div></div>
+        <div class="bio-xp-card"><div class="bio-xp-n">2</div><div class="bio-xp-lbl">entreprises fondées et opérationnelles en parallèle</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MUSIQUE -->
+  <section class="bio-music">
+    <div class="bio-music-inner">
+      <div class="bio-music-card">
+        <div>
+          <p class="bio-music-eyebrow">Au-delà des affaires</p>
+          <h3 class="bio-music-h3">Piers <em>Mayers.</em></h3>
+          <p class="bio-music-p">Guitariste depuis l'âge de 11 ans, bassiste, chanteur, compositeur et DJ. Sous le nom de Piers Mayers, chaque morceau est produit, arrangé et interprété en solo — tous les instruments, toutes les lignes vocales. Deux albums disponibles sur les grandes plateformes : un mélange de pop, house et indie music avec une teinte de nostalgie. Et un DJ set d'une heure disponible sur YouTube.</p>
+          <div class="bio-music-links">
+            <a href="https://open.spotify.com/search/Piers%20Mayers" target="_blank" rel="noopener" class="bio-plt">Spotify</a>
+            <a href="https://www.deezer.com/search/Piers%20Mayers" target="_blank" rel="noopener" class="bio-plt">Deezer</a>
+            <a href="https://music.apple.com/search?term=Piers+Mayers" target="_blank" rel="noopener" class="bio-plt">Apple Music</a>
+            <a href="https://youtube.com" target="_blank" rel="noopener" class="bio-plt">DJ Set YouTube</a>
+          </div>
+        </div>
+        <div class="bio-music-visual">
+          <div class="bio-music-wave">
+            <span></span><span></span><span></span><span></span>
+            <span></span><span></span><span></span>
+          </div>
+          <div class="bio-music-meta">2 albums<br>Spotify · Apple Music · Deezer · YouTube</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VISION -->
+  <section class="bio-vision">
+    <div class="bio-vision-inner">
+      <p class="bio-tl-eyebrow" style="text-align:center;">Vision</p>
+      <p class="bio-vision-quote">"Commencer jeune, vite et fort — et construire un groupe d'entreprises qui redéfinit le recrutement, la technologie et au-delà."</p>
+      <div class="bio-ventures" id="bio-ventures">
+        <div class="bio-venture">
+          <span class="bio-venture-status live">Live</span>
+          <h4>TRIBU</h4>
+          <p>Agence de recrutement IT 2.0 — IA, transparence, impact. Fondée en mars 2025.</p>
+        </div>
+        <div class="bio-venture">
+          <span class="bio-venture-status live">Live</span>
+          <h4>Miixeo</h4>
+          <p>SaaS de présentation candidats propulsé par l'IA. Fondé en mars 2026.</p>
+        </div>
+        <div class="bio-venture">
+          <span class="bio-venture-status soon">Bientôt</span>
+          <h4>Projet Design</h4>
+          <p>Co-fondateur — prochain projet dans l'industrie du design.</p>
+        </div>
+        <div class="bio-venture">
+          <span class="bio-venture-status soon">Bientôt</span>
+          <h4>Projet Immobilier</h4>
+          <p>Co-fondateur — prochain chapitre dans l'immobilier.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div><!-- /page-bio -->
+
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2026 Raphaël Paya ·
+    <a href="#" onclick="sp('home')">Accueil</a>
+    <a href="#" onclick="sp('tribu')">TRIBU</a>
+    <a href="#" onclick="sp('miixeo')">Miixeo</a>
+    <a href="https://linkedin.com/in/raphaelpaya" target="_blank">LinkedIn</a>
+    <a href="https://wearetribu.fr" target="_blank">wearetribu.fr</a>
+    <a href="https://miixeo.com" target="_blank">miixeo.com</a>
+  </p>
+</footer>
+
+
+<script>
+// ================================================================
+//  PAGE ROUTING
+// ================================================================
+function sp(name) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.nav-pill button[id^="nb-"]').forEach(b => b.classList.remove('active'));
+  document.getElementById('page-' + name).classList.add('active');
+  const btn = document.getElementById('nb-' + name);
+  if (btn) btn.classList.add('active');
+  window.scrollTo({ top: 0 });
+  setTimeout(boot, 80);
+}
+
+function sto(id) {
+  setTimeout(() => {
+    const el = document.getElementById(id);
+    if (el) el.scrollIntoView({ behavior: 'smooth' });
+  }, 150);
+}
+
+// ================================================================
+//  WORD PULL-UP
+// ================================================================
+function makePullWords(text, extraClass) {
+  return text.split(' ').map(w =>
+    `<span class="pw"><span class="pw-i${extraClass ? ' ' + extraClass : ''}">${w}</span></span>`
+  ).join(' ');
+}
+
+function staggerWords(container) {
+  container.querySelectorAll('.pw-i').forEach((w, i) => {
+    w.style.transitionDelay = i * 0.08 + 's';
+  });
+}
+
+function observePullUp(el) {
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('pr'); io.unobserve(e.target); }
+    });
+  }, { threshold: 0.05 });
+  io.observe(el);
+}
+
+// ================================================================
+//  ABOUT HEADING — mixed typography
+// ================================================================
+function initAboutHeading() {
+  const el = document.getElementById('about-heading');
+  if (!el || el.dataset.done) return;
+  el.dataset.done = '1';
+
+  const segs = [
+    { t: 'Je suis Raphaël Paya,', c: '' },
+    { t: 'entrepreneur & fondateur.', c: 'serif-it' },
+    { t: "J'ai bâti deux entreprises pour révolutionner le recrutement IT.", c: '' }
+  ];
+
+  let html = '';
+  segs.forEach(seg => {
+    seg.t.split(' ').forEach(w => {
+      html += `<span class="pw"><span class="pw-i${seg.c ? ' ' + seg.c : ''}">${w}&nbsp;</span></span>`;
+    });
+  });
+
+  el.innerHTML = html;
+  staggerWords(el);
+  observePullUp(el);
+}
+
+// ================================================================
+//  VENTURES HEADER
+// ================================================================
+function initVenturesHeader() {
+  const l1 = document.getElementById('vl1');
+  const l2 = document.getElementById('vl2');
+  if (!l1 || l1.dataset.done) return;
+  l1.dataset.done = l2.dataset.done = '1';
+
+  l1.innerHTML = makePullWords('Des outils de recrutement pour les créateurs de vision.');
+  l2.innerHTML = makePullWords("Construits pour l'ambition. Propulsés par l'innovation.");
+
+  staggerWords(l1); staggerWords(l2);
+  observePullUp(l1); observePullUp(l2);
+}
+
+// ================================================================
+//  CHARACTER SCROLL ANIMATION
+// ================================================================
+function initCharAnim() {
+  const el = document.getElementById('about-body');
+  if (!el || el.dataset.done) return;
+  el.dataset.done = '1';
+
+  const raw = el.textContent;
+  el.innerHTML = [...raw].map((ch, i) =>
+    ch === ' '
+      ? `<span class="achar" data-i="${i}">&nbsp;</span>`
+      : `<span class="achar" data-i="${i}">${ch}</span>`
+  ).join('');
+
+  const chars = el.querySelectorAll('.achar');
+  const total = chars.length;
+
+  function tick() {
+    const rect = el.getBoundingClientRect();
+    const vh = window.innerHeight;
+    const prog = (vh * 0.8 - rect.top) / (rect.height + vh * 0.5);
+    chars.forEach((c, i) => {
+      const cp = i / total;
+      const op = Math.max(0.15, Math.min(1, (prog - cp + 0.12) / 0.14));
+      c.style.opacity = op;
+    });
+  }
+
+  window.addEventListener('scroll', tick, { passive: true });
+  tick();
+}
+
+// ================================================================
+//  CARD STAGGER (feature + dark cards)
+// ================================================================
+function initCards() {
+  function staggerObserve(selector) {
+    document.querySelectorAll(selector).forEach((c, i) => {
+      if (c.dataset.obs) return;
+      c.dataset.obs = '1';
+      c.style.transitionDelay = i * 0.12 + 's';
+      const io = new IntersectionObserver(entries => {
+        entries.forEach(e => {
+          if (e.isIntersecting) { e.target.classList.add('vis'); io.unobserve(e.target); }
+        });
+      }, { threshold: 0.04, rootMargin: '-40px' });
+      io.observe(c);
+    });
+  }
+  staggerObserve('.fc');
+  staggerObserve('.dc');
+}
+
+// ================================================================
+//  HERO ANIMATIONS
+// ================================================================
+function initHero() {
+  const name = document.getElementById('hero-name');
+  const content = document.getElementById('hero-content');
+  const last = document.getElementById('hero-last');
+
+  if (name && !name.dataset.done) {
+    name.dataset.done = '1';
+    name.querySelectorAll('.pw-i').forEach((w, i) => {
+      w.style.transitionDelay = i * 0.14 + 's';
+    });
+    setTimeout(() => name.classList.add('pr'), 100);
+    setTimeout(() => { if (last) last.classList.add('hero-anim-done'); }, 1000);
+  }
+
+  if (content && !content.dataset.done) {
+    content.dataset.done = '1';
+    setTimeout(() => content.classList.add('hero-in'), 150);
+  }
+}
+
+// ================================================================
+//  BIO PAGE ANIMATIONS
+// ================================================================
+function initBioPage() {
+  // Hero title pull-up
+  const h1 = document.getElementById('bio-h1');
+  if (h1 && !h1.dataset.done) {
+    h1.dataset.done = '1';
+    h1.querySelectorAll('.pw-i').forEach((w, i) => {
+      w.style.transitionDelay = i * 0.2 + 's';
+    });
+    setTimeout(() => h1.classList.add('pr'), 80);
+  }
+
+  // Timeline items
+  document.querySelectorAll('.bio-tl-item').forEach(item => {
+    if (item.dataset.obs) return;
+    item.dataset.obs = '1';
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) { e.target.classList.add('vis'); io.unobserve(e.target); }
+      });
+    }, { threshold: 0.08, rootMargin: '-30px' });
+    io.observe(item);
+  });
+
+  // XP cards stagger
+  document.querySelectorAll('.bio-xp-card').forEach((c, i) => {
+    if (c.dataset.obs) return;
+    c.dataset.obs = '1';
+    c.style.transitionDelay = i * 0.09 + 's';
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) { e.target.classList.add('vis'); io.unobserve(e.target); }
+      });
+    }, { threshold: 0.04, rootMargin: '-20px' });
+    io.observe(c);
+  });
+
+  // Venture cards stagger
+  document.querySelectorAll('.bio-venture').forEach((c, i) => {
+    if (c.dataset.obs) return;
+    c.dataset.obs = '1';
+    c.style.transitionDelay = i * 0.1 + 's';
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) { e.target.classList.add('vis'); io.unobserve(e.target); }
+      });
+    }, { threshold: 0.04, rootMargin: '-20px' });
+    io.observe(c);
+  });
+}
+
+// ================================================================
+//  MIIXEO HERO ANIMATION
+// ================================================================
+function initMiixeoHero() {
+  const name = document.getElementById('m-name');
+  const content = document.getElementById('m-hero-content');
+  if (name && !name.dataset.done) {
+    name.dataset.done = '1';
+    name.querySelectorAll('.pw-i').forEach((w, i) => {
+      w.style.transitionDelay = i * 0.14 + 's';
+    });
+    setTimeout(() => name.classList.add('pr'), 100);
+  }
+  if (content && !content.dataset.done) {
+    content.dataset.done = '1';
+    setTimeout(() => content.classList.add('m-hero-in'), 150);
+  }
+}
+
+// ================================================================
+//  MIIXEO CARDS STAGGER
+// ================================================================
+function initMiixeoCards() {
+  document.querySelectorAll('.m-card').forEach((c, i) => {
+    if (c.dataset.obs) return;
+    c.dataset.obs = '1';
+    c.style.transitionDelay = i * 0.1 + 's';
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('vis'); io.unobserve(e.target); } });
+    }, { threshold: 0.04, rootMargin: '-30px' });
+    io.observe(c);
+  });
+}
+
+// ================================================================
+//  MIIXEO VIDEO (local MP4)
+// ================================================================
+function loadMiixeoVideo() {
+  const vid = document.getElementById('miixeo-vid');
+  if (!vid || vid.dataset.loaded) return;
+  vid.dataset.loaded = '1';
+  vid.src = './miixeo.mp4';
+  vid.load();
+  vid.play().catch(() => {
+    document.addEventListener('click', () => vid.play(), { once: true });
+  });
+}
+
+// ================================================================
+//  BOOT — run all inits
+// ================================================================
+function boot() {
+  const activePage = document.querySelector('.page.active')?.id;
+  if (activePage === 'page-tribu') {
+    initTribuHero();
+    initTribuCards();
+    loadTribuVideo();
+  } else if (activePage === 'page-miixeo') {
+    initMiixeoHero();
+    initMiixeoCards();
+    loadMiixeoVideo();
+  } else if (activePage === 'page-bio') {
+    initBioPage();
+  } else {
+    initHero();
+    initAboutHeading();
+    initVenturesHeader();
+    initCharAnim();
+    initCards();
+  }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  setTimeout(boot, 60);
+  loadVideos();
+});
+
+// Charge les vidéos via fetch → blob URL pour contourner le blocage CORS en file://
+async function loadVideo(el, url) {
+  if (!el) return;
+  try {
+    const resp = await fetch(url, { mode: 'cors', credentials: 'omit' });
+    if (!resp.ok) throw new Error(resp.status);
+    const blob = await resp.blob();
+    const blobUrl = URL.createObjectURL(blob);
+    el.src = blobUrl;
+    el.load();
+    el.play().catch(() => {
+      document.addEventListener('click', () => el.play(), { once: true });
+    });
+  } catch(e) {
+    // Silently fail — fallback gradient reste visible
+    console.warn('Video not loaded (file:// CORS restriction). Host the file on a server to see the video.', e.message);
+    el.style.display = 'none';
+  }
+}
+
+function loadVideos() {
+  loadVideo(
+    document.getElementById('hero-vid'),
+    'https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260405_170732_8a9ccda6-5cff-4628-b164-059c500a2b41.mp4'
+  );
+  const fvid = document.querySelector('.fc-vid video');
+  loadVideo(
+    fvid,
+    'https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260406_133058_0504132a-0cf3-4450-a370-8ea3b05c95d4.mp4'
+  );
+}
+
+// ================================================================
+//  TRIBU VIDEO (Streamable → direct MP4 via API)
+// ================================================================
+async function loadTribuVideo() {
+  const vid = document.getElementById('tribu-vid');
+  if (!vid || vid.dataset.loaded) return;
+  try {
+    const resp = await fetch('https://api.streamable.com/videos/g191l9');
+    const data = await resp.json();
+    const files = data.files || {};
+    const src =
+      files['mp4']?.url ||
+      files['mp4-mobile']?.url ||
+      files['original']?.url;
+    if (!src) return;
+    const fullSrc = src.startsWith('//') ? 'https:' + src : src;
+    vid.src = fullSrc;
+    vid.dataset.loaded = '1';
+    vid.load();
+    vid.play().catch(() => {
+      document.addEventListener('click', () => vid.play(), { once: true });
+    });
+  } catch(e) {
+    // Fallback gradient stays — silent fail
+  }
+}
+
+// ================================================================
+//  TRIBU HERO ANIMATION
+// ================================================================
+function initTribuHero() {
+  const name = document.getElementById('t-name');
+  const content = document.getElementById('t-hero-content');
+  if (name && !name.dataset.done) {
+    name.dataset.done = '1';
+    name.querySelectorAll('.pw-i').forEach((w, i) => {
+      w.style.transitionDelay = i * 0.14 + 's';
+    });
+    setTimeout(() => name.classList.add('pr'), 100);
+  }
+  if (content && !content.dataset.done) {
+    content.dataset.done = '1';
+    setTimeout(() => content.classList.add('t-hero-in'), 150);
+  }
+}
+
+// ================================================================
+//  TRIBU CARDS STAGGER
+// ================================================================
+function initTribuCards() {
+  document.querySelectorAll('.t-card').forEach((c, i) => {
+    if (c.dataset.obs) return;
+    c.dataset.obs = '1';
+    c.style.transitionDelay = i * 0.1 + 's';
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('vis'); io.unobserve(e.target); } });
+    }, { threshold: 0.04, rootMargin: '-30px' });
+    io.observe(c);
+  });
+}
+</script>
+</body>
+</html>
