@@ -1054,10 +1054,10 @@
     .pm-img-wrap img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
     .pm-img-wrap:hover img { transform: scale(1.05); }
     
-    .pm-spotify { max-width: 1200px; margin: 0 auto 100px; padding: 0 24px; display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; }
+    .pm-bio-links { max-width: 900px; margin: 0 auto 100px; padding: 0 24px; text-align: center; }
     
     @media (max-width: 768px) {
-      .pm-spotify { grid-template-columns: 1fr; }
+
     }
 </style>
 
@@ -1102,15 +1102,24 @@
     </div>
   </section>
 
-  <section class="pm-spotify">
-    <div class="pm-spot-left">
-      <h2 style="font-size:32px;color:white;margin-bottom:16px;">Saturated Love</h2>
-      <p style="color:rgba(255,255,255,0.7);line-height:1.6;margin-bottom:24px;">Un mélange d'indie pop néon et d'influences nostalgiques nocturnes.</p>
-       <a href="https://open.spotify.com/search/Piers%20Mayers" target="_blank" rel="noopener" class="btn btn-white" style="color:#000;">Écouter sur Spotify</a>
-    </div>
-    <div class="pm-spot-iframe">
-      <!-- Spotify embed placeholder (You can replace artist ID dynamically when found) -->
-       <iframe style="border-radius:12px" src="https://open.spotify.com/embed/artist/23X8026196237242854972?utm_source=generator&theme=0" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+  <section class="pm-bio-links">
+    <h2 style="font-size:36px;color:white;margin-bottom:24px;font-family:'Instrument Serif', serif;font-style:italic;">Au-delà des affaires, la Résonance.</h2>
+    <p style="color:rgba(255,255,255,0.75);line-height:1.75;margin-bottom:32px;font-size:16px;">
+      Lancé comme un exutoire viscéral en marge du monde des affaires, <strong>Piers Mayers</strong> est un projet musical entièrement auto-produit. Du premier accord de guitare aux rythmiques synthétiques, chaque morceau est un voyage à l'intersection de l'Indie Pop et des influences nocturnes nostalgiques. Avec l'album <em>Saturated Love</em>, Piers Mayers capte l'essence d'une pop atmosphérique et lumineuse qui résonne après minuit.
+    </p>
+    <div style="display:flex; gap:16px; justify-content:center; flex-wrap:wrap; margin-top:32px;">
+      <a href="https://open.spotify.com/search/Piers%20Mayers" target="_blank" rel="noopener" class="btn btn-white" style="color:#1DB954; font-weight:700;">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" style="margin-right:4px;"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.24 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.841.24 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.6.18-1.2.72-1.38 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.539-1.56.299z"/></svg>
+        Spotify
+      </a>
+      <a href="https://music.apple.com/search?term=Piers+Mayers" target="_blank" rel="noopener" class="btn btn-white" style="color:#FA243C; font-weight:700;">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" style="margin-right:4px;"><path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm1.096 15.111c-1.373 0-2.316-.76-2.316-.76s-.797 2.658-1.011 3.25c-.214.593-.578 1.157-.578 1.157s2.793-1.636 3.665-3.385c.214-.429.563-1.914.563-1.914.417.818 1.572 1.344 2.871 1.344 3.011 0 5.432-2.825 5.432-6.529S19.531 3.513 16.52 3.513c-3.151 0-5.748 2.684-5.748 6.1s1.776 5.372 1.776 5.372s-.225 1.042-.259 1.206c-.05.244-.202.392-.202.392s.874-.325 1.597-1.1c.14-.15.228-.24.228-.24s-.734 1.868-2.816 1.868z"/></svg>
+        Apple Music
+      </a>
+      <a href="https://www.deezer.com/search/Piers%20Mayers" target="_blank" rel="noopener" class="btn btn-white" style="color:#3e3cf7; font-weight:700;">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" style="margin-right:4px;"><path d="M22.513 15.539v2.327h-3.957v-2.327h3.957zm-5.069 0v2.327h-4.004v-2.327h4.004zm-5.068 0v2.327l-3.909.006v-2.333h3.909zm-5.021 0v2.327H3.454v-2.327h3.901zm15.158-3.364v2.327h-3.957v-2.327h3.957zm-5.069 0v2.327h-4.004v-2.327h4.004zm-5.068 0v2.327l-3.909.006v-2.333h3.909zm10.137-3.359v2.327h-3.957V8.816h3.957zm-5.069 0v2.327h-4.004V8.816h4.004zM22.513 5.461v2.327h-3.957V5.461h3.957z"/></svg>
+        Deezer
+      </a>
     </div>
   </section>
 
