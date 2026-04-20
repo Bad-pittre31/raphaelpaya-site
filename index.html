@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Raphaël Paya — Entrepreneur, Recrutement IT & SaaS Stratégique</title>
+  <title>Raphaël Paya — Entrepreneur, Recrutement IT & SaaS RH</title>
   <meta name="description" content="Raphaël Paya, entrepreneur français. Fondateur de TRIBU (agence de recrutement IT boostée par l'IA) et Miixeo (SaaS recruteurs, dossiers candidats stratégiques). 28 000 abonnés LinkedIn. Musicien Piers Mayers." />
   <meta name="keywords" content="Raphaël Paya, Raphael Paya, TRIBU recrutement IT, Miixeo SaaS recruteurs, agence recrutement tech, logiciel recrutement, ATS, dossier candidat, soft skills DISC, matching candidat entreprise, recrutement IA, entrepreneur, Piers Mayers, LinkedIn" />
   <meta name="author" content="Raphaël Paya" />
@@ -13,7 +13,9 @@
   <meta property="og:description" content="Fondateur de TRIBU (recrutement IT + IA) et Miixeo (SaaS recruteurs). 28k LinkedIn. Musicien Piers Mayers." />
   <meta property="og:url" content="https://raphaelpaya.com/" />
 
-  
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"Person","name":"Raphaël Paya","alternateName":"Raphael Paya","url":"https://raphaelpaya.com","sameAs":["https://www.linkedin.com/in/raphaelpaya","https://wearetribu.fr","https://miixeo.com"],"jobTitle":"Entrepreneur & Fondateur","worksFor":[{"@type":"Organization","name":"TRIBU","url":"https://wearetribu.fr","description":"Agence de recrutement IT boostée par l'IA. Méthode DISC, matching candidat-entreprise tech."},{"@type":"Organization","name":"Miixeo","url":"https://miixeo.com","description":"SaaS pour recruteurs. CVs → dossiers candidats stratégiques. Planification d'entretiens en 1 clic."}],"knowsAbout":["Recrutement IT","SaaS RH","IA RH","Soft skills","Méthode DISC","ATS","Entrepreneuriat","Tech","Musique"]}
+  </script>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -76,19 +78,25 @@
       padding: 10px 32px;
       display: flex; align-items: center; gap: 40px;
     }
-    .nav-pill a {
+    .nav-pill button {
       background: none; border: none; cursor: pointer;
       font-family: 'Almarai', sans-serif; font-size: 13px;
       color: rgba(225,224,204,0.7);
       transition: color 0.2s; padding: 4px 0; white-space: nowrap;
     }
-    .nav-pill a:hover, .nav-pill a.active { color: #E1E0CC; }
+    .nav-pill button:hover, .nav-pill button.active { color: #E1E0CC; }
+    .nb-gerard-btn {
+      background: linear-gradient(135deg, #c8945a, #8b4e2a);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+      font-weight: 700 !important;
+    }
+    .nb-gerard-btn:hover, .nb-gerard-btn.active { opacity: 0.75; }
 
     /* =============================================
        PAGE SYSTEM
     ============================================= */
-    
-    
+    .page { display: none; }
+    .page.active { display: block; }
 
     /* =============================================
        WORD PULL-UP ANIMATION
@@ -282,25 +290,15 @@
     /* =============================================
        LINKEDIN BANNER
     ============================================= */
-    .li-section { background: var(--bg); padding: 0 24px 80px; }
+    .li-section { background: var(--bg); padding: 0 24px 60px; }
     .li-card {
-      max-width: 1100px; margin: 0 auto; background: linear-gradient(135deg, #0A66C2, #003b78);
-      border-radius: 20px; padding: 48px;
-      display: flex; align-items: flex-start; justify-content: space-between; gap: 40px;
-      flex-wrap: wrap; box-shadow: 0 20px 40px rgba(10,102,194,0.15);
+      max-width: 1100px; margin: 0 auto; background: #0A66C2;
+      border-radius: 18px; padding: 36px 44px;
+      display: flex; align-items: center; justify-content: space-between; gap: 24px;
+      flex-wrap: wrap;
     }
-    .li-card-content { flex: 1; min-width: 280px; }
-    .li-card h3 { font-size: clamp(24px, 4vw, 36px); font-weight: 800; color: white; margin-bottom: 12px; letter-spacing: -0.02em; line-height: 1.1; }
-    .li-card p { font-size: 15px; color: rgba(255,255,255,0.9); line-height: 1.6; margin-bottom: 32px; max-width: 600px; }
-    .li-stats {
-      display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 24px 16px;
-      margin-bottom: 12px;
-    }
-    .li-stat { display: flex; flex-direction: column; gap: 4px; }
-    .li-stat-num { font-size: 26px; font-weight: 800; color: white; line-height: 1; margin-bottom: 2px; }
-    .li-stat-lbl { font-size: 11px; font-weight: 600; color: rgba(255,255,255,0.7); text-transform: uppercase; letter-spacing: 0.5px; }
-    .li-stat-lbl a { color: rgba(255,255,255,0.8); transition: color 0.2s; text-decoration: underline; }
-    .li-stat-lbl a:hover { color: white; }
+    .li-card h3 { font-size: 21px; font-weight: 700; color: white; margin-bottom: 5px; }
+    .li-card p { font-size: 14px; color: rgba(255,255,255,0.8); }
 
     /* =============================================
        MUSIC
@@ -308,38 +306,25 @@
     .music-section { background: var(--bg); padding: 0 24px 80px; }
     .music-card {
       max-width: 1100px; margin: 0 auto;
-      background: linear-gradient(135deg, #110e17, #1b0f19, #110816);
-      border-radius: 24px; padding: 56px;
-      display: grid; grid-template-columns: 1.2fr 1fr;
-      gap: 56px; align-items: center; position: relative; overflow: hidden;
-      border: 1px solid rgba(255,255,255,0.04);
+      background: linear-gradient(135deg, #0d0d1a, #12192e, #0d2a4a);
+      border-radius: 18px; padding: 40px 44px;
+      display: grid; grid-template-columns: 1fr auto;
+      gap: 32px; align-items: center;
     }
-    .music-content { position: relative; z-index: 2; }
-    .music-card h3 { font-size: clamp(38px, 6vw, 64px); font-weight: 400; font-family: 'Instrument Serif', serif; font-style: italic; color: white; margin-bottom: 18px; letter-spacing: 0; line-height: 1.1; }
-    .music-desc { font-size: 15px; color: rgba(255,255,255,0.65); line-height: 1.7; margin-bottom: 32px; }
-    .music-desc strong { color: rgba(255,255,255,0.9); font-weight: 600; }
-    .music-plat { display: flex; gap: 10px; flex-wrap: wrap; }
+    .music-card h3 { font-size: 26px; font-weight: 700; color: white; margin-bottom: 8px; }
+    .music-card p { font-size: 14px; color: rgba(255,255,255,0.6); line-height: 1.6; margin-bottom: 20px; }
+    .music-plat { display: flex; gap: 8px; flex-wrap: wrap; }
     .plt {
-      padding: 10px 20px; border-radius: 999px; font-size: 14px; font-weight: 600;
-      text-decoration: none; background: rgba(255,255,255,0.06); color: white;
-      border: 1px solid rgba(255,255,255,0.1); transition: background 0.2s, border-color 0.2s;
-      font-family: 'Almarai', sans-serif; display: inline-flex; align-items: center; gap: 8px;
+      padding: 8px 15px; border-radius: 999px; font-size: 12px; font-weight: 500;
+      text-decoration: none; background: rgba(255,255,255,0.1); color: white;
+      border: 1px solid rgba(255,255,255,0.14); transition: background 0.2s;
+      font-family: 'Almarai', sans-serif;
     }
-    .plt:hover { background: rgba(255,255,255,0.12); border-color: rgba(255,255,255,0.25); }
+    .plt:hover { background: rgba(255,255,255,0.2); }
     .music-visual {
-      position: relative; z-index: 1; aspect-ratio: 1; max-height: 340px; margin: 0 auto;
-      display: flex; align-items: center; justify-content: center;
-      background: rgba(255,255,255,0.02); border-radius: 40px; border: 1px solid rgba(255,255,255,0.04);
-      font-size: 100px; width: 100%; box-shadow: inset 0 0 80px rgba(0,0,0,0.5);
-    }
-    .music-visual::before {
-      content: ''; position: absolute; width: 60%; height: 60%; border-radius: 50%;
-      background: linear-gradient(45deg, #a855f7, #ec4899, #f43f5e); filter: blur(70px); opacity: 0.3;
-      animation: pulseMusic 6s ease-in-out infinite alternate;
-    }
-    @keyframes pulseMusic {
-      0% { transform: scale(1) translate(0, 0); opacity: 0.25; }
-      100% { transform: scale(1.15) translate(15px, -15px); opacity: 0.45; }
+      width: 100px; height: 100px; border-radius: 16px;
+      background: rgba(255,255,255,0.07);
+      display: flex; align-items: center; justify-content: center; font-size: 44px;
     }
 
     /* =============================================
@@ -745,10 +730,177 @@
     }
     .btn-m-light:hover { background: rgba(108,63,197,0.13); }
 
+
+    /* =============================================
+       GERARD AI PAGE — Beige / Brun chaud
+    ============================================= */
+    #page-gerard { background: #f5ede0; }
+
+    .g-hero {
+      min-height: 100vh; background: #f5ede0;
+      display: flex; flex-direction: column; justify-content: center; align-items: center;
+      padding: 140px 24px 80px; position: relative; overflow: hidden; text-align: center;
+    }
+    .g-hero::before {
+      content: ''; position: absolute; inset: 0;
+      background: radial-gradient(ellipse at 30% 40%, rgba(139,78,42,0.09) 0%, transparent 60%),
+                  radial-gradient(ellipse at 70% 70%, rgba(200,148,90,0.06) 0%, transparent 50%);
+      pointer-events: none;
+    }
+    .g-hero::after {
+      content: ''; position: absolute; inset: 0; pointer-events: none; opacity: 0.3;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='0.4'/%3E%3C/svg%3E");
+      background-size: 200px 200px; mix-blend-mode: multiply;
+    }
+    .g-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(139,78,42,0.1); border: 1px solid rgba(139,78,42,0.22);
+      border-radius: 999px; padding: 6px 18px;
+      font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase;
+      color: #8b4e2a; margin-bottom: 32px; position: relative; z-index: 1;
+    }
+    .g-badge-dot {
+      width: 7px; height: 7px; border-radius: 50%; background: #c8945a;
+      animation: gpulse 2s ease infinite;
+    }
+    @keyframes gpulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.35; transform: scale(0.7); }
+    }
+    .g-hero-name {
+      font-size: clamp(72px, 18vw, 200px);
+      font-weight: 800; letter-spacing: -0.06em; line-height: 0.85; color: #3d1f0a;
+      position: relative; z-index: 1; margin-bottom: 10px;
+    }
+    .g-hero-name em {
+      font-family: 'Instrument Serif', serif; font-style: italic; font-weight: 400; color: #8b4e2a;
+    }
+    .g-hero-sub {
+      font-size: clamp(13px,1.5vw,17px); color: #8b6347; line-height: 1.55;
+      max-width: 560px; margin: 20px auto 48px; position: relative; z-index: 1;
+    }
+    .g-cta-row {
+      display: flex; align-items: center; justify-content: center;
+      gap: 12px; flex-wrap: wrap; position: relative; z-index: 1;
+    }
+    .g-btn-primary {
+      display: inline-flex; align-items: center; gap: 10px;
+      background: #3d1f0a; color: #f5ede0; border-radius: 999px; padding: 14px 28px;
+      font-family: 'Almarai', sans-serif; font-size: 15px; font-weight: 600;
+      text-decoration: none; border: none; cursor: pointer;
+      transition: background 0.2s, transform 0.2s;
+    }
+    .g-btn-primary:hover { background: #8b4e2a; transform: scale(1.02); }
+    .g-btn-primary svg { width: 16px; height: 16px; stroke: #f5ede0; flex-shrink: 0; }
+    .g-btn-secondary {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: transparent; color: #8b4e2a; border-radius: 999px; padding: 14px 24px;
+      font-family: 'Almarai', sans-serif; font-size: 14px; font-weight: 500;
+      text-decoration: none; border: 1px solid rgba(139,78,42,0.3); cursor: pointer;
+      transition: background 0.2s, border-color 0.2s;
+    }
+    .g-btn-secondary:hover { background: rgba(139,78,42,0.07); border-color: rgba(139,78,42,0.5); }
+    .g-scroll-hint {
+      position: absolute; bottom: 32px; left: 50%; transform: translateX(-50%);
+      display: flex; flex-direction: column; align-items: center; gap: 6px;
+      color: #c8945a; font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase;
+      z-index: 1; animation: gfloat 2.5s ease infinite;
+    }
+    @keyframes gfloat {
+      0%, 100% { transform: translateX(-50%) translateY(0); }
+      50% { transform: translateX(-50%) translateY(7px); }
+    }
+    .g-scroll-hint svg { width: 18px; height: 18px; stroke: #c8945a; }
+
+    .g-section { background: #f5ede0; padding: 80px 24px; }
+    .g-section-alt { background: #ede3d4; padding: 80px 24px; }
+    .g-inner { max-width: 1100px; margin: 0 auto; }
+    .g-eyebrow {
+      font-size: 10px; font-weight: 700; letter-spacing: 2px;
+      text-transform: uppercase; color: #c8945a; margin-bottom: 14px;
+    }
+    .g-h2 {
+      font-size: clamp(26px,4vw,52px); font-weight: 400;
+      letter-spacing: -0.04em; color: #3d1f0a; line-height: 1.05; margin-bottom: 20px;
+    }
+    .g-h2 em { font-family: 'Instrument Serif', serif; font-style: italic; color: #8b4e2a; }
+    .g-body { font-size: 15px; color: #7a5540; line-height: 1.8; max-width: 680px; }
+
+    .g-intro {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start;
+      padding-bottom: 80px; border-bottom: 1px solid rgba(139,78,42,0.15);
+    }
+
+    .g-quote-section { background: #3d1f0a; padding: 80px 24px; }
+    .g-quote-inner { max-width: 900px; margin: 0 auto; text-align: center; }
+    .g-quote-mark {
+      font-size: 80px; color: #c8945a; line-height: 0.6;
+      font-family: 'Instrument Serif', serif; margin-bottom: 24px; display: block;
+    }
+    .g-quote {
+      font-size: clamp(18px,2.8vw,32px); font-weight: 400; color: #f5ede0; line-height: 1.4;
+      font-family: 'Instrument Serif', serif; font-style: italic; margin-bottom: 24px;
+    }
+    .g-quote-credit { font-size: 12px; color: #c8945a; letter-spacing: 1px; text-transform: uppercase; }
+
+    .g-grid {
+      display: grid; grid-template-columns: repeat(3,1fr);
+      gap: 2px; margin-top: 48px; border-radius: 20px; overflow: hidden;
+    }
+    .g-card {
+      background: #ede3d4; padding: 36px 28px;
+      opacity: 0; transform: translateY(16px);
+      transition: opacity 0.6s var(--ease2), transform 0.6s var(--ease2);
+    }
+    .g-card.vis { opacity: 1; transform: translateY(0); }
+    .g-card-ico { font-size: 28px; margin-bottom: 16px; }
+    .g-card-num {
+      font-size: 10px; font-weight: 700; letter-spacing: 1px; color: #c8945a;
+      margin-bottom: 14px; display: flex; align-items: center; gap: 10px;
+    }
+    .g-card-num::after { content: ''; flex: 1; height: 1px; background: rgba(139,78,42,0.18); }
+    .g-card h3 { font-size: 16px; font-weight: 600; color: #3d1f0a; margin-bottom: 10px; letter-spacing: -0.02em; }
+    .g-card p { font-size: 13px; color: #7a5540; line-height: 1.65; }
+
+    .g-tech-grid {
+      display: grid; grid-template-columns: repeat(4,1fr);
+      gap: 10px; margin-top: 40px;
+    }
+    .g-tech-card {
+      background: rgba(139,78,42,0.06); border: 1px solid rgba(139,78,42,0.14);
+      border-radius: 14px; padding: 24px 20px;
+      opacity: 0; transform: scale(0.95);
+      transition: opacity 0.5s var(--ease2), transform 0.5s var(--ease2);
+    }
+    .g-tech-card.vis { opacity: 1; transform: scale(1); }
+    .g-tech-label {
+      font-size: 10px; font-weight: 700; letter-spacing: 1px; color: #c8945a;
+      text-transform: uppercase; margin-bottom: 8px;
+    }
+    .g-tech-val { font-size: 14px; font-weight: 600; color: #3d1f0a; }
+
+    .g-cta-bottom { background: #3d1f0a; padding: 80px 24px 100px; text-align: center; }
+    .g-cta-bottom h2 {
+      font-size: clamp(26px,4vw,52px); font-weight: 400;
+      letter-spacing: -0.04em; color: #f5ede0; margin-bottom: 16px;
+      font-family: 'Instrument Serif', serif; font-style: italic;
+    }
+    .g-cta-bottom p { font-size: 16px; color: #c8945a; margin-bottom: 40px; }
+    .g-btn-light {
+      display: inline-flex; align-items: center; gap: 10px;
+      background: #f5ede0; color: #3d1f0a; border-radius: 999px; padding: 14px 28px;
+      font-family: 'Almarai', sans-serif; font-size: 15px; font-weight: 700;
+      text-decoration: none; border: none; cursor: pointer;
+      transition: background 0.2s, transform 0.2s;
+    }
+    .g-btn-light:hover { background: #ede3d4; transform: scale(1.03); }
+    .g-btn-light svg { width: 16px; height: 16px; stroke: #3d1f0a; }
+
     /* =============================================
        BIO PAGE
     ============================================= */
     #page-bio { background: var(--bg); }
+
 
     /* Hero */
     .bio-hero {
@@ -997,7 +1149,7 @@
     }
     @media (max-width: 640px) {
       .nav-pill { gap: 14px; padding: 8px 16px; }
-      .nav-pill a { font-size: 11px; }
+      .nav-pill button { font-size: 11px; }
       #home-hero { padding: 10px; }
       .hero-content { grid-template-columns: 1fr; padding: 0 20px 20px; }
       .hero-right { display: none; }
@@ -1006,8 +1158,7 @@
       .about-card { padding: 36px 20px; }
       .fgrid { grid-template-columns: 1fr; }
       .dgrid { grid-template-columns: 1fr; }
-      .li-card { padding: 36px 20px; flex-direction: column; text-align: left; }
-      .li-card a.btn { align-self: flex-start !important; margin-top: 16px; }
+      .li-card { flex-direction: column; text-align: center; }
       /* Bio mobile */
       .bio-stats { gap: 28px; }
       .bio-xp-grid { grid-template-columns: 1fr 1fr; }
@@ -1023,8 +1174,8 @@
       .m-intro { grid-template-columns: 1fr; gap: 32px; }
       .m-grid { grid-template-columns: 1fr; }
       .m-feature-box { grid-template-columns: 1fr; gap: 32px; padding: 32px 22px; }
-      .music-card { grid-template-columns: 1fr; padding: 40px 24px; gap: 40px; }
-      .music-visual { display: flex; max-height: 250px; border-radius: 24px; }
+      .music-card { grid-template-columns: 1fr; }
+      .music-visual { display: none; }
       /* TRIBU mobile */
       .t-hero { padding: 10px; }
       .t-hero-content { grid-template-columns: 1fr; padding: 0 20px 20px; }
@@ -1036,59 +1187,28 @@
     }
   </style>
 </head>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Person",
-  "name": "Raphaël Paya",
-  "alternateName": "Piers Mayers",
-  "url": "https://raphaelpaya.com",
-  "sameAs": [
-    "https://www.linkedin.com/in/raphael-paya",
-    "https://open.spotify.com/search/Piers%20Mayers"
-  ],
-  "jobTitle": "Entrepreneur & Consultant IT",
-  "founder": [
-    {
-      "@type": "Organization",
-      "name": "TRIBU",
-      "url": "https://wearetribu.fr"
-    },
-    {
-      "@type": "Organization",
-      "name": "Miixeo",
-      "url": "https://miixeo.com"
-    },
-    {
-      "@type": "Organization",
-      "name": "Gerard AI",
-      "url": "https://www.gerard-ai.com"
-    }
-  ],
-  "knowsAbout": [
-    "Recrutement IT",
-    "SaaS",
-    "IA RH",
-    "Tech",
-    "Musique Indie Pop"
-  ]
-}
-</script>
 <body>
+
 <!-- ================================================================
      NAV
 ================================================================ -->
 <nav>
   <div class="nav-pill">
-    <a href="/" id="nb-home" class="active">Accueil</a>
-    <a href="/bio" id="nb-bio">Bio</a>
-    <a href="/tribu" id="nb-tribu">TRIBU</a>
-    <a href="/miixeo" id="nb-miixeo">Miixeo</a>
-    <a href="/piers-mayers" id="nb-musique">Musique</a>
-    <a href="/contact">Contact</a>
+    <button onclick="sp('home')" id="nb-home" class="active">Accueil</button>
+    <button onclick="sp('bio')" id="nb-bio">Bio</button>
+    <button onclick="sp('tribu')" id="nb-tribu">TRIBU</button>
+    <button onclick="sp('miixeo')" id="nb-miixeo">Miixeo</button>
+    <button onclick="sp('gerard')" id="nb-gerard" class="nb-gerard-btn">Gérard AI</button>
+    <button onclick="sp('home');sto('musique')">Musique</button>
+    <button onclick="sp('home');sto('contact')">Contact</button>
   </div>
 </nav>
-<main id="page-home">
+
+
+<!-- ================================================================
+     PAGE : HOME
+================================================================ -->
+<div id="page-home" class="page active">
 
   <!-- HERO -->
   <section id="home-hero">
@@ -1115,7 +1235,7 @@
         </div>
         <div class="hero-right">
           <p class="hero-desc">Raphaël Paya est entrepreneur dans le recrutement IT. Fondateur de TRIBU et Miixeo, il construit des outils et des équipes pour les meilleurs talents tech.</p>
-          <button type="button" onclick="window.location.href='/tribu'" class="hero-cta">
+          <button onclick="sp('tribu')" class="hero-cta">
             Découvrir mes projets
             <span class="hero-cta-dot">
               <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
@@ -1162,7 +1282,7 @@
           <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Dev, Data, DevOps, CTO, Cyber & plus</li>
           <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Time-to-hire drastiquement réduit</li>
         </ul>
-        <button type="button" onclick="window.location.href='/tribu'" class="fc-more">En savoir plus <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></button>
+        <button onclick="sp('tribu')" class="fc-more">En savoir plus <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></button>
       </div>
 
       <!-- Miixeo -->
@@ -1174,7 +1294,7 @@
           <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Planification d'entretiens en 1 clic</li>
           <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Pipeline de recrutement centralisé</li>
         </ul>
-        <button type="button" onclick="window.location.href='/miixeo'" class="fc-more">En savoir plus <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></button>
+        <button onclick="sp('miixeo')" class="fc-more">En savoir plus <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></button>
       </div>
 
       <!-- Piers Mayers -->
@@ -1194,26 +1314,20 @@
   <!-- LINKEDIN -->
   <section class="li-section">
     <div class="li-card">
-      <div class="li-card-content">
-        <h3>LinkedIn & Influence</h3>
+      <div>
+        <h3>28 000+ abonnés LinkedIn</h3>
         <p>Recrutement IT, entrepreneuriat, tech — je partage ce qui marche vraiment.</p>
-        <div class="li-stats">
-          <div class="li-stat"><span class="li-stat-num">28K</span><span class="li-stat-lbl">Followers</span></div>
-          <div class="li-stat"><span class="li-stat-num">1M+</span><span class="li-stat-lbl">Impressions (2025)</span></div>
-          <div class="li-stat"><span class="li-stat-num">Partner</span><span class="li-stat-lbl">French Tech</span></div>
-          <div class="li-stat"><span class="li-stat-num">Founder</span><span class="li-stat-lbl"><a href="https://www.gerard-ai.com" target="_blank" rel="noopener">Gerard AI</a></span></div>
-        </div>
       </div>
-      <a href="https://www.linkedin.com/in/raphael-paya" target="_blank" rel="noopener" class="btn btn-white" style="color:#0A66C2;font-weight:600; white-space:nowrap; align-self:flex-start; margin-top:10px;">Suivre sur LinkedIn</a>
+      <a href="https://linkedin.com/in/raphaelpaya" target="_blank" rel="noopener" class="btn btn-white" style="color:#0A66C2;font-weight:600;">Suivre sur LinkedIn</a>
     </div>
   </section>
 
   <!-- MUSIC -->
   <section class="music-section" id="musique">
     <div class="music-card">
-      <div class="music-content">
+      <div>
         <h3>Piers Mayers</h3>
-        <p class="music-desc">Mon projet musical. Une autre façon d'explorer la créativité.<br>Je joue de <strong>la guitare, chant, batterie, basse et synthé.</strong><br>Album entièrement produit sur Logic Pro et masterisé au studio Square Garden Club.<br>Un mélange vibrant d'Indie Pop.</p>
+        <p>Mon projet musical, disponible sur toutes les plateformes. Une autre façon d'explorer la créativité.</p>
         <div class="music-plat">
           <a href="https://open.spotify.com/search/Piers%20Mayers" target="_blank" rel="noopener" class="plt">🎵 Spotify</a>
           <a href="https://www.deezer.com/search/Piers%20Mayers" target="_blank" rel="noopener" class="plt">🎶 Deezer</a>
@@ -1231,12 +1345,668 @@
     <div class="cbtns">
       <a href="mailto:contact@raphaelpaya.com" class="btn btn-cream">✉️ M'écrire</a>
       <a href="https://linkedin.com/in/raphaelpaya" target="_blank" rel="noopener" class="btn btn-dark">LinkedIn</a>
-      <button type="button" onclick="window.location.href='/tribu'" class="btn btn-dark">TRIBU</button>
-      <button type="button" onclick="window.location.href='/miixeo'" class="btn btn-dark">Miixeo</button>
+      <button onclick="sp('tribu')" class="btn btn-dark">TRIBU</button>
+      <button onclick="sp('miixeo')" class="btn btn-dark">Miixeo</button>
     </div>
   </section>
 
-</div></main>
+</div><!-- /page-home -->
+
+
+<!-- ================================================================
+     PAGE : TRIBU — Tropical / Organic / Forest
+================================================================ -->
+<div id="page-tribu" class="page">
+
+  <!-- HERO -->
+  <section class="t-hero">
+    <div class="t-hero-box">
+      <div class="t-hero-fallback"></div>
+      <video id="tribu-vid" class="t-hero-vid" autoplay loop muted playsinline preload="none"></video>
+      <div class="noise-overlay"></div>
+      <div class="t-hero-grad"></div>
+      <div class="t-hero-content" id="t-hero-content">
+        <div>
+          <h1 class="t-name" id="t-name">
+            <span class="pw"><span class="pw-i">TRIBU</span></span>
+          </h1>
+        </div>
+        <div class="t-hero-right">
+          <p class="t-hero-eyebrow">Agence de recrutement IT</p>
+          <p class="t-hero-desc">L'alliance de l'expertise humaine et de l'intelligence artificielle pour identifier, analyser et recruter les meilleurs talents tech.</p>
+          <a href="https://wearetribu.fr" target="_blank" rel="noopener" class="t-cta">
+            Visiter wearetribu.fr
+            <span class="t-cta-dot">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INTRO -->
+  <section class="t-section">
+    <div class="t-inner">
+      <div class="t-intro">
+        <div>
+          <p class="t-eyebrow">Notre approche</p>
+          <h2 class="t-h2" style="margin-top:10px;">Recruter autrement,<br><span class="serif-it">au service de la performance.</span></h2>
+        </div>
+        <div>
+          <p class="t-body">TRIBU ne se contente pas de placer des profils. Nous analysons la personnalité, les motivations et les ambitions de chaque candidat pour créer des alignements durables entre les talents IT et les entreprises qui les méritent.</p>
+          <p class="t-body" style="margin-top:16px;">Chaque mission est traitée avec la précision d'un chirurgien et la sensibilité d'un mentor.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURES 3×2 -->
+  <section class="t-section" style="padding-top:0;">
+    <div class="t-inner">
+      <p class="t-eyebrow">Ce qui nous distingue</p>
+      <h2 class="t-h2" style="margin-top:10px;">Six piliers, une méthode.</h2>
+      <div class="t-grid" id="t-grid">
+        <div class="t-card">
+          <div class="t-card-num">01</div>
+          <h3>Intelligence artificielle</h3>
+          <p>Notre IA filtre, analyse et score les profils en quelques secondes. Seuls les candidats véritablement alignés avec votre contexte sont présentés.</p>
+        </div>
+        <div class="t-card">
+          <div class="t-card-num">02</div>
+          <h3>Méthode DISC</h3>
+          <p>Chaque candidat est évalué selon la méthode DISC. Un profil comportemental complet — pas seulement un CV, mais une personnalité.</p>
+        </div>
+        <div class="t-card">
+          <div class="t-card-num">03</div>
+          <h3>Profils stratégiques</h3>
+          <p>Scoring technique, soft skills, compatibilité culturelle — nous livrons un dossier complet, pas une simple liste de candidatures.</p>
+        </div>
+        <div class="t-card">
+          <div class="t-card-num">04</div>
+          <h3>Expertise IT exclusive</h3>
+          <p>Dev, Data, DevOps, Cyber, Cloud, Product — nous maîtrisons l'écosystème tech dans sa profondeur et ses nuances les plus fines.</p>
+        </div>
+        <div class="t-card">
+          <div class="t-card-num">05</div>
+          <h3>Time-to-hire compressé</h3>
+          <p>Délai entre le brief et les premiers profils drastiquement réduit grâce à notre réseau de talents pré-qualifiés et à nos algorithmes.</p>
+        </div>
+        <div class="t-card">
+          <div class="t-card-num">06</div>
+          <h3>Accompagnement intégral</h3>
+          <p>Définition du besoin, sourcing, entretiens, négociation, intégration — présents à chaque étape, pas seulement au moment du placement.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DISC -->
+  <section class="t-section" style="padding-top:0;">
+    <div class="t-inner">
+      <div class="t-disc">
+        <div>
+          <p class="t-eyebrow">Psychologie & matching</p>
+          <h2 class="t-h2" style="margin-top:10px;font-size:clamp(22px,2.8vw,36px);">La méthode DISC au cœur de chaque recrutement</h2>
+          <p class="t-body" style="margin-top:16px;">TRIBU intègre l'analyse comportementale DISC dans chaque évaluation candidat. Des recrutements qui durent, des équipes qui performent.</p>
+        </div>
+        <div>
+          <div class="t-disc-row">
+            <span class="t-disc-letter">D</span>
+            <div><strong>Dominance</strong><span>Orientation résultats, leadership, prise de décision</span></div>
+          </div>
+          <div class="t-disc-row">
+            <span class="t-disc-letter">I</span>
+            <div><strong>Influence</strong><span>Communication, enthousiasme, sens de la collaboration</span></div>
+          </div>
+          <div class="t-disc-row">
+            <span class="t-disc-letter">S</span>
+            <div><strong>Stabilité</strong><span>Fiabilité, patience, esprit d'équipe durable</span></div>
+          </div>
+          <div class="t-disc-row">
+            <span class="t-disc-letter">C</span>
+            <div><strong>Conformité</strong><span>Précision, rigueur analytique, qualité d'exécution</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROFILES -->
+  <section class="t-section" style="padding-top:0; padding-bottom:60px;">
+    <div class="t-inner">
+      <p class="t-eyebrow">Expertises recrutées</p>
+      <h2 class="t-h2" style="margin-top:10px;margin-bottom:28px;">Profils IT & Tech</h2>
+      <div class="t-tags">
+        <span class="t-tag">Développeur Full Stack</span>
+        <span class="t-tag">Ingénieur Backend</span>
+        <span class="t-tag">Développeur Frontend</span>
+        <span class="t-tag">Data Scientist</span>
+        <span class="t-tag">Data Engineer</span>
+        <span class="t-tag">ML Engineer</span>
+        <span class="t-tag">DevOps / SRE</span>
+        <span class="t-tag">Architecte Cloud</span>
+        <span class="t-tag">Product Manager</span>
+        <span class="t-tag">CTO / VP Engineering</span>
+        <span class="t-tag">Expert Cybersécurité</span>
+        <span class="t-tag">Scrum Master</span>
+        <span class="t-tag">Tech Lead</span>
+        <span class="t-tag">UX/UI Designer</span>
+        <span class="t-tag">QA Engineer</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <div class="t-cta-bottom">
+    <h2>Prêt à recruter autrement ?</h2>
+    <p>Premier échange offert, sans engagement.</p>
+    <div class="cbtns">
+      <a href="https://wearetribu.fr" target="_blank" rel="noopener" class="btn btn-forest">Visiter wearetribu.fr</a>
+      <a href="mailto:contact@raphaelpaya.com" class="btn btn-t-dark">Nous contacter</a>
+    </div>
+  </div>
+
+</div><!-- /page-tribu -->
+
+
+<!-- ================================================================
+     PAGE : MIIXEO — White / Purple-Magenta
+================================================================ -->
+<div id="page-miixeo" class="page">
+
+  <!-- HERO -->
+  <section class="m-hero">
+    <div class="m-hero-box">
+      <div class="m-hero-fallback"></div>
+      <video id="miixeo-vid" class="m-hero-vid" autoplay loop muted playsinline preload="none"></video>
+      <div class="noise-overlay"></div>
+      <div class="m-hero-grad"></div>
+      <div class="m-hero-content" id="m-hero-content">
+        <div>
+          <h1 class="m-name" id="m-name">
+            <span class="pw"><span class="pw-i">Miixeo</span></span>
+          </h1>
+        </div>
+        <div class="m-hero-right">
+          <p class="m-hero-eyebrow">SaaS pour Recruteurs</p>
+          <p class="m-hero-desc">Le logiciel de recrutement nouvelle génération. CVs transformés en dossiers stratégiques, entretiens planifiés en 1 clic, pipeline centralisé.</p>
+          <a href="https://miixeo.com" target="_blank" rel="noopener" class="m-cta">
+            Visiter miixeo.com
+            <span class="m-cta-dot">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INTRO -->
+  <section class="m-section">
+    <div class="m-inner">
+      <div class="m-intro">
+        <div>
+          <p class="m-eyebrow">Notre vision</p>
+          <h2 class="m-h2" style="margin-top:10px;">Recruter plus vite,<br><span class="serif-it">sans sacrifier la qualité.</span></h2>
+        </div>
+        <div>
+          <p class="m-body">Miixeo remplace les tâches répétitives par de l'intelligence artificielle, libérant les recruteurs pour ce qui compte vraiment : la relation humaine et le jugement stratégique.</p>
+          <p class="m-body" style="margin-top:16px;">Une plateforme unique pour sourcer, analyser, scorer et présenter les candidats — le tout en quelques clics.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURES 3×2 -->
+  <section class="m-section" style="padding-top:0;">
+    <div class="m-inner">
+      <p class="m-eyebrow">Fonctionnalités</p>
+      <h2 class="m-h2" style="margin-top:10px;">Six outils, une plateforme.</h2>
+      <div class="m-grid" id="m-grid">
+        <div class="m-card">
+          <div class="m-card-num">01</div>
+          <h3>CVs vers dossiers stratégiques</h3>
+          <p>L'IA analyse chaque CV et génère automatiquement un dossier candidat enrichi : compétences scorées, points forts, adéquation au poste.</p>
+        </div>
+        <div class="m-card">
+          <div class="m-card-num">02</div>
+          <h3>Planification en 1 clic</h3>
+          <p>Planifiez un entretien directement depuis le dossier candidat — plus d'allers-retours email pour trouver un créneau commun.</p>
+        </div>
+        <div class="m-card">
+          <div class="m-card-num">03</div>
+          <h3>Pipeline centralisé</h3>
+          <p>Gérez tous vos processus en parallèle dans une vue kanban claire. Chaque étape, chaque candidat, au même endroit.</p>
+        </div>
+        <div class="m-card">
+          <div class="m-card-num">04</div>
+          <h3>Scoring IA automatique</h3>
+          <p>Chaque profil reçoit un score d'adéquation calculé par notre IA — identifiez les meilleures candidatures en un coup d'œil.</p>
+        </div>
+        <div class="m-card">
+          <div class="m-card-num">05</div>
+          <h3>Partage client simplifié</h3>
+          <p>Envoyez un dossier candidat professionnel à votre client en un clic. Interface épurée, branding personnalisé.</p>
+        </div>
+        <div class="m-card">
+          <div class="m-card-num">06</div>
+          <h3>Analytics & performance</h3>
+          <p>KPIs de recrutement : time-to-hire, taux de conversion, performance par source — tout en tableau de bord temps réel.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="m-section" style="padding-top:0; padding-bottom:60px;">
+    <div class="m-inner">
+      <div class="m-feature-box">
+        <div>
+          <p class="m-eyebrow">Comment ça marche</p>
+          <h2 style="font-size:clamp(20px,2.5vw,30px);font-weight:700;color:#111;margin-top:10px;margin-bottom:12px;letter-spacing:-0.03em;">L'IA qui travaille pour vous</h2>
+          <p class="m-body">Miixeo automatise les tâches à faible valeur ajoutée pour que vous vous concentriez sur ce qui compte : la relation humaine.</p>
+        </div>
+        <div class="m-steps">
+          <div class="m-step">
+            <div class="m-step-num">01</div>
+            <div>
+              <h4>Import du CV</h4>
+              <p>Glissez-déposez un CV ou importez depuis LinkedIn, Indeed ou votre boîte mail.</p>
+            </div>
+          </div>
+          <div class="m-step">
+            <div class="m-step-num">02</div>
+            <div>
+              <h4>Analyse IA</h4>
+              <p>Miixeo génère instantanément un dossier structuré, enrichi et scoré en quelques secondes.</p>
+            </div>
+          </div>
+          <div class="m-step">
+            <div class="m-step-num">03</div>
+            <div>
+              <h4>Envoi & entretien</h4>
+              <p>Partagez le dossier à votre client, planifiez l'entretien directement depuis la plateforme.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TAGS -->
+  <section class="m-section" style="padding-top:0; padding-bottom:60px;">
+    <div class="m-inner">
+      <p class="m-eyebrow">Utilisé par des recruteurs</p>
+      <h2 class="m-h2" style="margin-top:10px;margin-bottom:28px;">Profils & secteurs couverts</h2>
+      <div class="m-tags">
+        <span class="m-tag">Développeur Full Stack</span>
+        <span class="m-tag">Data Scientist</span>
+        <span class="m-tag">DevOps / SRE</span>
+        <span class="m-tag">Product Manager</span>
+        <span class="m-tag">Tech Lead</span>
+        <span class="m-tag">ML Engineer</span>
+        <span class="m-tag">Architecte Cloud</span>
+        <span class="m-tag">CTO / VP Engineering</span>
+        <span class="m-tag">Expert Cybersécurité</span>
+        <span class="m-tag">UX/UI Designer</span>
+        <span class="m-tag">QA Engineer</span>
+        <span class="m-tag">Scrum Master</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <div class="m-cta-bottom">
+    <h2>Prêt à recruter 10x plus vite ?</h2>
+    <p>Rejoignez les recruteurs qui transforment leur façon de travailler.</p>
+    <div class="cbtns">
+      <a href="https://miixeo.com" target="_blank" rel="noopener" class="btn btn-miixeo-grad">Essayer Miixeo</a>
+      <a href="mailto:contact@raphaelpaya.com" class="btn btn-m-light">Demander une démo</a>
+    </div>
+  </div>
+
+</div><!-- /page-miixeo -->
+
+
+<!-- ================================================================
+     PAGE : BIO — Raphaël Paya
+================================================================ -->
+<div id="page-bio" class="page">
+
+  <!-- HERO -->
+  <section class="bio-hero">
+    <div class="bio-hero-inner">
+      <p class="bio-label">À propos de Raphaël Paya</p>
+      <h1 class="bio-h1" id="bio-h1">
+        <span class="pw"><span class="pw-i">Raphaël</span></span>&nbsp;<span class="pw"><span class="pw-i"><em>Paya.</em></span></span>
+      </h1>
+      <p class="bio-tagline">Fondateur, entrepreneur en série, consultant IT senior — 10 ans de carrière internationale entre Paris, Montréal, Londres et Genève, forgés dans la vente, le recrutement tech et l'entrepreneuriat. Aujourd'hui à la tête de deux entreprises qui redéfinissent le recrutement IT.</p>
+      <div class="bio-stats">
+        <div>
+          <div class="bio-stat-num">10<sup>ans</sup></div>
+          <div class="bio-stat-label">d'expérience en sales & business</div>
+        </div>
+        <div>
+          <div class="bio-stat-num">6<sup>ans</sup></div>
+          <div class="bio-stat-label">en conseil & recrutement IT</div>
+        </div>
+        <div>
+          <div class="bio-stat-num">2</div>
+          <div class="bio-stat-label">entreprises fondées en 2 ans</div>
+        </div>
+        <div>
+          <div class="bio-stat-num">4</div>
+          <div class="bio-stat-label">pays · 5 villes</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TIMELINE -->
+  <section class="bio-timeline-section">
+    <div class="bio-tl-inner">
+      <div class="bio-tl-header">
+        <p class="bio-tl-eyebrow">Parcours</p>
+        <h2 class="bio-tl-h2">D'abord les armes,<br>puis <em>l'empire.</em></h2>
+      </div>
+      <div class="bio-tl" id="bio-tl">
+
+        <div class="bio-tl-item">
+          <div class="bio-tl-date">2015 — 2019 <span class="bio-tl-city">Paris · Saint-Tropez</span></div>
+          <div class="bio-tl-role">Sales Manager & Regional Manager</div>
+          <div class="bio-tl-company">Industrie du Design — France</div>
+          <p class="bio-tl-desc">Les premières armes. Une marque de design premium entre Paris et Saint-Tropez — un environnement exigeant qui forge les fondamentaux : management d'équipe, développement commercial terrain, recrutement opérationnel. C'est ici que naît la passion pour la performance, la relation client et le leadership. Quatre ans à comprendre que le business se construit avec les bonnes personnes, pas seulement les bons produits.</p>
+        </div>
+
+        <div class="bio-tl-item">
+          <div class="bio-tl-date">2019 — 2020 <span class="bio-tl-city">Montréal, Canada</span></div>
+          <div class="bio-tl-role">Consultant IT</div>
+          <div class="bio-tl-company">Cofomo — Montréal</div>
+          <p class="bio-tl-desc">Le pivot. Première immersion dans l'univers de la tech au sein de Cofomo, l'un des plus grands cabinets IT du Canada. Découverte de l'écosystème tech, des cycles de vente complexes, d'une culture nord-américaine ambitieuse et directe. Montréal comme tremplin vers un univers qui allait devenir une passion : le recrutement IT.</p>
+        </div>
+
+        <div class="bio-tl-item">
+          <div class="bio-tl-date">2020 — 2024 <span class="bio-tl-city">Londres, UK</span></div>
+          <div class="bio-tl-role">Senior Recruiter — Scope Salesforce</div>
+          <div class="bio-tl-company">Harnham & Tenth Revolution Group — City of London</div>
+          <p class="bio-tl-desc">Quatre ans au cœur de la City. Rythme effréné, deals en milliers de livres sterling, desk Salesforce senior dans l'un des marchés tech les plus compétitifs au monde. Chez Harnham puis Tenth Revolution Group, recrutement freelance et permanent sur des profils Salesforce Architects, CRM Developers et Business Analysts. L'école de la performance sous pression maximale.</p>
+        </div>
+
+        <div class="bio-tl-item">
+          <div class="bio-tl-date">2024 — 2025 <span class="bio-tl-city">Genève, Suisse</span></div>
+          <div class="bio-tl-role">Senior Consultant IT</div>
+          <div class="bio-tl-company">Cybersécurité & Software — Genève</div>
+          <p class="bio-tl-desc">Mutation pour les bureaux genevois. Élargissement du scope : cybersécurité et software engineering sur le marché suisse — un marché premium, technique, exigeant et profondément sélectif. Une année de précision chirurgicale, d'endurance, et de conviction croissante : il est temps de construire quelque chose à soi.</p>
+        </div>
+
+        <div class="bio-tl-item tl-highlight">
+          <div class="bio-tl-date">Mars 2025 <span class="bio-tl-city">France</span></div>
+          <div class="bio-tl-role">Fondateur — TRIBU</div>
+          <div class="bio-tl-company">Agence de Recrutement IT 2.0</div>
+          <p class="bio-tl-desc">Le saut. Après des années à observer les failles du recrutement IT traditionnel, TRIBU est née : une agence nouvelle génération intégrant l'IA dès la source — automatisation du sourcing, dossiers de compétences enrichis, marges transparentes, plateforme candidats. Résultat de la première année : 10+ clients signés, 8 CDI placés, 10+ freelances managés, une première embauche dans l'équipe avec Lucas, recruiter freelance dédié TRIBU.</p>
+          <span class="bio-tl-badge">Fondateur & CEO</span>
+        </div>
+
+        <div class="bio-tl-item tl-highlight">
+          <div class="bio-tl-date">Mars 2026 <span class="bio-tl-city">France</span></div>
+          <div class="bio-tl-role">Fondateur & Développeur Full-Stack — Miixeo</div>
+          <div class="bio-tl-company">SaaS de Recrutement propulsé par l'IA</div>
+          <p class="bio-tl-desc">Second pari — plus technique encore. Miixeo a été codé de A à Z : React, Vite, HTML, hébergé sur Vercel, base de données Supabase, APIs tierces intégrées, système de paiement, architecture backend sécurisée. Front-end designé via Antigravity, Google AI Studio et Spline. Pas du vibe coding — un vrai projet SaaS robuste, de la logique métier à la sécurité. Un simple CV et une fiche de poste suffisent pour générer un dossier candidat sur-mesure en quelques secondes.</p>
+          <span class="bio-tl-badge">Fondateur · CTO · Designer</span>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CHIFFRES CLÉS -->
+  <section class="bio-xp-section">
+    <div class="bio-xp-inner">
+      <p class="bio-tl-eyebrow">En chiffres</p>
+      <h2 class="bio-tl-h2" style="margin-top:12px;">Ce que 10 ans <em>construisent.</em></h2>
+      <div class="bio-xp-grid" id="bio-xp-grid">
+        <div class="bio-xp-card"><div class="bio-xp-n">10<sup>+</sup></div><div class="bio-xp-lbl">clients signés dès la 1ère année avec TRIBU</div></div>
+        <div class="bio-xp-card"><div class="bio-xp-n">8</div><div class="bio-xp-lbl">CDI placés — profils IT & Tech</div></div>
+        <div class="bio-xp-card"><div class="bio-xp-n">10<sup>+</sup></div><div class="bio-xp-lbl">freelances managés via TRIBU</div></div>
+        <div class="bio-xp-card"><div class="bio-xp-n">4</div><div class="bio-xp-lbl">pays — France, Canada, Royaume-Uni, Suisse</div></div>
+        <div class="bio-xp-card"><div class="bio-xp-n">6<sup>ans</sup></div><div class="bio-xp-lbl">en recrutement IT — Data, AI, Salesforce, Cyber</div></div>
+        <div class="bio-xp-card"><div class="bio-xp-n">2</div><div class="bio-xp-lbl">entreprises fondées et opérationnelles en parallèle</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MUSIQUE -->
+  <section class="bio-music">
+    <div class="bio-music-inner">
+      <div class="bio-music-card">
+        <div>
+          <p class="bio-music-eyebrow">Au-delà des affaires</p>
+          <h3 class="bio-music-h3">Piers <em>Mayers.</em></h3>
+          <p class="bio-music-p">Guitariste depuis l'âge de 11 ans, bassiste, chanteur, compositeur et DJ. Sous le nom de Piers Mayers, chaque morceau est produit, arrangé et interprété en solo — tous les instruments, toutes les lignes vocales. Deux albums disponibles sur les grandes plateformes : un mélange de pop, house et indie music avec une teinte de nostalgie. Et un DJ set d'une heure disponible sur YouTube.</p>
+          <div class="bio-music-links">
+            <a href="https://open.spotify.com/search/Piers%20Mayers" target="_blank" rel="noopener" class="bio-plt">Spotify</a>
+            <a href="https://www.deezer.com/search/Piers%20Mayers" target="_blank" rel="noopener" class="bio-plt">Deezer</a>
+            <a href="https://music.apple.com/search?term=Piers+Mayers" target="_blank" rel="noopener" class="bio-plt">Apple Music</a>
+            <a href="https://youtube.com" target="_blank" rel="noopener" class="bio-plt">DJ Set YouTube</a>
+          </div>
+        </div>
+        <div class="bio-music-visual">
+          <div class="bio-music-wave">
+            <span></span><span></span><span></span><span></span>
+            <span></span><span></span><span></span>
+          </div>
+          <div class="bio-music-meta">2 albums<br>Spotify · Apple Music · Deezer · YouTube</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VISION -->
+  <section class="bio-vision">
+    <div class="bio-vision-inner">
+      <p class="bio-tl-eyebrow" style="text-align:center;">Vision</p>
+      <p class="bio-vision-quote">"Commencer jeune, vite et fort — et construire un groupe d'entreprises qui redéfinit le recrutement, la technologie et au-delà."</p>
+      <div class="bio-ventures" id="bio-ventures">
+        <div class="bio-venture">
+          <span class="bio-venture-status live">Live</span>
+          <h4>TRIBU</h4>
+          <p>Agence de recrutement IT 2.0 — IA, transparence, impact. Fondée en mars 2025.</p>
+        </div>
+        <div class="bio-venture">
+          <span class="bio-venture-status live">Live</span>
+          <h4>Miixeo</h4>
+          <p>SaaS de présentation candidats propulsé par l'IA. Fondé en mars 2026.</p>
+        </div>
+        <div class="bio-venture">
+          <span class="bio-venture-status soon">Bientôt</span>
+          <h4>Projet Design</h4>
+          <p>Co-fondateur — prochain projet dans l'industrie du design.</p>
+        </div>
+        <div class="bio-venture">
+          <span class="bio-venture-status soon">Bientôt</span>
+          <h4>Projet Immobilier</h4>
+          <p>Co-fondateur — prochain chapitre dans l'immobilier.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div><!-- /page-bio -->
+
+
+<!-- ================================================================
+     PAGE : GÉRARD AI
+================================================================ -->
+<div id="page-gerard" class="page">
+
+  <!-- HERO -->
+  <section class="g-hero">
+    <div class="g-badge">
+      <span class="g-badge-dot"></span>
+      Projet personnel — Intelligence Artificielle
+    </div>
+    <h1 class="g-hero-name">Gérard <em>AI.</em></h1>
+    <p class="g-hero-sub">L'IA la plus honnête du marché.<br>Il ne comprend pas trop la tech, mais il répond avec assurance.</p>
+    <div class="g-cta-row">
+      <a href="https://www.gerard-ai.com" target="_blank" rel="noopener" class="g-btn-primary" id="gerard-main-cta">
+        Parler à Gérard
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
+      </a>
+      <a href="#" onclick="window.scrollBy({top:window.innerHeight * 0.8,behavior:'smooth'});return false;" class="g-btn-secondary">En savoir plus</a>
+    </div>
+    <div class="g-scroll-hint">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+      Défiler
+    </div>
+  </section>
+
+  <!-- INTRO -->
+  <section class="g-section">
+    <div class="g-inner">
+      <div class="g-intro">
+        <div>
+          <p class="g-eyebrow">Le concept</p>
+          <h2 class="g-h2">Une IA <em>à contre-courant.</em></h2>
+          <p class="g-body">Gérard est un ancien commercial reconverti. Il ne connaît pas vraiment les LLM, le fine-tuning ou le RAG — mais il a une opinion sur tout, une assurance à toute épreuve, et une façon de répondre qui fait mouche à chaque fois.</p>
+          <p class="g-body" style="margin-top:20px;">Le projet est né d'une conviction simple : les IA sont trop lisses, trop polies, trop parfaites. Gérard, lui, est brut. Réaliste. Et franchement drôle.</p>
+        </div>
+        <div>
+          <p class="g-eyebrow">La vision</p>
+          <h2 class="g-h2" style="font-size:clamp(18px,2.5vw,32px);">Viral par design, <em>humain par nature.</em></h2>
+          <p class="g-body">L'objectif était de créer une IA capable de générer de l'émotion — pas de l'admiration, mais du rire. Un contenu qui se partage naturellement parce qu'on n'a jamais vu ça ailleurs.</p>
+          <p class="g-body" style="margin-top:20px;">Résultat : une personnalité IA cohérente, prévisible dans son imprévisibilité, et tellement vraie qu'on oublie qu'elle est artificielle.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- QUOTE -->
+  <section class="g-quote-section">
+    <div class="g-quote-inner">
+      <span class="g-quote-mark">"</span>
+      <p class="g-quote">"Écoutez, moi l'IA je comprends pas trop comment ça marche exactement, mais ce que je peux vous dire c'est que j'ai des résultats. Et ça, ça parle."</p>
+      <p class="g-quote-credit">— Gérard, ancien commercial, maintenant IA</p>
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section class="g-section">
+    <div class="g-inner">
+      <p class="g-eyebrow">Ce qui le rend unique</p>
+      <h2 class="g-h2">Pas comme <em>les autres.</em></h2>
+      <div class="g-grid" id="g-cards">
+        <div class="g-card">
+          <div class="g-card-ico">🤌</div>
+          <div class="g-card-num">01</div>
+          <h3>Personnalité cohérente</h3>
+          <p>Gérard a une backstory, un vocabulaire, des tics de langage. Il reste en personnage même sous pression — grâce à un système de prompt soigneusement architecturé côté backend.</p>
+        </div>
+        <div class="g-card">
+          <div class="g-card-ico">😂</div>
+          <div class="g-card-num">02</div>
+          <h3>Le bon niveau de confusion</h3>
+          <p>Gérard ne dit pas n'importe quoi — il dit des choses qui ont l'air vraies, prononcées avec l'assurance d'un homme qui a vendu des cuisines pendant 12 ans.</p>
+        </div>
+        <div class="g-card">
+          <div class="g-card-ico">⚡</div>
+          <div class="g-card-num">03</div>
+          <h3>Réponses instantanées</h3>
+          <p>Le backend a été optimisé pour réduire la latence au maximum. Les instructions système ont été compressées pour que Gérard réponde aussi vite qu'un vrai commercial.</p>
+        </div>
+        <div class="g-card">
+          <div class="g-card-ico">🎯</div>
+          <div class="g-card-num">04</div>
+          <h3>Effet viral calculé</h3>
+          <p>Le ton, les formulations, les faux-pas technologiques de Gérard — tout est pensé pour être screenshotable. Le meilleur marketing est celui que les utilisateurs font eux-mêmes.</p>
+        </div>
+        <div class="g-card">
+          <div class="g-card-ico">🧠</div>
+          <div class="g-card-num">05</div>
+          <h3>Backend robuste</h3>
+          <p>Derrière la comédie, il y a une véritable architecture. API sécurisée, gestion des sessions, rate limiting — Gérard est sérieux dans sa façon d'être pas sérieux.</p>
+        </div>
+        <div class="g-card">
+          <div class="g-card-ico">🔄</div>
+          <div class="g-card-num">06</div>
+          <h3>Toujours en évolution</h3>
+          <p>Chaque retour utilisateur enrichit Gérard. Ses réponses s'améliorent, son vocabulaire s'élargit — mais son ego, lui, reste intact.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TECH STACK -->
+  <section class="g-section-alt">
+    <div class="g-inner">
+      <p class="g-eyebrow">Sous le capot</p>
+      <h2 class="g-h2">Codé de <em>A à Z.</em></h2>
+      <p class="g-body">Gérard AI est un vrai projet technique — pas un wrapper ChatGPT baclé. L'objectif était de créer une IA plus vraie que nature, ce qui demande une ingénierie côté backend aussi sérieuse que son personnage est louche.</p>
+      <div class="g-tech-grid" id="g-tech">
+        <div class="g-tech-card">
+          <div class="g-tech-label">Frontend</div>
+          <div class="g-tech-val">React + Vite</div>
+        </div>
+        <div class="g-tech-card">
+          <div class="g-tech-label">Backend</div>
+          <div class="g-tech-val">Node.js + Express</div>
+        </div>
+        <div class="g-tech-card">
+          <div class="g-tech-label">IA</div>
+          <div class="g-tech-val">LLM fine-tuné</div>
+        </div>
+        <div class="g-tech-card">
+          <div class="g-tech-label">Déploiement</div>
+          <div class="g-tech-val">Vercel + Railway</div>
+        </div>
+        <div class="g-tech-card">
+          <div class="g-tech-label">Analytics</div>
+          <div class="g-tech-val">Plausible</div>
+        </div>
+        <div class="g-tech-card">
+          <div class="g-tech-label">Optimisation</div>
+          <div class="g-tech-val">Prompt Engineering</div>
+        </div>
+        <div class="g-tech-card">
+          <div class="g-tech-label">Sécurité</div>
+          <div class="g-tech-val">Rate limiting + API keys</div>
+        </div>
+        <div class="g-tech-card">
+          <div class="g-tech-label">Approche</div>
+          <div class="g-tech-val">Persona-first design</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <div class="g-cta-bottom">
+    <h2>Testez Gérard vous-même.</h2>
+    <p>Il répond en moins de 2 secondes. Et globalement, il n'a pas tort.</p>
+    <a href="https://www.gerard-ai.com" target="_blank" rel="noopener" class="g-btn-light" id="gerard-bottom-cta">
+      Ouvrir gerard-ai.com
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
+    </a>
+  </div>
+
+</div><!-- /page-gerard -->
+
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2026 Raphaël Paya ·
+    <a href="#" onclick="sp('home')">Accueil</a>
+    <a href="#" onclick="sp('tribu')">TRIBU</a>
+    <a href="#" onclick="sp('miixeo')">Miixeo</a>
+    <a href="#" onclick="sp('gerard')">Gérard AI</a>
+    <a href="https://linkedin.com/in/raphaelpaya" target="_blank">LinkedIn</a>
+    <a href="https://wearetribu.fr" target="_blank">wearetribu.fr</a>
+    <a href="https://miixeo.com" target="_blank">miixeo.com</a>
+    <a href="https://www.gerard-ai.com" target="_blank">gerard-ai.com</a>
+  </p>
+</footer>
+
+
 <script>
 // ================================================================
 //  PAGE ROUTING
@@ -1505,25 +2275,21 @@ function loadMiixeoVideo() {
 // ================================================================
 //  BOOT — run all inits
 // ================================================================
-
 function boot() {
-  if (window.location.hash) {
-      setTimeout(() => {
-          const el = document.querySelector(window.location.hash);
-          if (el) el.scrollIntoView({ behavior: 'smooth' });
-      }, 300);
-  }
-  if (document.getElementById('page-tribu')) {
+  const activePage = document.querySelector('.page.active')?.id;
+  if (activePage === 'page-tribu') {
     initTribuHero();
     initTribuCards();
     loadTribuVideo();
-  } else if (document.getElementById('page-miixeo')) {
+  } else if (activePage === 'page-miixeo') {
     initMiixeoHero();
     initMiixeoCards();
     loadMiixeoVideo();
-  } else if (document.getElementById('page-bio')) {
+  } else if (activePage === 'page-bio') {
     initBioPage();
-  } else if (document.getElementById('page-home')) {
+  } else if (activePage === 'page-gerard') {
+    initGerardCards();
+  } else {
     initHero();
     initAboutHeading();
     initVenturesHeader();
@@ -1531,7 +2297,6 @@ function boot() {
     initCards();
   }
 }
-
 
 document.addEventListener('DOMContentLoaded', () => {
   setTimeout(boot, 60);
@@ -1627,6 +2392,30 @@ function initTribuCards() {
     const io = new IntersectionObserver(entries => {
       entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('vis'); io.unobserve(e.target); } });
     }, { threshold: 0.04, rootMargin: '-30px' });
+    io.observe(c);
+  });
+}
+
+// ================================================================
+//  GÉRARD AI CARDS STAGGER
+// ================================================================
+function initGerardCards() {
+  document.querySelectorAll('.g-card').forEach((c, i) => {
+    if (c.dataset.obs) return;
+    c.dataset.obs = '1';
+    c.style.transitionDelay = i * 0.09 + 's';
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('vis'); io.unobserve(e.target); } });
+    }, { threshold: 0.04, rootMargin: '-20px' });
+    io.observe(c);
+  });
+  document.querySelectorAll('.g-tech-card').forEach((c, i) => {
+    if (c.dataset.obs) return;
+    c.dataset.obs = '1';
+    c.style.transitionDelay = i * 0.07 + 's';
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('vis'); io.unobserve(e.target); } });
+    }, { threshold: 0.04, rootMargin: '-20px' });
     io.observe(c);
   });
 }
