@@ -284,15 +284,25 @@
     /* =============================================
        LINKEDIN BANNER
     ============================================= */
-    .li-section { background: var(--bg); padding: 0 24px 60px; }
+    .li-section { background: var(--bg); padding: 0 24px 80px; }
     .li-card {
-      max-width: 1100px; margin: 0 auto; background: #0A66C2;
-      border-radius: 18px; padding: 36px 44px;
-      display: flex; align-items: center; justify-content: space-between; gap: 24px;
-      flex-wrap: wrap;
+      max-width: 1100px; margin: 0 auto; background: linear-gradient(135deg, #0A66C2, #003b78);
+      border-radius: 20px; padding: 48px;
+      display: flex; align-items: flex-start; justify-content: space-between; gap: 40px;
+      flex-wrap: wrap; box-shadow: 0 20px 40px rgba(10,102,194,0.15);
     }
-    .li-card h3 { font-size: 21px; font-weight: 700; color: white; margin-bottom: 5px; }
-    .li-card p { font-size: 14px; color: rgba(255,255,255,0.8); }
+    .li-card-content { flex: 1; min-width: 280px; }
+    .li-card h3 { font-size: clamp(24px, 4vw, 36px); font-weight: 800; color: white; margin-bottom: 12px; letter-spacing: -0.02em; line-height: 1.1; }
+    .li-card p { font-size: 15px; color: rgba(255,255,255,0.9); line-height: 1.6; margin-bottom: 32px; max-width: 600px; }
+    .li-stats {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 24px 16px;
+      margin-bottom: 12px;
+    }
+    .li-stat { display: flex; flex-direction: column; gap: 4px; }
+    .li-stat-num { font-size: 26px; font-weight: 800; color: white; line-height: 1; margin-bottom: 2px; }
+    .li-stat-lbl { font-size: 11px; font-weight: 600; color: rgba(255,255,255,0.7); text-transform: uppercase; letter-spacing: 0.5px; }
+    .li-stat-lbl a { color: rgba(255,255,255,0.8); transition: color 0.2s; text-decoration: underline; }
+    .li-stat-lbl a:hover { color: white; }
 
     /* =============================================
        MUSIC
@@ -300,25 +310,38 @@
     .music-section { background: var(--bg); padding: 0 24px 80px; }
     .music-card {
       max-width: 1100px; margin: 0 auto;
-      background: linear-gradient(135deg, #0d0d1a, #12192e, #0d2a4a);
-      border-radius: 18px; padding: 40px 44px;
-      display: grid; grid-template-columns: 1fr auto;
-      gap: 32px; align-items: center;
+      background: linear-gradient(135deg, #110e17, #1b0f19, #110816);
+      border-radius: 24px; padding: 56px;
+      display: grid; grid-template-columns: 1.2fr 1fr;
+      gap: 56px; align-items: center; position: relative; overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.04);
     }
-    .music-card h3 { font-size: 26px; font-weight: 700; color: white; margin-bottom: 8px; }
-    .music-card p { font-size: 14px; color: rgba(255,255,255,0.6); line-height: 1.6; margin-bottom: 20px; }
-    .music-plat { display: flex; gap: 8px; flex-wrap: wrap; }
+    .music-content { position: relative; z-index: 2; }
+    .music-card h3 { font-size: clamp(38px, 6vw, 64px); font-weight: 400; font-family: 'Instrument Serif', serif; font-style: italic; color: white; margin-bottom: 18px; letter-spacing: 0; line-height: 1.1; }
+    .music-desc { font-size: 15px; color: rgba(255,255,255,0.65); line-height: 1.7; margin-bottom: 32px; }
+    .music-desc strong { color: rgba(255,255,255,0.9); font-weight: 600; }
+    .music-plat { display: flex; gap: 10px; flex-wrap: wrap; }
     .plt {
-      padding: 8px 15px; border-radius: 999px; font-size: 12px; font-weight: 500;
-      text-decoration: none; background: rgba(255,255,255,0.1); color: white;
-      border: 1px solid rgba(255,255,255,0.14); transition: background 0.2s;
-      font-family: 'Almarai', sans-serif;
+      padding: 10px 20px; border-radius: 999px; font-size: 14px; font-weight: 600;
+      text-decoration: none; background: rgba(255,255,255,0.06); color: white;
+      border: 1px solid rgba(255,255,255,0.1); transition: background 0.2s, border-color 0.2s;
+      font-family: 'Almarai', sans-serif; display: inline-flex; align-items: center; gap: 8px;
     }
-    .plt:hover { background: rgba(255,255,255,0.2); }
+    .plt:hover { background: rgba(255,255,255,0.12); border-color: rgba(255,255,255,0.25); }
     .music-visual {
-      width: 100px; height: 100px; border-radius: 16px;
-      background: rgba(255,255,255,0.07);
-      display: flex; align-items: center; justify-content: center; font-size: 44px;
+      position: relative; z-index: 1; aspect-ratio: 1; max-height: 340px; margin: 0 auto;
+      display: flex; align-items: center; justify-content: center;
+      background: rgba(255,255,255,0.02); border-radius: 40px; border: 1px solid rgba(255,255,255,0.04);
+      font-size: 100px; width: 100%; box-shadow: inset 0 0 80px rgba(0,0,0,0.5);
+    }
+    .music-visual::before {
+      content: ''; position: absolute; width: 60%; height: 60%; border-radius: 50%;
+      background: linear-gradient(45deg, #a855f7, #ec4899, #f43f5e); filter: blur(70px); opacity: 0.3;
+      animation: pulseMusic 6s ease-in-out infinite alternate;
+    }
+    @keyframes pulseMusic {
+      0% { transform: scale(1) translate(0, 0); opacity: 0.25; }
+      100% { transform: scale(1.15) translate(15px, -15px); opacity: 0.45; }
     }
 
     /* =============================================
@@ -985,7 +1008,8 @@
       .about-card { padding: 36px 20px; }
       .fgrid { grid-template-columns: 1fr; }
       .dgrid { grid-template-columns: 1fr; }
-      .li-card { flex-direction: column; text-align: center; }
+      .li-card { padding: 36px 20px; flex-direction: column; text-align: left; }
+      .li-card a.btn { align-self: flex-start !important; margin-top: 16px; }
       /* Bio mobile */
       .bio-stats { gap: 28px; }
       .bio-xp-grid { grid-template-columns: 1fr 1fr; }
@@ -1001,8 +1025,8 @@
       .m-intro { grid-template-columns: 1fr; gap: 32px; }
       .m-grid { grid-template-columns: 1fr; }
       .m-feature-box { grid-template-columns: 1fr; gap: 32px; padding: 32px 22px; }
-      .music-card { grid-template-columns: 1fr; }
-      .music-visual { display: none; }
+      .music-card { grid-template-columns: 1fr; padding: 40px 24px; gap: 40px; }
+      .music-visual { display: flex; max-height: 250px; border-radius: 24px; }
       /* TRIBU mobile */
       .t-hero { padding: 10px; }
       .t-hero-content { grid-template-columns: 1fr; padding: 0 20px 20px; }
@@ -1140,20 +1164,26 @@
   <!-- LINKEDIN -->
   <section class="li-section">
     <div class="li-card">
-      <div>
-        <h3>28 000+ abonnés LinkedIn</h3>
+      <div class="li-card-content">
+        <h3>LinkedIn & Influence</h3>
         <p>Recrutement IT, entrepreneuriat, tech — je partage ce qui marche vraiment.</p>
+        <div class="li-stats">
+          <div class="li-stat"><span class="li-stat-num">28K</span><span class="li-stat-lbl">Followers</span></div>
+          <div class="li-stat"><span class="li-stat-num">1M+</span><span class="li-stat-lbl">Impressions (2025)</span></div>
+          <div class="li-stat"><span class="li-stat-num">Partner</span><span class="li-stat-lbl">French Tech</span></div>
+          <div class="li-stat"><span class="li-stat-num">Founder</span><span class="li-stat-lbl"><a href="https://www.gerard-ai.com" target="_blank" rel="noopener">Gerard AI</a></span></div>
+        </div>
       </div>
-      <a href="https://linkedin.com/in/raphaelpaya" target="_blank" rel="noopener" class="btn btn-white" style="color:#0A66C2;font-weight:600;">Suivre sur LinkedIn</a>
+      <a href="https://www.linkedin.com/in/raphael-paya" target="_blank" rel="noopener" class="btn btn-white" style="color:#0A66C2;font-weight:600; white-space:nowrap; align-self:flex-start; margin-top:10px;">Suivre sur LinkedIn</a>
     </div>
   </section>
 
   <!-- MUSIC -->
   <section class="music-section" id="musique">
     <div class="music-card">
-      <div>
+      <div class="music-content">
         <h3>Piers Mayers</h3>
-        <p>Mon projet musical, disponible sur toutes les plateformes. Une autre façon d'explorer la créativité.</p>
+        <p class="music-desc">Mon projet musical. Une autre façon d'explorer la créativité.<br>Je joue de <strong>la guitare, chant, batterie, basse et synthé.</strong><br>Album entièrement produit sur Logic Pro et masterisé au studio Square Garden Club.<br>Un mélange vibrant d'Indie Pop.</p>
         <div class="music-plat">
           <a href="https://open.spotify.com/search/Piers%20Mayers" target="_blank" rel="noopener" class="plt">🎵 Spotify</a>
           <a href="https://www.deezer.com/search/Piers%20Mayers" target="_blank" rel="noopener" class="plt">🎶 Deezer</a>
