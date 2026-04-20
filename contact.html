@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Miixeo — Le Logiciel SaaS Ultime pour les Recruteurs</title>
+  <title>Contact — Raphaël Paya</title>
   <meta name="description" content="Raphaël Paya, entrepreneur français. Fondateur de TRIBU (agence de recrutement IT boostée par l'IA) et Miixeo (SaaS recruteurs, dossiers candidats stratégiques). 28 000 abonnés LinkedIn. Musicien Piers Mayers." />
   <meta name="keywords" content="Raphaël Paya, Raphael Paya, TRIBU recrutement IT, Miixeo SaaS recruteurs, agence recrutement tech, logiciel recrutement, ATS, dossier candidat, soft skills DISC, matching candidat entreprise, recrutement IA, entrepreneur, Piers Mayers, LinkedIn" />
   <meta name="author" content="Raphaël Paya" />
@@ -1034,20 +1034,77 @@
       .t-grid { grid-template-columns: 1fr; }
       .t-disc { grid-template-columns: 1fr; gap: 32px; padding: 32px 22px; }
     }
-  </style>
+  
+    /* CONTACT PAGE CUSTOM CSS */
+    .c-hero {
+      position: relative; padding: 160px 24px 80px; min-height: 100vh;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      background: radial-gradient(circle at top, rgba(255, 255, 255, 0.03) 0%, transparent 60%);
+    }
+    .c-title {
+      font-size: clamp(48px, 8vw, 80px); font-family: 'Instrument Serif', serif; font-style: italic; color: white;
+      margin-bottom: 24px; text-align: center;
+    }
+    .c-subtitle { font-size: 16px; color: rgba(255,255,255,0.6); max-width: 500px; text-align: center; margin-bottom: 60px; line-height: 1.6; }
+    
+    .c-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px;
+      max-width: 900px; width: 100%; position: relative; z-index: 2;
+    }
+    
+    .c-card {
+      background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05);
+      border-radius: 20px; padding: 40px 32px; text-align: center;
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), background 0.3s;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      text-decoration: none; position: relative; overflow: hidden;
+    }
+    
+    .c-card::before {
+      content: ''; position: absolute; inset: 0; background: radial-gradient(circle at center, var(--c-accent), transparent 70%);
+      opacity: 0; transition: opacity 0.5s; z-index: 0; pointer-events: none;
+    }
+    
+    .c-card:hover { transform: translateY(-8px); background: rgba(255,255,255,0.04); }
+    .c-card:hover::before { opacity: 0.08; }
+    
+    .c-icon { font-size: 32px; margin-bottom: 20px; position: relative; z-index: 1; }
+    .c-name { font-size: 20px; font-weight: 700; color: white; margin-bottom: 12px; position: relative; z-index: 1; }
+    .c-email { font-size: 14px; font-family: monospace; color: rgba(255,255,255,0.7); position: relative; z-index: 1; }
+    
+    /* Variables Card */
+    .c-tribu { --c-accent: #e8472a; }
+    .c-miixeo { --c-accent: #6c3fc5; }
+    .c-piers { --c-accent: #ec4899; }
+</style>
+
 </head>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "SoftwareApplication",
-  "name": "Miixeo",
-  "applicationCategory": "BusinessApplication",
-  "url": "https://miixeo.com",
-  "description": "SaaS pour recruteurs. Transformation de CVs en dossiers stratégiques qualifiés grâce à l'IA.",
-  "author": {
+  "@type": "ContactPage",
+  "name": "Contact — Raphaël Paya",
+  "url": "https://raphaelpaya.com/contact",
+  "mainEntity": {
     "@type": "Person",
     "name": "Raphaël Paya",
-    "url": "https://raphaelpaya.com"
+    "contactPoint": [
+      {
+        "@type": "ContactPoint",
+        "email": "contact@tribu-recruitment.com",
+        "contactType": "TRIBU Recruitment"
+      },
+      {
+        "@type": "ContactPoint",
+        "email": "hello@miixeo.com",
+        "contactType": "Miixeo"
+      },
+      {
+        "@type": "ContactPoint",
+        "email": "piers.mayers.music@gmail.com",
+        "contactType": "Piers Mayers Music"
+      }
+    ]
   }
 }
 </script>
@@ -1057,168 +1114,45 @@
 ================================================================ -->
 <nav>
   <div class="nav-pill">
-    <a href="/" id="nb-home">Accueil</a>
+    <a href="/" id="nb-home" >Accueil</a>
     <a href="/bio" id="nb-bio">Bio</a>
     <a href="/tribu" id="nb-tribu">TRIBU</a>
-    <a href="/miixeo" id="nb-miixeo" class="active">Miixeo</a>
+    <a href="/miixeo" id="nb-miixeo">Miixeo</a>
     <a href="/piers-mayers" id="nb-musique">Musique</a>
     <a href="/contact">Contact</a>
   </div>
 </nav>
-<main id="page-miixeo">
 
-  <!-- HERO -->
-  <section class="m-hero">
-    <div class="m-hero-box">
-      <div class="m-hero-fallback"></div>
-      <video id="miixeo-vid" class="m-hero-vid" autoplay loop muted playsinline preload="none"></video>
-      <div class="noise-overlay"></div>
-      <div class="m-hero-grad"></div>
-      <div class="m-hero-content" id="m-hero-content">
-        <div>
-          <h1 class="m-name" id="m-name">
-            <span class="pw"><span class="pw-i">Miixeo</span></span>
-          </h1>
-        </div>
-        <div class="m-hero-right">
-          <p class="m-hero-eyebrow">SaaS pour Recruteurs</p>
-          <p class="m-hero-desc">Le logiciel de recrutement nouvelle génération. CVs transformés en dossiers stratégiques, entretiens planifiés en 1 clic, pipeline centralisé.</p>
-          <a href="https://miixeo.com" target="_blank" rel="noopener" class="m-cta">
-            Visiter miixeo.com
-            <span class="m-cta-dot">
-              <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-            </span>
-          </a>
-        </div>
-      </div>
+<main id="page-contact">
+  <section class="c-hero">
+    <div class="noise-overlay"></div>
+    <h1 class="c-title">Get in touch</h1>
+    <p class="c-subtitle">Sélectionnez l'entité avec laquelle vous souhaitez échanger. Je vous répondrai dans les plus brefs délais.</p>
+    
+    <div class="c-grid">
+      
+      <a href="mailto:contact@tribu-recruitment.com" class="c-card c-tribu">
+        <div class="c-icon">⚡️</div>
+        <div class="c-name">TRIBU</div>
+        <div class="c-email">contact@tribu-recruitment.com</div>
+      </a>
+      
+      <a href="mailto:hello@miixeo.com" class="c-card c-miixeo">
+        <div class="c-icon">🧠</div>
+        <div class="c-name">Miixeo</div>
+        <div class="c-email">hello@miixeo.com</div>
+      </a>
+      
+      <a href="mailto:piers.mayers.music@gmail.com" class="c-card c-piers">
+        <div class="c-icon">🎸</div>
+        <div class="c-name">Piers Mayers</div>
+        <div class="c-email">piers.mayers.music@gmail.com</div>
+      </a>
+      
     </div>
   </section>
+</main>
 
-  <!-- INTRO -->
-  <section class="m-section">
-    <div class="m-inner">
-      <div class="m-intro">
-        <div>
-          <p class="m-eyebrow">Notre vision</p>
-          <h2 class="m-h2" style="margin-top:10px;">Recruter plus vite,<br><span class="serif-it">sans sacrifier la qualité.</span></h2>
-        </div>
-        <div>
-          <p class="m-body">Miixeo remplace les tâches répétitives par de l'intelligence artificielle, libérant les recruteurs pour ce qui compte vraiment : la relation humaine et le jugement stratégique.</p>
-          <p class="m-body" style="margin-top:16px;">Une plateforme unique pour sourcer, analyser, scorer et présenter les candidats — le tout en quelques clics.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- FEATURES 3×2 -->
-  <section class="m-section" style="padding-top:0;">
-    <div class="m-inner">
-      <p class="m-eyebrow">Fonctionnalités</p>
-      <h2 class="m-h2" style="margin-top:10px;">Six outils, une plateforme.</h2>
-      <div class="m-grid" id="m-grid">
-        <div class="m-card">
-          <div class="m-card-num">01</div>
-          <h3>CVs vers dossiers stratégiques</h3>
-          <p>L'IA analyse chaque CV et génère automatiquement un dossier candidat enrichi : compétences scorées, points forts, adéquation au poste.</p>
-        </div>
-        <div class="m-card">
-          <div class="m-card-num">02</div>
-          <h3>Planification en 1 clic</h3>
-          <p>Planifiez un entretien directement depuis le dossier candidat — plus d'allers-retours email pour trouver un créneau commun.</p>
-        </div>
-        <div class="m-card">
-          <div class="m-card-num">03</div>
-          <h3>Pipeline centralisé</h3>
-          <p>Gérez tous vos processus en parallèle dans une vue kanban claire. Chaque étape, chaque candidat, au même endroit.</p>
-        </div>
-        <div class="m-card">
-          <div class="m-card-num">04</div>
-          <h3>Scoring IA automatique</h3>
-          <p>Chaque profil reçoit un score d'adéquation calculé par notre IA — identifiez les meilleures candidatures en un coup d'œil.</p>
-        </div>
-        <div class="m-card">
-          <div class="m-card-num">05</div>
-          <h3>Partage client simplifié</h3>
-          <p>Envoyez un dossier candidat professionnel à votre client en un clic. Interface épurée, branding personnalisé.</p>
-        </div>
-        <div class="m-card">
-          <div class="m-card-num">06</div>
-          <h3>Analytics & performance</h3>
-          <p>KPIs de recrutement : time-to-hire, taux de conversion, performance par source — tout en tableau de bord temps réel.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- HOW IT WORKS -->
-  <section class="m-section" style="padding-top:0; padding-bottom:60px;">
-    <div class="m-inner">
-      <div class="m-feature-box">
-        <div>
-          <p class="m-eyebrow">Comment ça marche</p>
-          <h2 style="font-size:clamp(20px,2.5vw,30px);font-weight:700;color:#111;margin-top:10px;margin-bottom:12px;letter-spacing:-0.03em;">L'IA qui travaille pour vous</h2>
-          <p class="m-body">Miixeo automatise les tâches à faible valeur ajoutée pour que vous vous concentriez sur ce qui compte : la relation humaine.</p>
-        </div>
-        <div class="m-steps">
-          <div class="m-step">
-            <div class="m-step-num">01</div>
-            <div>
-              <h4>Import du CV</h4>
-              <p>Glissez-déposez un CV ou importez depuis LinkedIn, Indeed ou votre boîte mail.</p>
-            </div>
-          </div>
-          <div class="m-step">
-            <div class="m-step-num">02</div>
-            <div>
-              <h4>Analyse IA</h4>
-              <p>Miixeo génère instantanément un dossier structuré, enrichi et scoré en quelques secondes.</p>
-            </div>
-          </div>
-          <div class="m-step">
-            <div class="m-step-num">03</div>
-            <div>
-              <h4>Envoi & entretien</h4>
-              <p>Partagez le dossier à votre client, planifiez l'entretien directement depuis la plateforme.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- TAGS -->
-  <section class="m-section" style="padding-top:0; padding-bottom:60px;">
-    <div class="m-inner">
-      <p class="m-eyebrow">Utilisé par des recruteurs</p>
-      <h2 class="m-h2" style="margin-top:10px;margin-bottom:28px;">Profils & secteurs couverts</h2>
-      <div class="m-tags">
-        <span class="m-tag">Développeur Full Stack</span>
-        <span class="m-tag">Data Scientist</span>
-        <span class="m-tag">DevOps / SRE</span>
-        <span class="m-tag">Product Manager</span>
-        <span class="m-tag">Tech Lead</span>
-        <span class="m-tag">ML Engineer</span>
-        <span class="m-tag">Architecte Cloud</span>
-        <span class="m-tag">CTO / VP Engineering</span>
-        <span class="m-tag">Expert Cybersécurité</span>
-        <span class="m-tag">UX/UI Designer</span>
-        <span class="m-tag">QA Engineer</span>
-        <span class="m-tag">Scrum Master</span>
-      </div>
-    </div>
-  </section>
-
-  <!-- CTA -->
-  <div class="m-cta-bottom">
-    <h2>Prêt à recruter 10x plus vite ?</h2>
-    <p>Rejoignez les recruteurs qui transforment leur façon de travailler.</p>
-    <div class="cbtns">
-      <a href="https://miixeo.com" target="_blank" rel="noopener" class="btn btn-miixeo-grad">Essayer Miixeo</a>
-      <a href="mailto:contact@raphaelpaya.com" class="btn btn-m-light">Demander une démo</a>
-    </div>
-  </div>
-
-</div></main>
 <script>
 // ================================================================
 //  PAGE ROUTING
