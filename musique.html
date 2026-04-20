@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>TRIBU — Agence de Recrutement IT boostée par l'Intelligence Artificielle</title>
+  <title>Piers Mayers — Projet Musical Indie Pop par Raphaël Paya</title>
   <meta name="description" content="Raphaël Paya, entrepreneur français. Fondateur de TRIBU (agence de recrutement IT boostée par l'IA) et Miixeo (SaaS recruteurs, dossiers candidats stratégiques). 28 000 abonnés LinkedIn. Musicien Piers Mayers." />
   <meta name="keywords" content="Raphaël Paya, Raphael Paya, TRIBU recrutement IT, Miixeo SaaS recruteurs, agence recrutement tech, logiciel recrutement, ATS, dossier candidat, soft skills DISC, matching candidat entreprise, recrutement IA, entrepreneur, Piers Mayers, LinkedIn" />
   <meta name="author" content="Raphaël Paya" />
@@ -1034,17 +1034,44 @@
       .t-grid { grid-template-columns: 1fr; }
       .t-disc { grid-template-columns: 1fr; gap: 32px; padding: 32px 22px; }
     }
-  </style>
+  
+    /* MUSIQUE PAGE CUSTOM CSS */
+    .pm-hero {
+      position: relative; padding: 140px 24px 80px; min-height: 80vh; display: flex; align-items: center; justify-content: center; text-align: center; overflow: hidden;
+      background: radial-gradient(circle at center, rgba(168, 85, 247, 0.15) 0%, #000 70%);
+    }
+    .pm-hero-content { position: relative; z-index: 2; max-width: 800px; }
+    .pm-title {
+      font-size: clamp(64px, 12vw, 120px); font-family: 'Instrument Serif', serif; font-style: italic; color: white;
+      text-shadow: 0 0 40px rgba(236, 72, 153, 0.4); line-height: 1; margin-bottom: 24px;
+    }
+    .pm-subtitle { font-size: 18px; color: rgba(255,255,255,0.7); line-height: 1.6; font-weight: 300; margin-bottom: 40px; }
+    
+    .pm-gallery {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; padding: 40px 24px 80px; max-width: 1200px; margin: 0 auto;
+    }
+    .pm-img-wrap { border-radius: 16px; overflow: hidden; border: 1px solid rgba(255,255,255,0.05); position: relative; aspect-ratio: 1; }
+    .pm-img-wrap img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
+    .pm-img-wrap:hover img { transform: scale(1.05); }
+    
+    .pm-spotify { max-width: 1200px; margin: 0 auto 100px; padding: 0 24px; display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; }
+    
+    @media (max-width: 768px) {
+      .pm-spotify { grid-template-columns: 1fr; }
+    }
+</style>
+
 </head>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Organization",
-  "name": "TRIBU",
-  "url": "https://wearetribu.fr",
-  "logo": "https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260405_171918_4a5edc79-d78f-4637-ac8b-53c43c220606.png&w=1280&q=85",
-  "description": "Agence de recrutement IT stratégique boostée par l'intelligence artificielle.",
-  "founder": {
+  "@type": "MusicGroup",
+  "name": "Piers Mayers",
+  "url": "https://raphaelpaya.com/musique",
+  "image": "https://raphaelpaya.com/images/piers_dino.jpg",
+  "genre": "Indie Pop",
+  "description": "Projet musical multi-instruments (guitare, chant, batterie, basse, synthé).",
+  "member": {
     "@type": "Person",
     "name": "Raphaël Paya",
     "url": "https://raphaelpaya.com"
@@ -1057,166 +1084,43 @@
 ================================================================ -->
 <nav>
   <div class="nav-pill">
-    <a href="/" id="nb-home">Accueil</a>
+    <a href="/" id="nb-home" >Accueil</a>
     <a href="/bio" id="nb-bio">Bio</a>
-    <a href="/tribu" id="nb-tribu" class="active">TRIBU</a>
+    <a href="/tribu" id="nb-tribu">TRIBU</a>
     <a href="/miixeo" id="nb-miixeo">Miixeo</a>
-    <a href="/musique" id="nb-musique">Musique</a>
+    <a href="/musique" id="nb-musique" class="active">Musique</a>
     <a href="/#contact">Contact</a>
   </div>
 </nav>
-<main id="page-tribu">
 
-  <!-- HERO -->
-  <section class="t-hero">
-    <div class="t-hero-box">
-      <div class="t-hero-fallback"></div>
-      <video id="tribu-vid" class="t-hero-vid" autoplay loop muted playsinline preload="none"></video>
-      <div class="noise-overlay"></div>
-      <div class="t-hero-grad"></div>
-      <div class="t-hero-content" id="t-hero-content">
-        <div>
-          <h1 class="t-name" id="t-name">
-            <span class="pw"><span class="pw-i">TRIBU</span></span>
-          </h1>
-        </div>
-        <div class="t-hero-right">
-          <p class="t-hero-eyebrow">Agence de recrutement IT</p>
-          <p class="t-hero-desc">L'alliance de l'expertise humaine et de l'intelligence artificielle pour identifier, analyser et recruter les meilleurs talents tech.</p>
-          <a href="https://wearetribu.fr" target="_blank" rel="noopener" class="t-cta">
-            Visiter wearetribu.fr
-            <span class="t-cta-dot">
-              <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-            </span>
-          </a>
-        </div>
-      </div>
+<main id="page-musique">
+  <section class="pm-hero">
+    <div class="noise-overlay"></div>
+    <div class="pm-hero-content">
+      <h1 class="pm-title">Piers Mayers</h1>
+      <p class="pm-subtitle">Mon alter ego créatif. Ce projet musical est un espace de liberté absolue.<br>Je compose, joue de la <strong>guitare, chant, batterie, basse et synthé</strong>.<br>L'album <em>Saturated Love</em> a été conçu et produit sur Logic Pro, puis masterisé au studio Square Garden Club.</p>
     </div>
   </section>
 
-  <!-- INTRO -->
-  <section class="t-section">
-    <div class="t-inner">
-      <div class="t-intro">
-        <div>
-          <p class="t-eyebrow">Notre approche</p>
-          <h2 class="t-h2" style="margin-top:10px;">Recruter autrement,<br><span class="serif-it">au service de la performance.</span></h2>
-        </div>
-        <div>
-          <p class="t-body">TRIBU ne se contente pas de placer des profils. Nous analysons la personnalité, les motivations et les ambitions de chaque candidat pour créer des alignements durables entre les talents IT et les entreprises qui les méritent.</p>
-          <p class="t-body" style="margin-top:16px;">Chaque mission est traitée avec la précision d'un chirurgien et la sensibilité d'un mentor.</p>
-        </div>
-      </div>
+  <section class="pm-spotify">
+    <div class="pm-spot-left">
+      <h2 style="font-size:32px;color:white;margin-bottom:16px;">Saturated Love</h2>
+      <p style="color:rgba(255,255,255,0.7);line-height:1.6;margin-bottom:24px;">Un mélange d'indie pop néon et d'influences nostalgiques nocturnes.</p>
+       <a href="https://open.spotify.com/search/Piers%20Mayers" target="_blank" rel="noopener" class="btn btn-white" style="color:#000;">Écouter sur Spotify</a>
+    </div>
+    <div class="pm-spot-iframe">
+      <!-- Spotify embed placeholder (You can replace artist ID dynamically when found) -->
+       <iframe style="border-radius:12px" src="https://open.spotify.com/embed/artist/23X8026196237242854972?utm_source=generator&theme=0" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
     </div>
   </section>
 
-  <!-- FEATURES 3×2 -->
-  <section class="t-section" style="padding-top:0;">
-    <div class="t-inner">
-      <p class="t-eyebrow">Ce qui nous distingue</p>
-      <h2 class="t-h2" style="margin-top:10px;">Six piliers, une méthode.</h2>
-      <div class="t-grid" id="t-grid">
-        <div class="t-card">
-          <div class="t-card-num">01</div>
-          <h3>Intelligence artificielle</h3>
-          <p>Notre IA filtre, analyse et score les profils en quelques secondes. Seuls les candidats véritablement alignés avec votre contexte sont présentés.</p>
-        </div>
-        <div class="t-card">
-          <div class="t-card-num">02</div>
-          <h3>Méthode DISC</h3>
-          <p>Chaque candidat est évalué selon la méthode DISC. Un profil comportemental complet — pas seulement un CV, mais une personnalité.</p>
-        </div>
-        <div class="t-card">
-          <div class="t-card-num">03</div>
-          <h3>Profils stratégiques</h3>
-          <p>Scoring technique, soft skills, compatibilité culturelle — nous livrons un dossier complet, pas une simple liste de candidatures.</p>
-        </div>
-        <div class="t-card">
-          <div class="t-card-num">04</div>
-          <h3>Expertise IT exclusive</h3>
-          <p>Dev, Data, DevOps, Cyber, Cloud, Product — nous maîtrisons l'écosystème tech dans sa profondeur et ses nuances les plus fines.</p>
-        </div>
-        <div class="t-card">
-          <div class="t-card-num">05</div>
-          <h3>Time-to-hire compressé</h3>
-          <p>Délai entre le brief et les premiers profils drastiquement réduit grâce à notre réseau de talents pré-qualifiés et à nos algorithmes.</p>
-        </div>
-        <div class="t-card">
-          <div class="t-card-num">06</div>
-          <h3>Accompagnement intégral</h3>
-          <p>Définition du besoin, sourcing, entretiens, négociation, intégration — présents à chaque étape, pas seulement au moment du placement.</p>
-        </div>
-      </div>
-    </div>
+  <section class="pm-gallery">
+    <div class="pm-img-wrap"><img src="images/piers_polaroid.jpg" alt="Piers Mayers Cassette Polaroid"></div>
+    <div class="pm-img-wrap"><img src="images/piers_dino.jpg" alt="Piers Mayers Dino Saturated Love"></div>
+    <div class="pm-img-wrap"><img src="images/piers_driving.jpg" alt="Piers Mayers Driving Neon"></div>
   </section>
+</main>
 
-  <!-- DISC -->
-  <section class="t-section" style="padding-top:0;">
-    <div class="t-inner">
-      <div class="t-disc">
-        <div>
-          <p class="t-eyebrow">Psychologie & matching</p>
-          <h2 class="t-h2" style="margin-top:10px;font-size:clamp(22px,2.8vw,36px);">La méthode DISC au cœur de chaque recrutement</h2>
-          <p class="t-body" style="margin-top:16px;">TRIBU intègre l'analyse comportementale DISC dans chaque évaluation candidat. Des recrutements qui durent, des équipes qui performent.</p>
-        </div>
-        <div>
-          <div class="t-disc-row">
-            <span class="t-disc-letter">D</span>
-            <div><strong>Dominance</strong><span>Orientation résultats, leadership, prise de décision</span></div>
-          </div>
-          <div class="t-disc-row">
-            <span class="t-disc-letter">I</span>
-            <div><strong>Influence</strong><span>Communication, enthousiasme, sens de la collaboration</span></div>
-          </div>
-          <div class="t-disc-row">
-            <span class="t-disc-letter">S</span>
-            <div><strong>Stabilité</strong><span>Fiabilité, patience, esprit d'équipe durable</span></div>
-          </div>
-          <div class="t-disc-row">
-            <span class="t-disc-letter">C</span>
-            <div><strong>Conformité</strong><span>Précision, rigueur analytique, qualité d'exécution</span></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- PROFILES -->
-  <section class="t-section" style="padding-top:0; padding-bottom:60px;">
-    <div class="t-inner">
-      <p class="t-eyebrow">Expertises recrutées</p>
-      <h2 class="t-h2" style="margin-top:10px;margin-bottom:28px;">Profils IT & Tech</h2>
-      <div class="t-tags">
-        <span class="t-tag">Développeur Full Stack</span>
-        <span class="t-tag">Ingénieur Backend</span>
-        <span class="t-tag">Développeur Frontend</span>
-        <span class="t-tag">Data Scientist</span>
-        <span class="t-tag">Data Engineer</span>
-        <span class="t-tag">ML Engineer</span>
-        <span class="t-tag">DevOps / SRE</span>
-        <span class="t-tag">Architecte Cloud</span>
-        <span class="t-tag">Product Manager</span>
-        <span class="t-tag">CTO / VP Engineering</span>
-        <span class="t-tag">Expert Cybersécurité</span>
-        <span class="t-tag">Scrum Master</span>
-        <span class="t-tag">Tech Lead</span>
-        <span class="t-tag">UX/UI Designer</span>
-        <span class="t-tag">QA Engineer</span>
-      </div>
-    </div>
-  </section>
-
-  <!-- CTA -->
-  <div class="t-cta-bottom">
-    <h2>Prêt à recruter autrement ?</h2>
-    <p>Premier échange offert, sans engagement.</p>
-    <div class="cbtns">
-      <a href="https://wearetribu.fr" target="_blank" rel="noopener" class="btn btn-forest">Visiter wearetribu.fr</a>
-      <a href="mailto:contact@raphaelpaya.com" class="btn btn-t-dark">Nous contacter</a>
-    </div>
-  </div>
-
-</div></main>
 <script>
 // ================================================================
 //  PAGE ROUTING
@@ -1501,7 +1405,7 @@ function boot() {
     initMiixeoHero();
     initMiixeoCards();
     loadMiixeoVideo();
-  } else if (document.getElementById('page-bio')) {
+  } else if (document.getElementById('page-musique')) { window.scrollTo(0, 0); } else if (document.getElementById('page-bio')) {
     initBioPage();
   } else if (document.getElementById('page-home')) {
     initHero();
