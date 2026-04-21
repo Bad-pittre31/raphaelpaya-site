@@ -1195,7 +1195,6 @@
     <button onclick="sp('miixeo')" id="nb-miixeo">Miixeo</button>
     <button onclick="sp('gerard')" id="nb-gerard" class="nb-gerard-btn">Gérard AI</button>
     <button onclick="window.location.href='/piers-mayers'">Musique</button>
-    <button onclick="sp('home');sto('contact')">Contact</button>
   </div>
 </nav>
 
@@ -2294,7 +2293,13 @@ function boot() {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-  setTimeout(boot, 60);
+  const urlParams = new URLSearchParams(window.location.search);
+  const p = urlParams.get('p');
+  if(p) {
+    sp(p);
+  } else {
+    setTimeout(boot, 60);
+  }
   loadVideos();
 });
 
