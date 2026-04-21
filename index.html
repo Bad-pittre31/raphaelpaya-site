@@ -96,7 +96,7 @@
     .dh-nav-links {
       display: flex;
       align-items: center;
-      gap: 32px;
+      gap: 24px;
     }
     .dh-nav-link {
       background: none;
@@ -1721,18 +1721,16 @@
 
     <!-- Navbar -->
     <nav class="dh-nav">
-      <span class="dh-nav-logo">Raphaël Paya</span>
+      <button class="dh-nav-link" onclick="sp('home')" style="font-weight:700; color:var(--dh-fg);">Accueil</button>
       <div class="dh-nav-links">
-        <button class="dh-nav-link" onclick="sp('tribu')">
-          Services
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
-        </button>
-        <button class="dh-nav-link" onclick="sp('miixeo')">Work</button>
-        <button class="dh-nav-link" onclick="sp('bio')">About</button>
+        <button class="dh-nav-link" onclick="sp('bio')">Bio</button>
+        <button class="dh-nav-link" onclick="sp('tribu')">TRIBU</button>
+        <button class="dh-nav-link" onclick="sp('miixeo')">Miixeo</button>
         <button class="dh-nav-link" onclick="sp('gerard')">
           Gérard AI
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
         </button>
+        <button class="dh-nav-link" onclick="window.location.href='/piers-mayers'">Musique</button>
       </div>
       <a href="mailto:contact@raphaelpaya.com" class="dh-nav-signup">Start a chat</a>
     </nav>
@@ -1885,7 +1883,7 @@
     </div>
 
     <div class="vo-anim vo-d5 vo-parallax-env">
-      <img src="https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260330_103804_7aa5494f-4d5b-432e-9dc7-20715275f143.png&w=1280&q=85" alt="Raphael Parallax" class="vo-parallax-img" id="vo-parallax">
+      <img src="/images/raphael-paya-portrait.jpg" alt="Raphaël Paya" class="vo-parallax-img" id="vo-parallax">
     </div>
   </section>
 
