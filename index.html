@@ -2092,13 +2092,7 @@
         });
       }
 
-          move();
-        }, 3000);
-        carousel.addEventListener('mouseenter', () => window.clearInterval(interval));
-        carousel.addEventListener('mouseleave', () => {
-          interval = window.setInterval(() => { idx = (idx + 1) % total; move(); }, 3000);
-        });
-      }
+
 
       // 4. Partner cursor tail
       const zone = document.getElementById('vo-partner-zone');
