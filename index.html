@@ -1631,28 +1631,62 @@
 .vo-price-lbl { font-size: 14px; opacity: 0.8; margin-bottom: 32px; }
 
 /* Testimonial Carousel */
-.vo-t-sec { padding: 80px 0; width: 100%; overflow: hidden; }
-.vo-t-hdr { padding: 0 24px; max-width: 896px; margin: 0 auto 40px; display: flex; justify-content: space-between; align-items: flex-end; }
-@media (min-width: 768px) { .vo-t-hdr { margin-left: auto; margin-right: auto; } }
-.vo-t-h2 { font-size: 32px; color: #0D212C; letter-spacing: -0.02em; }
-@media (min-width: 768px) { .vo-t-h2 { font-size: 40px; } }
-.vo-stars-wrap { display: flex; flex-direction: column; align-items: flex-end; gap: 4px; }
-.vo-stars { display: flex; gap: 4px; color: #000; }
-.vo-stars svg { width: 20px; height: 20px; fill: #000; }
-.vo-stars-txt { font-weight: 500; font-size: 14px; }
+/* LinkedIn Influence Section */
+.vo-li-sec {
+  position: relative;
+  padding: 80px 24px;
+  background: #051A24;
+  overflow: hidden;
+  text-align: center;
+  color: #fff;
+  border-radius: 40px;
+  margin: 48px 16px;
+}
+@media (min-width: 768px) { .vo-li-sec { padding: 120px 24px; margin: 64px 24px; border-radius: 64px; } }
 
-.vo-carousel { display: flex; gap: 24px; margin-left: max(24px, calc((100% - 896px) / 2)); transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1); cursor: grab; padding-bottom: 20px; padding-right: 24px;}
-.vo-card { flex-shrink: 0; width: calc(100vw - 48px); max-width: 427.5px; background: #ffffff; border-radius: 32px; box-shadow: 0 4px 16px rgba(0,0,0,0.08); padding: 32px 24px; }
-@media (min-width: 768px) { .vo-card { border-radius: 40px; padding: 32px 96px 32px 40px; } }
-.vo-card-q { color: #e2e8f0; margin-bottom: 16px; }
-.vo-card-txt { font-size: 16px; color: #0D212C; line-height: 1.6; margin-bottom: 32px; font-style: italic;}
-.vo-card-auth { display: flex; align-items: center; gap: 16px; }
-.vo-card-av { width: 48px; height: 48px; border-radius: 50%; object-fit: cover; }
-.vo-card-n { font-weight: 600; font-size: 14px; color: #0D212C; }
-.vo-card-r { font-size: 14px; color: #64748b; }
-.vo-controls { display: flex; gap: 16px; max-width: 896px; margin: 24px auto 0; padding: 0 24px; justify-content: flex-end; }
-.vo-nav-btn { width: 48px; height: 48px; border-radius: 50%; border: 1px solid rgba(13,33,44,0.2); background: transparent; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: background 0.2s; }
-.vo-nav-btn:hover { background: rgba(13,33,44,0.05); }
+.vo-li-bg {
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background: radial-gradient(circle at 50% 50%, #0c2b3e 0%, #051A24 100%);
+  z-index: 0;
+}
+
+.vo-li-orb {
+  position: absolute;
+  top: 50%; left: 50%;
+  width: 400px; height: 400px;
+  background: radial-gradient(circle, rgba(96, 165, 250, 0.15) 0%, rgba(96, 165, 250, 0) 70%);
+  border-radius: 50%;
+  filter: blur(60px);
+  transform: translate(-50%, -50%);
+  animation: li-pulse 8s ease-in-out infinite;
+}
+
+@keyframes li-pulse {
+  0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.8; }
+  50% { transform: translate(-50%, -50%) scale(1.3); opacity: 1; }
+}
+
+.vo-li-content { position: relative; z-index: 1; max-width: 800px; margin: 0 auto; }
+.vo-li-label { font-family: monospace; font-size: 14px; text-transform: uppercase; letter-spacing: 0.1em; color: rgba(255,255,255,0.6); margin-bottom: 24px; }
+.vo-li-h2 { font-size: 36px; line-height: 1.1; margin-bottom: 48px; letter-spacing: -0.02em; }
+@media (min-width: 768px) { .vo-li-h2 { font-size: 56px; } }
+
+.vo-li-stats { display: flex; flex-direction: column; gap: 40px; margin-bottom: 64px; }
+@media (min-width: 768px) { .vo-li-stats { flex-direction: row; justify-content: center; gap: 100px; } }
+
+.vo-li-num { font-size: 56px; font-weight: 700; background: linear-gradient(to bottom, #fff, rgba(255,255,255,0.7)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; line-height: 1; margin-bottom: 8px; }
+@media (min-width: 768px) { .vo-li-num { font-size: 80px; } }
+.vo-li-lbl { font-size: 16px; color: rgba(255,255,255,0.6); font-weight: 500; }
+
+.vo-li-btn {
+  display: inline-flex; align-items: center; gap: 12px;
+  background: #fff; color: #051A24; padding: 14px 28px;
+  border-radius: 999px; font-weight: 600; text-decoration: none;
+  transition: transform 0.2s, box-shadow 0.2s;
+  box-shadow: 0 10px 30px rgba(96,165,250,0.3);
+}
+.vo-li-btn:hover { transform: translateY(-2px); box-shadow: 0 15px 40px rgba(96,165,250,0.5); }
 
 /* Projects */
 .vo-proj-sec { max-width: 1200px; margin: 0 auto; padding: 48px 24px; display: flex; flex-direction: column; gap: 64px; }
@@ -1915,87 +1949,32 @@
     </div>
   </section>
 
-  <!-- AVIS -->
-  <section class="vo-t-sec">
-    <div class="vo-t-hdr vo-anim vo-d1">
-      <h2 class="vo-t-h2">Ce que disent les <span class="vo-serif">recruteurs</span></h2>
-      <div class="vo-stars-wrap">
-        <div class="vo-stars">
-          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
-          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
-          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
-          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
-          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
-        </div>
-        <div class="vo-stars-txt">Clutch 5/5</div>
-      </div>
+  <!-- LINKEDIN INFLUENCE -->
+  <section class="vo-li-sec">
+    <div class="vo-li-bg">
+      <div class="vo-li-orb"></div>
     </div>
-    
-    <div class="vo-carousel vo-anim vo-d2" id="vo-carousel" style="transform: translateX(0px);">
-      <div class="vo-card">
-        <svg class="vo-card-q" width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
-        <p class="vo-card-txt">« Raphaël a trouvé notre profil Dev senior en 10 jours là où nos autres partenaires échouaient depuis 3 mois. Méthode et résultats au rendez-vous. »</p>
-        <div class="vo-card-auth">
-          <img src="https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&h=100&w=100" class="vo-card-av" alt="Avatar">
-          <div>
-            <div class="vo-card-n">Alexandre M.</div>
-            <div class="vo-card-r">↗ CTO, Scale-up Paris</div>
-          </div>
+    <div class="vo-li-content vo-anim vo-d1">
+      <div class="vo-li-hdr">
+        <p class="vo-li-label">Impact & Influence</p>
+        <h2 class="vo-li-h2">Le recrutement IT,<br><span class="vo-serif" style="color:#60a5fa;">au-delà des mots.</span></h2>
+      </div>
+      <div class="vo-li-stats">
+        <div class="vo-li-stat">
+          <div class="vo-li-num">28K</div>
+          <div class="vo-li-lbl">Abonnés sur LinkedIn</div>
+        </div>
+        <div class="vo-li-stat">
+          <div class="vo-li-num">1M+</div>
+          <div class="vo-li-lbl">Impressions en 2025</div>
         </div>
       </div>
-      <div class="vo-card">
-        <svg class="vo-card-q" width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
-        <p class="vo-card-txt">« L'approche DISC qu'utilise TRIBU est une vraie différenciation. Le fit culturel avec nos équipes tech était parfait dès le premier candidat présenté. »</p>
-        <div class="vo-card-auth">
-          <img src="https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&h=100&w=100" class="vo-card-av" alt="Avatar">
-          <div>
-            <div class="vo-card-n">Sarah L.</div>
-            <div class="vo-card-r">↗ DRH, Édition Tech Lyon</div>
-          </div>
-        </div>
+      <div class="vo-li-cta">
+        <a href="https://www.linkedin.com/in/raphaelpaya" target="_blank" class="vo-li-btn">
+          Suivre Raphaël sur LinkedIn
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" style="margin-left: 8px;"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+        </a>
       </div>
-      <div class="vo-card">
-        <svg class="vo-card-q" width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
-        <p class="vo-card-txt">« Miixeo nous a fait gagner 2h par candidat sur la préparation des dossiers. L'IA comprend vraiment les besoins tech, et les dossiers générés sont immédiatement exploitables. »</p>
-        <div class="vo-card-auth">
-          <img src="https://images.pexels.com/photos/1222271/pexels-photo-1222271.jpeg?auto=compress&cs=tinysrgb&h=100&w=100" class="vo-card-av" alt="Avatar">
-          <div>
-            <div class="vo-card-n">Julien T.</div>
-            <div class="vo-card-r">↗ Responsable Recrutement IT</div>
-          </div>
-        </div>
-      </div>
-      <div class="vo-card">
-        <svg class="vo-card-q" width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
-        <p class="vo-card-txt">« Raphaël a une vraie vision du marché IT. Il ne se contente pas de placer des profils, il construit des collaborations durables. Notre équipe d'ingénieurs est stable depuis un an. »</p>
-        <div class="vo-card-auth">
-          <img src="https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&h=100&w=100" class="vo-card-av" alt="Avatar">
-          <div>
-            <div class="vo-card-n">Marine D.</div>
-            <div class="vo-card-r">↗ Co-fondatrice, Startup FinTech</div>
-          </div>
-        </div>
-      </div>
-      <div class="vo-card">
-        <svg class="vo-card-q" width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
-        <p class="vo-card-txt">« Le contenu LinkedIn de Raphaël est une mine d'or pour tous ceux qui recrutent en tech. Authentique, direct, et toujours des conseils actionnables. »</p>
-        <div class="vo-card-auth">
-          <img src="https://images.pexels.com/photos/937481/pexels-photo-937481.jpeg?auto=compress&cs=tinysrgb&h=100&w=100" class="vo-card-av" alt="Avatar">
-          <div>
-            <div class="vo-card-n">Thomas V.</div>
-            <div class="vo-card-r">↗ Head of Talent, Scale-up B2B</div>
-          </div>
-        </div>
-      </div>
-    </div>
-    
-    <div class="vo-controls vo-anim vo-d3">
-      <button class="vo-nav-btn" id="vo-prev">
-        <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
-      </button>
-      <button class="vo-nav-btn" id="vo-next">
-        <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
-      </button>
     </div>
   </section>
 
@@ -2113,24 +2092,6 @@
         });
       }
 
-      // 3. Carousel
-      const carousel = document.getElementById('vo-carousel');
-      const prevBtn = document.getElementById('vo-prev');
-      const nextBtn = document.getElementById('vo-next');
-      if (carousel) {
-        let idx = 0;
-        const total = 5; // 5 real cards
-        const move = () => {
-          // approx slide width + gap
-          const slideW = carousel.children[0].offsetWidth + 24;
-          carousel.style.transform = `translateX(-${idx * slideW}px)`;
-        };
-        prevBtn.addEventListener('click', () => { idx = max(0, idx - 1); move(); });
-        nextBtn.addEventListener('click', () => { idx = min(total - 1, idx + 1); move(); });
-        
-        // Auto scroll
-        let interval = window.setInterval(() => {
-          idx = (idx + 1) % total;
           move();
         }, 3000);
         carousel.addEventListener('mouseenter', () => window.clearInterval(interval));
