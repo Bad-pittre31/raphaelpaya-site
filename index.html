@@ -3167,25 +3167,36 @@ function loadMiixeoVideo() {
 //  SILVERNEST ANIMATIONS
 // ================================================================
 function initSilverNest() {
-  const content = document.querySelector('#page-silvernest .sn-hero-content');
-  if (content && !content.dataset.done) {
-    content.dataset.done = '1';
-    setTimeout(() => content.classList.add('animate-fade-in-up'), 100);
+  const page = document.getElementById('page-silvernest');
+  if (!page) return;
+  
+  // Hero trigger
+  const hero = page.querySelector('.sn-hero-content');
+  if (hero && !hero.dataset.done) {
+    hero.dataset.done = '1';
+    setTimeout(() => hero.classList.add('animate-fade-in-up'), 100);
   }
   
-  // Load specialized video for SN
-  loadSNVideo();
-  
-  // Stagger SN cards
-  document.querySelectorAll('#page-silvernest .sn-card').forEach((c, i) => {
-    if (c.dataset.obs) return;
-    c.dataset.obs = '1';
-    c.style.transitionDelay = i * 0.1 + 's';
+  // Observe ALL animations in this page
+  page.querySelectorAll('.vo-anim').forEach((el, i) => {
+    if (el.dataset.obs) return;
+    el.dataset.obs = '1';
+    
+    // Slight stagger based on index if they are near each other
+    el.style.transitionDelay = (i * 0.1) + 's';
+    
     const io = new IntersectionObserver(entries => {
-      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('animate-fade-in-up'); io.unobserve(e.target); } });
-    }, { threshold: 0.04, rootMargin: '-20px' });
-    io.observe(c);
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('animate-fade-in-up');
+          io.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.1 });
+    io.observe(el);
   });
+
+  loadSNVideo();
 }
 
 // ================================================================
