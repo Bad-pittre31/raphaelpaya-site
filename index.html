@@ -2838,7 +2838,8 @@
     
     <!-- Hero Header with Video -->
     <header class="sn-hero">
-      <video autoplay muted loop playsinline class="sn-video-bg">
+      <video autoplay muted loop playsinline class="sn-video-bg" id="sn-vid">
+        <!-- Fallback if JS fails -->
         <source src="https://motionsites.ai/assets/hero-xportfolio-preview-D4A8maiC.gif" type="video/mp4">
       </video>
       <div class="sn-hero-overlay"></div>
@@ -2856,8 +2857,8 @@
         <div class="vo-anim vo-d2">
           <h2 class="sn-h2 vo-serif">L'agence qui démocratise le <span style="color:var(--sn-primary);">haut de gamme.</span></h2>
           <div class="sn-text-block">
-            <p>Co-fondée par Raphaël Paya, <strong>SilverNest Design</strong> est née d'un constat simple : la qualité premium ne devrait pas être réservée qu'aux budgets démesurés. Nous concevons des sites immersifs avec une intégration native de vos outils stratégiques : <strong>prise de rendez-vous, IA conversationnelle, calendriers et design 3D.</strong></p>
-            <p style="margin-top:24px;">Notre modèle est unique : un <strong>prix rond unique</strong> pour une clarté totale, sans frais cachés, pour transformer votre présence digitale en véritable expérience haute couture.</p>
+            <p>Co-fondée par Raphaël Paya, <strong>SilverNest Design</strong> est née d'un constat simple : la qualité premium ne devrait pas être réservée qu'aux budgets démesurés. Nous concevons des sites immersifs avec une intégration native de vos outils stratégiques : <strong>prise de rendez-vous, IA, calendrier et design 3D.</strong></p>
+            <p style="margin-top:24px;">Notre approche repose sur la clarté : un <strong>prix rond unique</strong> pour une prestation haut de gamme, sans frais cachés, pour transformer votre présence digitale en véritable expérience interactive.</p>
           </div>
           
           <div class="sn-stats-wrap">
@@ -2877,10 +2878,10 @@
           <div class="sn-card" style="background:#fdf2f0; border-color:rgba(255,95,31,0.2); text-align: left;">
             <h3 class="sn-h2 vo-serif" style="font-size:28px; margin-bottom:20px;">L'histoire d'une <span style="color:var(--sn-primary);">passion.</span></h3>
             <div class="sn-text-block" style="font-size:16px;">
-              <p>Passionné par la création de sites web et le design 3D depuis toujours, Raphaël a fait ses premières armes en 2021 avec l'écosystème Shopify et le dropshipping. </p>
-              <p style="margin-top:16px;">C'est dans ce laboratoire qu'il a compris l'importance de l'interaction et de l'émotion visuelle. Aujourd'hui, il met cette expertise au service de projets ambitieux, alliant performance technique et esthétique radicale pour créer des sites qui ne font pas que présenter une activité, mais qui la propulsent.</p>
+              <p>Passionné par la création de sites web et le design 3D depuis toujours, Raphaël a commencé son aventure en 2021 avec l'écosystème Shopify et le dropshipping. </p>
+              <p style="margin-top:16px;">C'est là qu'il a appris à allier esthétique et conversion. Aujourd'hui, il délaisse les solutions génériques pour se concentrer sur des sites premium interactifs, alliant performance technique et design radical pour propulser l'image de ses clients.</p>
             </div>
-            <a href="mailto:contact@silvernest.design" class="sn-btn">Démarrer un projet</a>
+            <a href="mailto:contact@silvernest.design" class="sn-btn">Lancer mon projet</a>
           </div>
         </div>
 
@@ -3183,6 +3184,9 @@ function initSilverNest() {
     setTimeout(() => content.classList.add('animate-fade-in-up'), 100);
   }
   
+  // Load specialized video for SN
+  loadSNVideo();
+  
   // Stagger SN cards
   document.querySelectorAll('#page-silvernest .sn-card').forEach((c, i) => {
     if (c.dataset.obs) return;
@@ -3349,6 +3353,26 @@ function initGerardCards() {
     }, { threshold: 0.04, rootMargin: '-20px' });
     io.observe(c);
   });
+// ================================================================
+//  SILVERNEST VIDEO (Streamable → direct MP4)
+// ================================================================
+async function loadSNVideo() {
+  const vid = document.getElementById('sn-vid');
+  if (!vid || vid.dataset.loaded) return;
+  try {
+    const resp = await fetch('https://api.streamable.com/videos/j7pir9');
+    const data = await resp.json();
+    const files = data.files || {};
+    const src = files['mp4']?.url || files['mp4-mobile']?.url || files['original']?.url;
+    if (!src) return;
+    const fullSrc = src.startsWith('//') ? 'https:' + src : src;
+    vid.src = fullSrc;
+    vid.dataset.loaded = '1';
+    vid.load();
+    vid.play().catch(() => {
+      document.addEventListener('click', () => vid.play(), { once: true });
+    });
+  } catch(e) { }
 }
 </script>
 </body>
