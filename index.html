@@ -1664,7 +1664,7 @@
 @media(min-width: 768px) { .vo-proj-title { font-size: 30px; } }
 .vo-proj-desc { font-size: 14px; color: rgba(5,26,36,0.7); }
 @media(min-width: 768px) { .vo-proj-desc { font-size: 16px; } }
-.vo-proj-img { width: 100%; border-radius: 16px; object-fit: cover; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+.vo-proj-img, .vo-proj-video-wrap { width: 100%; aspect-ratio: 16/9; border-radius: 16px; object-fit: cover; box-shadow: 0 10px 30px rgba(0,0,0,0.1); overflow: hidden; position: relative; margin-top: 16px; }
 
 /* Partner */
 .vo-partner-sec { padding: 48px 24px; }
@@ -1740,10 +1740,10 @@
 
     <!-- Hero headline + CTA -->
     <div class="dh-hero-body">
-      <h1 class="dh-headline">Créer</h1>
+      <h1 class="dh-headline">Bâtir</h1>
       <p class="dh-hero-sub">
-        Entrepreneur, recruteur IT et créateur —<br>
-        je construis ce qui n'existe pas encore
+        La prochaine vague,<br>
+        la bold way.
       </p>
       <div class="dh-cta-wrap">
         <a href="mailto:contact@raphaelpaya.com" class="dh-cta-btn">Travaillons ensemble</a>
@@ -1885,7 +1885,7 @@
     </div>
 
     <div class="vo-anim vo-d5 vo-parallax-env">
-      <img src="/images/raphael-paya-portrait.jpg" alt="Raphaël Paya" class="vo-parallax-img" id="vo-parallax">
+      <img src="/images/raphael-paya-arms-crossed.png" alt="Raphaël Paya" class="vo-parallax-img" id="vo-parallax">
     </div>
   </section>
 
@@ -2007,7 +2007,9 @@
         <div class="vo-proj-title vo-serif">TRIBU</div>
         <div class="vo-proj-desc">Agence de recrutement IT boostée par l'IA — méthode DISC, scoring compétences, time-to-hire drastiquement réduit</div>
       </div>
-      <img src="https://motionsites.ai/assets/hero-evr-ventures-preview-DZxeVFEX.gif" class="vo-proj-img" alt="TRIBU recrutement IT">
+      <div class="vo-proj-video-wrap">
+        <iframe src="https://streamable.com/e/i6241v?autoplay=1&muted=1&loop=1&nocontrols=1" frameborder="0" width="100%" height="100%" allow="autoplay" style="width:100%; height:100%; position:absolute; left:0; top:0; pointer-events:none;"></iframe>
+      </div>
     </div>
     <!-- Proj 2 -->
     <div class="vo-proj-item vo-anim vo-d2">
