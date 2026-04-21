@@ -1713,8 +1713,9 @@
 /* Footer */
 .vo-ftr { max-width: 1200px; margin: 0 auto; padding: 48px 24px; display: flex; flex-direction: column; gap: 32px;}
 @media(min-width: 768px) { .vo-ftr { flex-direction: row; justify-content: space-between; align-items: flex-start; } }
-.vo-ftr-links { display: flex; gap: 32px;}
-@media(min-width: 768px) { .vo-ftr-links { gap: 64px; } }
+/* Adjusted for 7 items */
+.dh-nav-links { display: flex; align-items: center; gap: 20px; }
+@media (max-width: 1024px) { .dh-nav-links { display: none; } }
 .vo-ftr-col { display: flex; flex-direction: column; gap: 16px; }
 .vo-ftr-link { text-decoration: none; color: #051A24; font-size: 16px; transition: opacity 0.2s; font-weight: 500;}
 .vo-ftr-link:hover { opacity: 0.7; }
@@ -1725,7 +1726,39 @@
 .vo-bottom { position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%); z-index: 50; background: #ffffff; border-radius: 999px; padding: 8px 12px 8px 32px; display: flex; align-items: center; gap: 24px; box-shadow: 0 4px 30px rgba(0,0,0,0.15), inset 0 0 0 1px rgba(0,0,0,0.05); opacity: 0; pointer-events: none; transition: opacity 0.4s;}
 .vo-bottom.vis { opacity: 1; pointer-events: auto; }
 .vo-bottom-v { font-size: 32px; color: #051A24; line-height: 1; position: relative; top: -2px;}
-\n</style>
+/* SilverNest Theme */
+:root {
+  --sn-primary: #FF5F1F;
+  --sn-primary-grad: linear-gradient(135deg, #FF5F1F 0%, #FF8C00 100%);
+  --sn-bg: #ffffff;
+  --sn-fg: #051A24;
+}
+
+#page-silvernest { background: var(--sn-bg); color: var(--sn-fg); min-height: 100vh; font-family: 'Inter', sans-serif; }
+.sn-hero { position: relative; height: 70vh; width: 100%; overflow: hidden; display: flex; align-items: center; justify-content: center; }
+.sn-video-bg { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0; }
+.sn-hero-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(to bottom, rgba(255,255,255,0.3) 0%, #ffffff 100%); z-index: 1; }
+.sn-hero-content { position: relative; z-index: 2; text-align: center; padding: 0 24px; max-width: 900px; }
+.sn-h1 { font-size: 48px; line-height: 1.05; margin-bottom: 24px; letter-spacing: -0.04em; color: var(--sn-fg); font-weight: 800; }
+@media(min-width: 768px) { .sn-h1 { font-size: 84px; } }
+.sn-h1 span { background: var(--sn-primary-grad); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+
+.sn-section { padding: 100px 24px; max-width: 1200px; margin: 0 auto; }
+.sn-grid { display: grid; gap: 64px; }
+@media(min-width: 1024px) { .sn-grid { grid-template-columns: 1fr 1fr; align-items: start; } }
+
+.sn-text-block { font-size: 18px; line-height: 1.7; color: rgba(5,26,36,0.8); }
+.sn-h2 { font-size: 32px; margin-bottom: 32px; color: var(--sn-fg); letter-spacing: -0.02em; }
+@media(min-width: 768px) { .sn-h2 { font-size: 42px; } }
+
+.sn-stats-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 48px; }
+.sn-card { background: #fff; padding: 40px; border-radius: 32px; box-shadow: 0 4px 50px rgba(255,95,31,0.08); border: 1px solid rgba(255,95,31,0.1); text-align: center; transition: transform 0.3s; }
+.sn-card:hover { transform: translateY(-8px); }
+.sn-stat-num { font-size: 48px; font-weight: 800; color: var(--sn-primary); line-height: 1; margin-bottom: 12px; }
+.sn-stat-label { font-size: 15px; opacity: 0.6; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; }
+
+.sn-btn { display: inline-flex; align-items: center; background: var(--sn-primary-grad); color: #fff; padding: 18px 36px; border-radius: 999px; font-weight: 600; text-decoration: none; margin-top: 40px; transition: transform 0.2s, box-shadow 0.2s; box-shadow: 0 10px 30px rgba(255,95,31,0.3); }
+.sn-btn:hover { transform: translateY(-2px); box-shadow: 0 15px 40px rgba(255,95,31,0.4); }
 </head>
 <body>
 
@@ -1738,6 +1771,7 @@
     <button onclick="sp('bio')" id="nb-bio">Bio</button>
     <button onclick="sp('tribu')" id="nb-tribu">TRIBU</button>
     <button onclick="sp('miixeo')" id="nb-miixeo">Miixeo</button>
+    <button onclick="sp('silvernest')" id="nb-silvernest">SilverNest</button>
     <button onclick="sp('gerard')" id="nb-gerard" class="nb-gerard-btn">Gérard AI</button>
     <button onclick="window.location.href='/piers-mayers'">Musique</button>
   </div>
@@ -1762,9 +1796,10 @@
         <button class="dh-nav-link" onclick="sp('bio')">Bio</button>
         <button class="dh-nav-link" onclick="sp('tribu')">TRIBU</button>
         <button class="dh-nav-link" onclick="sp('miixeo')">Miixeo</button>
+        <button class="dh-nav-link" onclick="sp('silvernest')">SilverNest</button>
         <button class="dh-nav-link" onclick="sp('gerard')">
           Gérard AI
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:12px; display:inline; vertical-align:middle; margin-left:2px;"><polyline points="6 9 12 15 18 9"></polyline></svg>
         </button>
         <button class="dh-nav-link" onclick="window.location.href='/piers-mayers'">Musique</button>
       </div>
@@ -2795,6 +2830,66 @@
 
 </div><!-- /page-gerard -->
 
+<!-- ================================================================
+       PAGE : SilverNest Design — White & Orange Premium
+  ================================================================ -->
+  <div id="page-silvernest" class="page">
+    
+    <!-- Hero Header with Video -->
+    <header class="sn-hero">
+      <video autoplay muted loop playsinline class="sn-video-bg">
+        <source src="https://motionsites.ai/assets/hero-xportfolio-preview-D4A8maiC.gif" type="video/mp4">
+      </video>
+      <div class="sn-hero-overlay"></div>
+      <div class="sn-hero-content vo-anim vo-d1">
+        <h1 class="sn-h1">SilverNest<span> Design.</span></h1>
+        <p class="dh-hero-sub" style="color:var(--sn-fg); margin-top: 16px;">L'excellence du web design premium,<br>enfin accessible.</p>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <section class="sn-section">
+      <div class="sn-grid">
+        
+        <!-- Pitch Column -->
+        <div class="vo-anim vo-d2">
+          <h2 class="sn-h2 vo-serif">L'agence qui démocratise le <span style="color:var(--sn-primary);">haut de gamme.</span></h2>
+          <div class="sn-text-block">
+            <p>Co-fondée par Raphaël Paya, <strong>SilverNest Design</strong> est née d'un constat simple : la qualité premium ne devrait pas être réservée qu'aux budgets démesurés. Nous concevons des sites immersifs avec une intégration native de vos outils stratégiques : <strong>prise de rendez-vous, IA conversationnelle, calendriers et design 3D.</strong></p>
+            <p style="margin-top:24px;">Notre modèle est unique : un <strong>prix rond unique</strong> pour une clarté totale, sans frais cachés, pour transformer votre présence digitale en véritable expérience haute couture.</p>
+          </div>
+          
+          <div class="sn-stats-wrap">
+            <div class="sn-card">
+              <div class="sn-stat-num">20+</div>
+              <div class="sn-stat-label">Clients accompagnés</div>
+            </div>
+            <div class="sn-card">
+              <div class="sn-stat-num">40+</div>
+              <div class="sn-stat-label">Sites web créés</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Story Column -->
+        <div class="vo-anim vo-d3">
+          <div class="sn-card" style="background:#fdf2f0; border-color:rgba(255,95,31,0.2); text-align: left;">
+            <h3 class="sn-h2 vo-serif" style="font-size:28px; margin-bottom:20px;">L'histoire d'une <span style="color:var(--sn-primary);">passion.</span></h3>
+            <div class="sn-text-block" style="font-size:16px;">
+              <p>Passionné par la création de sites web et le design 3D depuis toujours, Raphaël a fait ses premières armes en 2021 avec l'écosystème Shopify et le dropshipping. </p>
+              <p style="margin-top:16px;">C'est dans ce laboratoire qu'il a compris l'importance de l'interaction et de l'émotion visuelle. Aujourd'hui, il met cette expertise au service de projets ambitieux, alliant performance technique et esthétique radicale pour créer des sites qui ne font pas que présenter une activité, mais qui la propulsent.</p>
+            </div>
+            <a href="mailto:contact@silvernest.design" class="sn-btn">Démarrer un projet</a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Footer Space -->
+    <div style="height:100px;"></div>
+  </div>
+
 
 <!-- FOOTER -->
 <footer>
@@ -2802,6 +2897,7 @@
     <a href="#" onclick="sp('home')">Accueil</a>
     <a href="#" onclick="sp('tribu')">TRIBU</a>
     <a href="#" onclick="sp('miixeo')">Miixeo</a>
+    <a href="#" onclick="sp('silvernest')">SilverNest</a>
     <a href="#" onclick="sp('gerard')">Gérard AI</a>
     <a href="https://linkedin.com/in/raphaelpaya" target="_blank">LinkedIn</a>
     <a href="https://wearetribu.fr" target="_blank">wearetribu.fr</a>
