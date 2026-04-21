@@ -22,6 +22,338 @@
   <link href="https://fonts.googleapis.com/css2?family=Almarai:wght@300;400;700;800&family=Instrument+Serif:ital@1&display=swap" rel="stylesheet">
 
   <style>
+    /* ==========================================================================
+       DARK HERO REDESIGN — "Grow" hero section
+       ========================================================================== */
+
+    /* CSS vars for the dark hero */
+    :root {
+      --dh-bg: hsl(260, 87%, 3%);
+      --dh-fg: hsl(40, 6%, 95%);
+      --dh-primary: hsl(262, 83%, 58%);
+      --dh-muted-fg: hsl(240, 5%, 65%);
+      --dh-hero-sub: hsl(40, 6%, 82%);
+      --dh-border: hsl(240, 4%, 20%);
+      --dh-card: hsl(240, 6%, 9%);
+    }
+
+    /* Liquid Glass */
+    .dh-glass {
+      background: rgba(255,255,255,0.01);
+      background-blend-mode: luminosity;
+      backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
+      border: none;
+      box-shadow: inset 0 1px 1px rgba(255,255,255,0.1);
+      position: relative;
+      overflow: hidden;
+    }
+    .dh-glass::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      padding: 1.4px;
+      background: linear-gradient(180deg,
+        rgba(255,255,255,0.45) 0%,
+        rgba(255,255,255,0.15) 20%,
+        rgba(255,255,255,0) 40%,
+        rgba(255,255,255,0) 60%,
+        rgba(255,255,255,0.15) 80%,
+        rgba(255,255,255,0.45) 100%);
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      pointer-events: none;
+    }
+
+    /* Dark Hero full wrapper */
+    .dh-section {
+      background: var(--dh-bg);
+      position: relative;
+      overflow: hidden;
+      width: 100%;
+    }
+
+    /* Dark Navbar */
+    .dh-nav {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px 32px;
+      position: relative;
+      z-index: 10;
+    }
+    .dh-nav-logo {
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--dh-fg);
+      letter-spacing: -0.04em;
+      font-family: 'Instrument Serif', serif;
+      text-decoration: none;
+    }
+    .dh-nav-links {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+    }
+    .dh-nav-link {
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: rgba(242,241,232,0.9);
+      font-size: 15px;
+      font-weight: 400;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      padding: 4px 0;
+      font-family: 'PP Neue Montreal', system-ui, sans-serif;
+      transition: color 0.2s;
+    }
+    .dh-nav-link:hover { color: rgba(242,241,232,1); }
+    .dh-nav-link svg { width: 14px; height: 14px; opacity: 0.7; }
+    .dh-nav-chev { display: inline; }
+    .dh-nav-signup {
+      background: rgba(255,255,255,0.01);
+      backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
+      border: none;
+      color: var(--dh-fg);
+      border-radius: 999px;
+      padding: 8px 18px;
+      font-size: 14px;
+      font-weight: 400;
+      cursor: pointer;
+      box-shadow: inset 0 1px 1px rgba(255,255,255,0.12);
+      position: relative;
+      overflow: hidden;
+      transition: background 0.2s;
+      text-decoration: none;
+      display: inline-block;
+      font-family: 'PP Neue Montreal', system-ui, sans-serif;
+    }
+    .dh-nav-signup::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      padding: 1px;
+      background: linear-gradient(180deg,
+        rgba(255,255,255,0.35) 0%, rgba(255,255,255,0.1) 30%,
+        rgba(255,255,255,0) 60%, rgba(255,255,255,0.1) 80%, rgba(255,255,255,0.35) 100%);
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      pointer-events: none;
+    }
+    .dh-nav-signup:hover { background: rgba(255,255,255,0.05); }
+
+    /* Navbar gradient divider */
+    .dh-nav-divider {
+      width: 100%;
+      height: 1px;
+      background: linear-gradient(to right, transparent, rgba(242,241,232,0.2), transparent);
+      margin-top: 3px;
+    }
+
+    /* Hero content area */
+    .dh-hero-body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 80px 16px 0;
+      text-align: center;
+      position: relative;
+      z-index: 5;
+    }
+
+    /* Giant "Grow" headline */
+    .dh-headline {
+      font-size: clamp(90px, 18vw, 230px);
+      font-weight: 400;
+      line-height: 1.02;
+      letter-spacing: -0.024em;
+      font-family: 'Instrument Serif', 'Georgia', serif;
+      background-image: linear-gradient(223deg, #E8E8E9 0%, #3A7BBF 104.15%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      color: transparent;
+      margin-bottom: 0;
+    }
+
+    /* Hero sub text */
+    .dh-hero-sub {
+      color: var(--dh-hero-sub);
+      font-size: 18px;
+      line-height: 2;
+      max-width: 420px;
+      margin-top: 16px;
+      opacity: 0.8;
+      font-weight: 400;
+      text-align: center;
+      font-family: 'PP Neue Montreal', system-ui, sans-serif;
+    }
+
+    /* Hero CTA glass button */
+    .dh-cta-wrap {
+      margin-top: 32px;
+      margin-bottom: 66px;
+    }
+    .dh-cta-btn {
+      background: rgba(255,255,255,0.01);
+      backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
+      border: none;
+      color: var(--dh-fg);
+      border-radius: 999px;
+      padding: 18px 29px;
+      font-size: 16px;
+      font-weight: 400;
+      cursor: pointer;
+      box-shadow: inset 0 1px 1px rgba(255,255,255,0.12);
+      position: relative;
+      overflow: hidden;
+      transition: background 0.2s;
+      text-decoration: none;
+      display: inline-block;
+      font-family: 'PP Neue Montreal', system-ui, sans-serif;
+    }
+    .dh-cta-btn::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      padding: 1.4px;
+      background: linear-gradient(180deg,
+        rgba(255,255,255,0.45) 0%, rgba(255,255,255,0.15) 20%,
+        rgba(255,255,255,0) 40%, rgba(255,255,255,0) 60%,
+        rgba(255,255,255,0.15) 80%, rgba(255,255,255,0.45) 100%);
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      pointer-events: none;
+    }
+    .dh-cta-btn:hover { background: rgba(255,255,255,0.06); }
+
+    /* Social Proof / Video section */
+    .dh-video-sec {
+      position: relative;
+      width: 100%;
+      overflow: hidden;
+      min-height: 600px;
+    }
+    .dh-video-bg {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0;
+      z-index: 0;
+    }
+    .dh-video-grad-top {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      background: linear-gradient(to bottom, var(--dh-bg), transparent 35%, transparent 65%, var(--dh-bg));
+      pointer-events: none;
+    }
+    .dh-video-content {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 64px 16px 96px;
+      gap: 80px;
+    }
+    .dh-video-spacer { height: 160px; }
+
+    /* Marquee (logos section) */
+    .dh-marquee-row {
+      display: flex;
+      align-items: center;
+      gap: 48px;
+      max-width: 960px;
+      width: 100%;
+      overflow: hidden;
+    }
+    .dh-marquee-label {
+      color: rgba(242,241,232,0.5);
+      font-size: 13px;
+      line-height: 1.6;
+      white-space: nowrap;
+      flex-shrink: 0;
+      font-family: 'PP Neue Montreal', system-ui, sans-serif;
+    }
+    .dh-marquee-overflow {
+      overflow: hidden;
+      flex: 1;
+    }
+    @keyframes dh-marquee {
+      0% { transform: translateX(0%); }
+      100% { transform: translateX(-50%); }
+    }
+    .dh-marquee-track2 {
+      display: flex;
+      gap: 64px;
+      align-items: center;
+      animation: dh-marquee 20s linear infinite;
+      width: max-content;
+    }
+    .dh-logo-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      white-space: nowrap;
+    }
+    .dh-logo-sq {
+      width: 24px;
+      height: 24px;
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--dh-fg);
+      flex-shrink: 0;
+      background: rgba(255,255,255,0.01);
+      backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
+      box-shadow: inset 0 1px 1px rgba(255,255,255,0.12);
+      position: relative;
+      overflow: hidden;
+    }
+    .dh-logo-sq::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      padding: 1px;
+      background: linear-gradient(180deg,
+        rgba(255,255,255,0.35) 0%, rgba(255,255,255,0) 50%, rgba(255,255,255,0.35) 100%);
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      pointer-events: none;
+    }
+    .dh-logo-name {
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--dh-fg);
+      font-family: 'PP Neue Montreal', system-ui, sans-serif;
+    }
+
+    @media (max-width: 768px) {
+      .dh-nav-links { display: none; }
+      .dh-nav { padding: 16px 20px; }
+      .dh-headline { font-size: clamp(72px, 22vw, 140px); }
+    }
+
     /* =============================================
        RESET & GLOBAL
     ============================================= */
@@ -70,6 +402,11 @@
     nav {
       position: fixed; top: 0; left: 0; right: 0; z-index: 100;
       display: flex; justify-content: center; pointer-events: none;
+    }
+    /* Hide the pill nav on the home page (home has its own in-hero nav) */
+    #page-home.active ~ nav,
+    body:has(#page-home.active) > nav {
+      display: none;
     }
     .nav-pill {
       pointer-events: all;
@@ -1379,49 +1716,159 @@
 ================================================================ -->
 <div id="page-home" class="page active">
 
-  <!-- HERO SECTION -->
-  <section class="vo-hero">
-    <div class="vo-anim vo-d1 vo-hero-logo vo-serif">Raphaël Paya</div>
-    <div class="vo-anim vo-d2 vo-hero-tag">The creative studio of Raphaël Paya</div>
-    <div class="vo-anim vo-d3 vo-hero-h1">
-      <span class="vo-serif">Build the next wave,</span><br>
-      <span class="vo-serif">the bold way.</span>
-    </div>
-    
-    <div class="vo-anim vo-d4 vo-hero-desc">
-      <p>I spent ten years crafting business strategies and products used by the best. I founded my studio to bring that same level of thinking to innovators shaping what comes next.</p>
-      <p>The studio is deliberately small. I guide the creative vision on every project, backed by a veteran design crew that moves fast without cutting corners.</p>
-      <p>Projects start at $5,000 per month.</p>
-    </div>
+  <!-- DARK HERO SECTION + VIDEO SECTION -->
+  <section class="dh-section">
 
-    <div class="vo-anim vo-d5 vo-btn-row">
-      <a href="mailto:contact@raphaelpaya.com" class="vo-btn-pri">Start a chat</a>
-      <a href="#" onclick="sp('tribu'); return false;" class="vo-btn-sec">View projects</a>
+    <!-- Navbar -->
+    <nav class="dh-nav">
+      <span class="dh-nav-logo">Raphaël Paya</span>
+      <div class="dh-nav-links">
+        <button class="dh-nav-link" onclick="sp('tribu')">
+          Services
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+        </button>
+        <button class="dh-nav-link" onclick="sp('miixeo')">Work</button>
+        <button class="dh-nav-link" onclick="sp('bio')">About</button>
+        <button class="dh-nav-link" onclick="sp('gerard')">
+          Gérard AI
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+        </button>
+      </div>
+      <a href="mailto:contact@raphaelpaya.com" class="dh-nav-signup">Start a chat</a>
+    </nav>
+    <div class="dh-nav-divider"></div>
+
+    <!-- Hero headline + CTA -->
+    <div class="dh-hero-body">
+      <h1 class="dh-headline">Grow</h1>
+      <p class="dh-hero-sub">
+        The most powerful AI ever deployed<br>
+        in talent acquisition
+      </p>
+      <div class="dh-cta-wrap">
+        <a href="mailto:contact@raphaelpaya.com" class="dh-cta-btn">Schedule a Consult</a>
+      </div>
     </div>
   </section>
 
-  <!-- INFINITE MARQUEE -->
-  <section class="vo-marquee-wrap vo-anim vo-d1">
-    <div class="vo-marquee-track">
-      <img src="https://motionsites.ai/assets/hero-space-voyage-preview-eECLH3Yc.gif" class="vo-marquee-item" alt="Space Voyage">
-      <img src="https://motionsites.ai/assets/hero-portfolio-cosmic-preview-BpvWJ3Nc.gif" class="vo-marquee-item" alt="Portfolio Cosmic">
-      <img src="https://motionsites.ai/assets/hero-velorah-preview-CJNTtbpd.gif" class="vo-marquee-item" alt="Velorah">
-      <img src="https://motionsites.ai/assets/hero-asme-preview-B_nGDnTP.gif" class="vo-marquee-item" alt="Asme">
-      <img src="https://motionsites.ai/assets/hero-transform-data-preview-Cx5OU29N.gif" class="vo-marquee-item" alt="Transform Data">
-      <img src="https://motionsites.ai/assets/hero-aethera-preview-DknSlcTa.gif" class="vo-marquee-item" alt="Aethera">
-      <img src="https://motionsites.ai/assets/hero-orbit-web3-preview-BXt4OttD.gif" class="vo-marquee-item" alt="Orbit Web3">
-      <img src="https://motionsites.ai/assets/hero-nexora-preview-cx5HmUgo.gif" class="vo-marquee-item" alt="Nexora">
-      <!-- dupe for infinity -->
-      <img src="https://motionsites.ai/assets/hero-space-voyage-preview-eECLH3Yc.gif" class="vo-marquee-item" alt="Space Voyage">
-      <img src="https://motionsites.ai/assets/hero-portfolio-cosmic-preview-BpvWJ3Nc.gif" class="vo-marquee-item" alt="Portfolio Cosmic">
-      <img src="https://motionsites.ai/assets/hero-velorah-preview-CJNTtbpd.gif" class="vo-marquee-item" alt="Velorah">
-      <img src="https://motionsites.ai/assets/hero-asme-preview-B_nGDnTP.gif" class="vo-marquee-item" alt="Asme">
-      <img src="https://motionsites.ai/assets/hero-transform-data-preview-Cx5OU29N.gif" class="vo-marquee-item" alt="Transform Data">
-      <img src="https://motionsites.ai/assets/hero-aethera-preview-DknSlcTa.gif" class="vo-marquee-item" alt="Aethera">
-      <img src="https://motionsites.ai/assets/hero-orbit-web3-preview-BXt4OttD.gif" class="vo-marquee-item" alt="Orbit Web3">
-      <img src="https://motionsites.ai/assets/hero-nexora-preview-cx5HmUgo.gif" class="vo-marquee-item" alt="Nexora">
+  <!-- SOCIAL PROOF / VIDEO SECTION -->
+  <section class="dh-video-sec" id="dh-video-sec">
+    <!-- Background video with JS fade -->
+    <video id="dh-vid" class="dh-video-bg" muted playsinline preload="auto">
+      <source src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260308_114720_3dabeb9e-2c39-4907-b747-bc3544e2d5b7.mp4" type="video/mp4">
+    </video>
+    <!-- Dark gradient overlay top & bottom -->
+    <div class="dh-video-grad-top"></div>
+    <!-- Content overlay -->
+    <div class="dh-video-content">
+      <div class="dh-video-spacer"></div>
+      <!-- Logo Marquee -->
+      <div class="dh-marquee-row">
+        <div class="dh-marquee-label">Relied on by brands<br>across the globe</div>
+        <div class="dh-marquee-overflow">
+          <div class="dh-marquee-track2">
+            <!-- Original logos -->
+            <div class="dh-logo-item">
+              <div class="dh-logo-sq">V</div>
+              <span class="dh-logo-name">Vortex</span>
+            </div>
+            <div class="dh-logo-item">
+              <div class="dh-logo-sq">N</div>
+              <span class="dh-logo-name">Nimbus</span>
+            </div>
+            <div class="dh-logo-item">
+              <div class="dh-logo-sq">P</div>
+              <span class="dh-logo-name">Prysma</span>
+            </div>
+            <div class="dh-logo-item">
+              <div class="dh-logo-sq">C</div>
+              <span class="dh-logo-name">Cirrus</span>
+            </div>
+            <div class="dh-logo-item">
+              <div class="dh-logo-sq">K</div>
+              <span class="dh-logo-name">Kynder</span>
+            </div>
+            <div class="dh-logo-item">
+              <div class="dh-logo-sq">H</div>
+              <span class="dh-logo-name">Halcyn</span>
+            </div>
+            <!-- Duplicated for seamless loop -->
+            <div class="dh-logo-item">
+              <div class="dh-logo-sq">V</div>
+              <span class="dh-logo-name">Vortex</span>
+            </div>
+            <div class="dh-logo-item">
+              <div class="dh-logo-sq">N</div>
+              <span class="dh-logo-name">Nimbus</span>
+            </div>
+            <div class="dh-logo-item">
+              <div class="dh-logo-sq">P</div>
+              <span class="dh-logo-name">Prysma</span>
+            </div>
+            <div class="dh-logo-item">
+              <div class="dh-logo-sq">C</div>
+              <span class="dh-logo-name">Cirrus</span>
+            </div>
+            <div class="dh-logo-item">
+              <div class="dh-logo-sq">K</div>
+              <span class="dh-logo-name">Kynder</span>
+            </div>
+            <div class="dh-logo-item">
+              <div class="dh-logo-sq">H</div>
+              <span class="dh-logo-name">Halcyn</span>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
+
+  <script>
+  // Dark Hero Video Fade Logic
+  (function() {
+    const vid = document.getElementById('dh-vid');
+    if (!vid) return;
+    const FADE_DUR = 0.5;
+    let rafId;
+
+    function fadeTick() {
+      if (vid.duration) {
+        const t = vid.currentTime;
+        const d = vid.duration;
+        let opacity = 1;
+        if (t < FADE_DUR) {
+          opacity = t / FADE_DUR;
+        } else if (t > d - FADE_DUR) {
+          opacity = (d - t) / FADE_DUR;
+        }
+        vid.style.opacity = Math.max(0, Math.min(1, opacity));
+      }
+      rafId = requestAnimationFrame(fadeTick);
+    }
+
+    vid.addEventListener('play', () => {
+      cancelAnimationFrame(rafId);
+      rafId = requestAnimationFrame(fadeTick);
+    });
+
+    vid.addEventListener('ended', () => {
+      cancelAnimationFrame(rafId);
+      vid.style.opacity = 0;
+      setTimeout(() => {
+        vid.currentTime = 0;
+        vid.play().catch(() => {});
+      }, 100);
+    });
+
+    // Try to autoplay
+    vid.play().catch(() => {
+      // Autoplay blocked — play on first interaction
+      document.addEventListener('click', () => vid.play().catch(() => {}), { once: true });
+    });
+  })();
+  </script>
+
+
 
   <!-- TESTIMONIAL QUOTE SECTION -->
   <section class="vo-quote-sec">
