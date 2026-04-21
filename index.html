@@ -3190,6 +3190,8 @@ function boot() {
     initBioPage();
   } else if (activePage === 'page-gerard') {
     initGerardCards();
+  } else if (activePage === 'page-silvernest') {
+    initSilverNest();
   } else {
     initHero();
     initAboutHeading();
@@ -3324,6 +3326,26 @@ function initGerardCards() {
       entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('vis'); io.unobserve(e.target); } });
     }, { threshold: 0.04, rootMargin: '-20px' });
     io.observe(c);
+  });
+}
+
+// ================================================================
+//  SILVERNEST ANIMATIONS & VIDEO
+// ================================================================
+function initSilverNest() {
+  document.querySelectorAll('#page-silvernest .vo-anim').forEach((el, i) => {
+    if (el.dataset.obs) return;
+    el.dataset.obs = '1';
+    el.style.transitionDelay = i * 0.15 + 's';
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('animate-fade-in-up'); io.unobserve(e.target); } });
+    }, { threshold: 0.04 });
+    io.observe(el);
+  });
+  
+  const vid = document.querySelector('#page-silvernest video');
+  if (vid) vid.play().catch(() => {
+    document.addEventListener('click', () => vid.play(), { once: true });
   });
 }
 </script>
