@@ -1766,17 +1766,6 @@
 <!-- ================================================================
      NAV
 ================================================================ -->
-<nav>
-  <div class="nav-pill">
-    <button onclick="sp('home')" id="nb-home" class="active">Accueil</button>
-    <button onclick="sp('bio')" id="nb-bio">Bio</button>
-    <button onclick="sp('tribu')" id="nb-tribu">TRIBU</button>
-    <button onclick="sp('miixeo')" id="nb-miixeo">Miixeo</button>
-    <button onclick="sp('silvernest')" id="nb-silvernest">SilverNest</button>
-    <button onclick="sp('gerard')" id="nb-gerard" class="nb-gerard-btn">Gérard AI</button>
-    <button onclick="window.location.href='/piers-mayers'">Musique</button>
-  </div>
-</nav>
 
 
 <!-- ================================================================
@@ -3353,6 +3342,8 @@ function initGerardCards() {
     }, { threshold: 0.04, rootMargin: '-20px' });
     io.observe(c);
   });
+}
+
 // ================================================================
 //  SILVERNEST VIDEO (Streamable → direct MP4)
 // ================================================================
@@ -3375,5 +3366,18 @@ async function loadSNVideo() {
   } catch(e) { }
 }
 </script>
+
+  <nav>
+    <div class="nav-pill">
+      <button onclick="sp('home')" id="nb-home" class="active">Accueil</button>
+      <button onclick="sp('bio')" id="nb-bio">Bio</button>
+      <button onclick="sp('tribu')" id="nb-tribu">TRIBU</button>
+      <button onclick="sp('miixeo')" id="nb-miixeo">Miixeo</button>
+      <button onclick="sp('silvernest')" id="nb-silvernest">SilverNest</button>
+      <button onclick="sp('gerard')" id="nb-gerard" class="nb-gerard-btn">Gérard AI</button>
+      <button onclick="window.location.href='/piers-mayers'">Musique</button>
+    </div>
+  </nav>
+
 </body>
 </html>
