@@ -1798,6 +1798,10 @@
 
 .sn-btn { display: inline-flex; align-items: center; background: var(--sn-primary-grad); color: #fff; padding: 18px 36px; border-radius: 999px; font-weight: 600; text-decoration: none; margin-top: 40px; transition: transform 0.2s, box-shadow 0.2s; box-shadow: 0 10px 30px rgba(255,95,31,0.3); }
 .sn-btn:hover { transform: translateY(-2px); box-shadow: 0 15px 40px rgba(255,95,31,0.4); }
+.vo-proj-title { cursor: pointer; transition: opacity 0.2s; }
+.vo-proj-title:hover { opacity: 0.7; }
+.vo-proj-link { display: inline-block; margin-top: 12px; font-size: 14px; text-decoration: none; color: #60a5fa; font-weight: 500; }
+.vo-proj-link:hover { text-decoration: underline; }
 </style>
 </head>
 <body>
@@ -2047,8 +2051,9 @@
     <!-- Proj 1 -->
     <div class="vo-proj-item vo-anim vo-d1">
       <div class="vo-proj-text">
-        <div class="vo-proj-title vo-serif">TRIBU</div>
+        <div class="vo-proj-title vo-serif" onclick="sp('tribu')">TRIBU</div>
         <div class="vo-proj-desc">Agence de recrutement IT boostée par l'IA — méthode DISC, scoring compétences, time-to-hire drastiquement réduit</div>
+        <a href="https://wearetribu.fr" target="_blank" class="vo-proj-link">wearetribu.fr ↗</a>
       </div>
       <div class="vo-proj-video-wrap">
         <iframe src="https://streamable.com/e/i6241v?autoplay=1&muted=1&loop=1&nocontrols=1" frameborder="0" width="100%" height="100%" allow="autoplay" style="width:100%; height:100%; position:absolute; left:0; top:0; pointer-events:none;"></iframe>
@@ -2057,8 +2062,9 @@
     <!-- Proj 2 -->
     <div class="vo-proj-item vo-anim vo-d2">
       <div class="vo-proj-text">
-        <div class="vo-proj-title vo-serif">Miixeo</div>
+        <div class="vo-proj-title vo-serif" onclick="sp('miixeo')">Miixeo</div>
         <div class="vo-proj-desc">SaaS recruteurs — CVs transformés en dossiers stratégiques par l'IA, planification d'entretiens en 1 clic, pipeline centralisé</div>
+        <a href="https://miixeo.com" target="_blank" class="vo-proj-link">miixeo.com ↗</a>
       </div>
       <video class="vo-proj-img" autoplay muted loop playsinline>
         <source src="/miixeo.mp4" type="video/mp4">
@@ -2067,16 +2073,18 @@
     <!-- Proj 3 -->
     <div class="vo-proj-item vo-anim vo-d3">
       <div class="vo-proj-text">
-        <div class="vo-proj-title vo-serif">SilverNest Design</div>
+        <div class="vo-proj-title vo-serif" onclick="sp('silvernest')">SilverNest Design</div>
         <div class="vo-proj-desc">Studio de design web premium — création d'interfaces immersives, identités visuelles fortes et expériences digitales haute couture.</div>
+        <a href="https://silvernest.design" target="_blank" class="vo-proj-link">silvernest.design ↗</a>
       </div>
       <img src="https://motionsites.ai/assets/hero-xportfolio-preview-D4A8maiC.gif" class="vo-proj-img" alt="SilverNest Design">
     </div>
     <!-- Proj 4 -->
     <div class="vo-proj-item vo-anim vo-d4">
       <div class="vo-proj-text">
-        <div class="vo-proj-title vo-serif">Gérard AI</div>
+        <div class="vo-proj-title vo-serif" onclick="sp('gerard')">Gérard AI</div>
         <div class="vo-proj-desc">Une IA brute et drôle — l'ancien commercial qui répond avec une franchise déroutante pour explorer l'IA à contre-courant.</div>
+        <a href="https://www.gerard-ai.com" target="_blank" class="vo-proj-link">gerard-ai.com ↗</a>
       </div>
       <div class="vo-proj-video-wrap">
         <iframe src="https://streamable.com/e/uqfhbf?autoplay=1&muted=1&loop=1&nocontrols=1" frameborder="0" width="100%" height="100%" allow="autoplay" style="width:100%; height:100%; position:absolute; left:0; top:0; pointer-events:none;"></iframe>
