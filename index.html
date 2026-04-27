@@ -1653,8 +1653,8 @@
 @media (min-width: 1024px) { .vo-quote-text { font-size: 44px; } }
 .vo-quote-auth { font-size: 14px; color: #273C46; font-style: italic; margin-bottom: 32px; }
 .vo-quote-logos { display: flex; justify-content: center; gap: 24px; flex-wrap: wrap; margin-bottom: 48px; font-weight: 500; font-size: 24px; color: #0f172a; align-items: center; }
-.vo-parallax-env { width: 100%; max-width: 320px; margin: 0 auto; overflow: hidden; border-radius: 16px; box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1); height: 400px; position: relative; }
-.vo-parallax-img { width: 100%; height: 130%; object-fit: cover; position: absolute; top: -15%; left: 0; will-change: transform; transition: transform 0.1s ease-out; }
+.vo-parallax-env { width: 100%; max-width: 440px; margin: 48px auto; overflow: hidden; border-radius: 24px; box-shadow: 0 20px 40px rgba(0,0,0,0.1); height: 580px; position: relative; }
+.vo-parallax-img { width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0; }
 
 /* Pricing */
 .vo-pricing { padding: 48px 24px; max-width: 896px; margin: 0 auto; display: grid; grid-template-columns: 1fr; gap: 32px; }
@@ -2152,17 +2152,11 @@
       document.querySelectorAll('.vo-anim').forEach(el => observer.observe(el));
 
       // 2. Parallax
+      // 2. Parallax disabled as per user request
+      /*
       const parallaxImg = document.getElementById('vo-parallax');
-      if (parallaxImg) {
-        window.addEventListener('scroll', () => {
-          const rect = parallaxImg.parentElement.getBoundingClientRect();
-          if (rect.top < window.innerHeight && rect.bottom > 0) {
-            // max offset 20%; 
-            const walk = (window.innerHeight - rect.top) / window.innerHeight;
-            parallaxImg.style.transform = `translateY(${walk * 15}%)`;
-          }
-        });
-      }
+      ...
+      */
 
 
 
