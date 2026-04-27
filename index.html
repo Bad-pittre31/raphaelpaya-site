@@ -1656,18 +1656,15 @@
 .vo-parallax-env { width: 100%; max-width: 440px; margin: 48px auto; overflow: hidden; border-radius: 24px; box-shadow: 0 20px 40px rgba(0,0,0,0.1); height: 580px; position: relative; }
 .vo-parallax-img { width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0; }
 
-/* Pricing */
-.vo-pricing { padding: 48px 24px; max-width: 896px; margin: 0 auto; display: grid; grid-template-columns: 1fr; gap: 32px; }
-@media (min-width: 768px) { .vo-pricing { grid-template-columns: 1fr 1fr; justify-content: end; margin-right: auto;} }
-.vo-price-c1 { background: #051A24; border-radius: 40px; padding: 12px 24px 40px 40px; color: #F6FCFF; display: flex; flex-direction: column; box-shadow: inset 0 2px 10px rgba(0,0,0,0.5);}
-@media (min-width: 768px) { .vo-price-c1 { padding-right: 96px; } }
-.vo-price-c2 { background: #ffffff; border-radius: 40px; padding: 12px 24px 40px 40px; color: #0D212C; box-shadow: 0 4px 16px rgba(0,0,0,0.08); display: flex; flex-direction: column; }
-@media (min-width: 768px) { .vo-price-c2 { padding-right: 96px; } }
-.vo-price-h3 { font-size: 22px; font-weight: 500; margin-top: 12px; margin-bottom: 16px; }
-.vo-price-desc { font-size: 15px; color: #E0EBF0; margin-bottom: 32px; line-height: 1.5; }
-.vo-price-c2 .vo-price-desc { color: #273C46; }
-.vo-price-val { font-size: 24px; margin-bottom: 4px; }
-.vo-price-lbl { font-size: 14px; opacity: 0.8; margin-bottom: 32px; }
+/* Welcome Bio Section */
+.vo-welcome-sec { padding: 80px 24px; max-width: 672px; margin: 0 auto; text-align: center; }
+.vo-welcome-h2 { font-size: 40px; line-height: 1.1; color: #0D212C; letter-spacing: -0.02em; margin-bottom: 32px; }
+@media (min-width: 768px) { .vo-welcome-h2 { font-size: 56px; } }
+.vo-welcome-p { font-size: 16px; line-height: 1.8; color: #273C46; margin-bottom: 40px; text-align: left; }
+@media (min-width: 768px) { .vo-welcome-p { font-size: 18px; } }
+.vo-welcome-meta { font-family: monospace; font-size: 12px; color: #64748b; text-transform: uppercase; letter-spacing: 0.1em; display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; }
+.vo-welcome-meta span { display: flex; align-items: center; gap: 8px; }
+.vo-welcome-meta span::before { content: ''; width: 4px; height: 4px; background: #60a5fa; border-radius: 50%; }
 
 /* Testimonial Carousel */
 /* LinkedIn Influence Section */
@@ -1991,28 +1988,16 @@
     </div>
   </section>
 
-  <!-- OFFRES -->
-  <section class="vo-pricing">
-    <div class="vo-anim vo-d1 vo-price-c1">
-      <h3 class="vo-price-h3">Recrutement IT sur-mesure</h3>
-      <p class="vo-price-desc">TRIBU — Méthode DISC + IA.<br>Vous travaillez directement avec Raphaël.</p>
-      <div style="flex-grow:1;"></div>
-      <div class="vo-price-val">wearetribu.fr</div>
-      <div class="vo-price-lbl">Missions IT, Dev, Data, DevOps, Cyber</div>
-      <div class="vo-btn-row" style="margin-top:0;justify-content:flex-start;">
-        <a href="https://wearetribu.fr" target="_blank" class="vo-btn-pri" style="background:#ffffff; color:#051A24;">Découvrir TRIBU</a>
-        <a href="mailto:contact@raphaelpaya.com" style="background:transparent; color:#F6FCFF; box-shadow:inset 0 0 0 1px rgba(255,255,255,0.2); border-radius:999px; padding:12px 20px; font-size:15px; text-decoration:none;">Nous contacter</a>
-      </div>
-    </div>
-    
-    <div class="vo-anim vo-d2 vo-price-c2">
-      <h3 class="vo-price-h3">Outils recruteurs IA</h3>
-      <p class="vo-price-desc">Miixeo — CVs → dossiers stratégiques.<br>Entretiens planifiés en 1 clic.</p>
-      <div style="flex-grow:1;"></div>
-      <div class="vo-price-val">miixeo.com</div>
-      <div class="vo-price-lbl">SaaS pour équipes recrutement</div>
-      <div class="vo-btn-row" style="margin-top:0;justify-content:flex-start;">
-        <a href="https://miixeo.com" target="_blank" class="vo-btn-tert">Tester Miixeo</a>
+  <!-- WELCOME BIO -->
+  <section class="vo-welcome-sec">
+    <div class="vo-welcome-inner vo-anim vo-d1">
+      <h2 class="vo-welcome-h2 vo-serif">Bienvenue.</h2>
+      <p class="vo-welcome-p">
+        Je suis Raphaël Paya, entrepreneur dédié à la création d'outils et de services innovants pour l'écosystème tech. J'ai fondé <strong>TRIBU</strong>, une agence de recrutement IT nouvelle génération, <strong>Miixeo</strong>, un SaaS qui transforme le quotidien des recruteurs par l'IA, ainsi que <strong>SilverNest Design</strong> et <strong>Gérard AI</strong>. Mon objectif est simple : allier performance technologique et excellence humaine pour bâtir les leaders de demain.
+      </p>
+      <div class="vo-welcome-meta">
+        <span>Paris, France</span>
+        <span>Accompagnement International</span>
       </div>
     </div>
   </section>
