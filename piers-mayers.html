@@ -70,13 +70,13 @@
       display: flex; justify-content: center; pointer-events: none;
     }
     .nav-pill {
-      pointer-events: all;
+      pointer-events: auto;
       background: #000;
       border-radius: 0 0 22px 22px;
       padding: 10px 32px;
       display: flex; align-items: center; gap: 40px;
     }
-    .nav-pill a {
+    .nav-pill a { pointer-events: auto !important;
       background: none; border: none; cursor: pointer;
       font-family: 'Almarai', sans-serif; font-size: 13px;
       color: #c8945a;
@@ -999,7 +999,7 @@
     }
     @media (max-width: 640px) {
       .nav-pill { gap: 14px; padding: 8px 16px; }
-      .nav-pill a { font-size: 11px; }
+      .nav-pill a { pointer-events: auto !important; font-size: 11px; }
       #home-hero { padding: 10px; }
       .hero-content { grid-template-columns: 1fr; padding: 0 20px 20px; }
       .hero-right { display: none; }
