@@ -1140,7 +1140,7 @@
 // ================================================================
 function sp(name) {
   document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-  document.querySelectorAll('.nav-pill button[id^="nb-"]').forEach(b => b.classList.remove('active'));
+  document.querySelectorAll('.nav-pill a[id^="nb-"]').forEach(b => b.classList.remove('active'));
   document.getElementById('page-' + name).classList.add('active');
   const btn = document.getElementById('nb-' + name);
   if (btn) btn.classList.add('active');

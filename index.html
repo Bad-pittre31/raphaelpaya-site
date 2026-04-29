@@ -417,14 +417,14 @@
       padding: 10px 32px;
       display: flex; align-items: center; gap: 40px;
     }
-    .nav-pill button {
+    .nav-pill a {
       background: none; border: none; cursor: pointer;
       font-family: 'Almarai', sans-serif; font-size: 13px;
       color: #c8945a;
       font-weight: 800;
       transition: color 0.2s; padding: 4px 0; white-space: nowrap;
     }
-    .nav-pill button:hover, .nav-pill button.active { color: #f5ede0; }
+    .nav-pill a:hover, .nav-pill a.active { color: #f5ede0; }
 
     /* =============================================
        PAGE SYSTEM
@@ -1823,13 +1823,13 @@
 
     <!-- Navbar -->
     <nav class="dh-nav">
-      <button class="dh-nav-link" href="/home" style="font-weight:700; color:var(--dh-fg);">Accueil</button>
+      <button class="dh-nav-link" href="/" style="font-weight:700; color:var(--dh-fg);">Accueil</button>
       <div class="dh-nav-links">
         <button class="dh-nav-link" href="/bio">Bio</button>
         <button class="dh-nav-link" href="/tribu">TRIBU</button>
         <button class="dh-nav-link" href="/miixeo">Miixeo</button>
         <button class="dh-nav-link" href="/silvernest">SilverNest</button>
-        <button class="dh-nav-link" href="/gerard">
+        <button class="dh-nav-link" href="/gerard-ai">
           Gérard AI
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:12px; display:inline; vertical-align:middle; margin-left:2px;"><polyline points="6 9 12 15 18 9"></polyline></svg>
         </button>
@@ -2070,7 +2070,7 @@
     <!-- Proj 4 -->
     <div class="vo-proj-item vo-anim vo-d4">
       <div class="vo-proj-text">
-        <div class="vo-proj-title vo-serif" href="/gerard">Gérard AI</div>
+        <div class="vo-proj-title vo-serif" href="/gerard-ai">Gérard AI</div>
         <div class="vo-proj-desc">Une IA brute et drôle — l'ancien commercial qui répond avec une franchise déroutante pour explorer l'IA à contre-courant.</div>
         <a href="https://www.gerard-ai.com" target="_blank" class="vo-proj-link">gerard-ai.com ↗</a>
       </div>
@@ -2102,9 +2102,9 @@
     <svg class="vo-ftr-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
     <div class="vo-ftr-links">
       <div class="vo-ftr-col">
-        <a href="#" class="vo-ftr-link" href="/tribu">TRIBU</a>
-        <a href="#" class="vo-ftr-link" href="/miixeo">Miixeo</a>
-        <a href="#" class="vo-ftr-link" href="/bio">Bio</a>
+        <a class="vo-ftr-link" href="/tribu">TRIBU</a>
+        <a class="vo-ftr-link" href="/miixeo">Miixeo</a>
+        <a class="vo-ftr-link" href="/bio">Bio</a>
       </div>
       <div class="vo-ftr-col">
         <a href="https://linkedin.com/in/raphael-paya" target="_blank" rel="noopener" class="vo-ftr-link">LinkedIn</a>
@@ -2906,11 +2906,11 @@
 <!-- FOOTER -->
 <footer>
   <p>© 2026 Raphaël Paya ·
-    <a href="#" href="/home">Accueil</a>
-    <a href="#" href="/tribu">TRIBU</a>
-    <a href="#" href="/miixeo">Miixeo</a>
-    <a href="#" href="/silvernest">SilverNest</a>
-    <a href="#" href="/gerard">Gérard AI</a>
+    <a href="/">Accueil</a>
+    <a href="/tribu">TRIBU</a>
+    <a href="/miixeo">Miixeo</a>
+    <a href="/silvernest">SilverNest</a>
+    <a href="/gerard-ai">Gérard AI</a>
     <a href="https://linkedin.com/in/raphael-paya" target="_blank">LinkedIn</a>
     <a href="https://wearetribu.fr" target="_blank">wearetribu.fr</a>
     <a href="https://miixeo.com" target="_blank">miixeo.com</a>
@@ -2925,7 +2925,7 @@
 // ================================================================
 function sp(name) {
   document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-  document.querySelectorAll('.nav-pill button[id^="nb-"]').forEach(b => b.classList.remove('active'));
+  document.querySelectorAll('.nav-pill a[id^="nb-"]').forEach(b => b.classList.remove('active'));
   document.getElementById('page-' + name).classList.add('active');
   const btn = document.getElementById('nb-' + name);
   if (btn) btn.classList.add('active');
@@ -3452,12 +3452,12 @@ function closeMenu() {
   <!-- Mobile Menu Overlay -->
   <div id="mobile-menu" class="mm-overlay">
     <div class="mm-links">
-      <a href="#" class="mm-link" href="/home">Accueil</a>
-      <a href="#" class="mm-link" href="/bio">Bio</a>
-      <a href="#" class="mm-link" href="/tribu">TRIBU</a>
-      <a href="#" class="mm-link" href="/miixeo">Miixeo</a>
-      <a href="#" class="mm-link" href="/silvernest">SilverNest</a>
-      <a href="#" class="mm-link" href="/gerard">Gérard AI</a>
+      <a class="mm-link" href="/">Accueil</a>
+      <a class="mm-link" href="/bio">Bio</a>
+      <a class="mm-link" href="/tribu">TRIBU</a>
+      <a class="mm-link" href="/miixeo">Miixeo</a>
+      <a class="mm-link" href="/silvernest">SilverNest</a>
+      <a class="mm-link" href="/gerard-ai">Gérard AI</a>
       <a href="/piers-mayers" class="mm-link">Musique</a>
     </div>
   </div>
