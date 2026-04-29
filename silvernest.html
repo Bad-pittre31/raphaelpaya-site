@@ -1879,6 +1879,17 @@
 </footer>
 
 <script>
+// VO animations (fade in on scroll)
+const voObserver = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('animate-fade-in-up');
+      voObserver.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.1 });
+document.querySelectorAll('.vo-anim').forEach(el => voObserver.observe(el));
+
 // Card animations
 document.querySelectorAll('.g-card, .g-tech-card').forEach((c, i) => {
   c.style.transitionDelay = i * 0.08 + 's';
