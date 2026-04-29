@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SilverNest Design — Studio de Web Design Premium</title>
+  <title>SilverNest Design — Studio de Web Design Premium | Raphaël Paya</title>
   <meta name="description" content="Raphaël Paya, entrepreneur français. Fondateur de TRIBU (agence de recrutement IT boostée par l'IA) et Miixeo (SaaS recruteurs, dossiers candidats stratégiques). 28 000 abonnés LinkedIn. Musicien Piers Mayers." />
   <meta name="keywords" content="Raphaël Paya, Raphael Paya, TRIBU recrutement IT, Miixeo SaaS recruteurs, agence recrutement tech, logiciel recrutement, ATS, dossier candidat, soft skills DISC, matching candidat entreprise, recrutement IA, entrepreneur, Piers Mayers, LinkedIn" />
   <meta name="author" content="Raphaël Paya" />
@@ -51,13 +51,13 @@
        NOISE TEXTURES
     ============================================= */
     .noise-overlay {
-      position: absolute; inset: 0; pointer-events: auto; z-index: 3;
+      position: absolute; inset: 0; pointer-events: none; z-index: 3;
       opacity: 0.7; mix-blend-mode: overlay;
       background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)'/%3E%3C/svg%3E");
       background-size: 300px 300px;
     }
     .bg-noise {
-      position: absolute; inset: 0; pointer-events: auto; z-index: 0; opacity: 0.15;
+      position: absolute; inset: 0; pointer-events: none; z-index: 0; opacity: 0.15;
       background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)'/%3E%3C/svg%3E");
       background-size: 200px 200px;
     }
@@ -67,16 +67,16 @@
     ============================================= */
     nav {
       position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-      display: flex; justify-content: center; pointer-events: auto;
+      display: flex; justify-content: center; pointer-events: none;
     }
     .nav-pill {
-      pointer-events: auto;
+      pointer-events: all;
       background: #000;
       border-radius: 0 0 22px 22px;
       padding: 10px 32px;
       display: flex; align-items: center; gap: 40px;
     }
-    .nav-pill a { pointer-events: auto !important;
+    .nav-pill a {
       background: none; border: none; cursor: pointer;
       font-family: 'Almarai', sans-serif; font-size: 13px;
       color: rgba(225,224,204,0.7);
@@ -997,7 +997,7 @@
     }
     @media (max-width: 640px) {
       .nav-pill { gap: 14px; padding: 8px 16px; }
-      .nav-pill a { pointer-events: auto !important; font-size: 11px; }
+      .nav-pill a { font-size: 11px; }
       #home-hero { padding: 10px; }
       .hero-content { grid-template-columns: 1fr; padding: 0 20px 20px; }
       .hero-right { display: none; }
@@ -1056,7 +1056,7 @@
      NAV
 ================================================================ -->
 <nav>
-    <div class="nav-pill">
+      <div class="nav-pill">
     <a href="/" id="nb-home">Accueil</a>
     <a href="/bio" id="nb-bio">Bio</a>
     <a href="/tribu" id="nb-tribu">TRIBU</a>
@@ -1067,7 +1067,7 @@
     <a href="/contact">Contact</a>
   </div>
 </nav>
-<main id="page-silvernest" >
+<main id="page-silvernest">
     
     <!-- Hero Header with Video -->
     <header class="sn-hero">
@@ -1123,17 +1123,14 @@
 
     <!-- Footer Space -->
     <div style="height:100px;"></div>
-  </div>
-
-
-</main>
+  </div></main>
 <script>
 // ================================================================
 //  PAGE ROUTING
 // ================================================================
 function sp(name) {
   document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-  document.querySelectorAll('.nav-pill a[id^="nb-"]').forEach(b => b.classList.remove('active'));
+  document.querySelectorAll('.nav-pill button[id^="nb-"]').forEach(b => b.classList.remove('active'));
   document.getElementById('page-' + name).classList.add('active');
   const btn = document.getElementById('nb-' + name);
   if (btn) btn.classList.add('active');
